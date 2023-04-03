@@ -1,5 +1,5 @@
 # GPT-DEMO-01
-This program is a very basic implementation of the GPT chat, the use is simple, it is required a KEY that you can get from openai site.
+This program is a very basic implementation of the GPT chat, the use is simple, a KEY that you can get from openai site is required.
 
 <figure>
     <img src="CRD.jpg" width="30%" 
