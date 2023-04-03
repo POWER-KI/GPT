@@ -8,7 +8,8 @@ This program is a very basic implementation of the GPT chat, the use is simple, 
 </figure>
 
 
-
+</br>
+</br>
 
 <figure>
     <img src="chat.jpg" width="60%" 
@@ -20,8 +21,10 @@ This program is a very basic implementation of the GPT chat, the use is simple, 
 GET the program:
 <a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-01/GPT-DEMO-01.pwk"> GPT-DEMO-01.pwk</a>
 
+NOTE. Credential are stored on YOUR computer only.
+
 ## Plain text code
 
-[link](DEMO-01.pdf)
+[Code list](DEMO-01.pdf)
 
 
