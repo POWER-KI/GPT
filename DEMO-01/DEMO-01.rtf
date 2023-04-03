@@ -1,0 +1,2403 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1040{\fonttbl{\f0\fnil\fcharset0 Liberation Mono;}{\f1\fnil Liberation Mono;}{\f2\fnil\fcharset2 Symbol;}}
+\viewkind4\uc1\pard\f0\fs20 ================================================================================\par
+\pard\b\f1 (VAR) pwk\par
+\b0\i   Information and General setting.\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\f0 ASSEMBLY: GPT3-EMB-01.pka\par
+{\pntext\f2\'B7\tab}VERSION: 1.0\par
+{\pntext\f2\'B7\tab}_BUILD_: 999\par
+{\pntext\f2\'B7\tab}COPYRIGHT: (C)2023 XPLAB s.a.s. - Research in Automation - Brescia - Italy\par
+{\pntext\f2\'B7\tab}Company: \par
+{\pntext\f2\'B7\tab}ProjectName: \par
+{\pntext\f2\'B7\tab}ProjectId: \par
+\pard --------------------------------------------------\par
+\pard\li345\b\f1 (VAR) Editor\par
+\b0\i  Changing these settings change the editor behaviour.\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 itemViewSize: default  ( default | BIG)\par
+{\pntext\f2\'B7\tab}itemViewCode: SHOW  ( default(SHOW) | HIDE)\par
+{\pntext\f2\'B7\tab}itemViewSplit: default  ( default(horizontal) | VERTICAL)\par
+{\pntext\f2\'B7\tab}StorageDirectory:   ( Where to store a copy of the assembly)\par
+\pard\li345 --------------------------------------------------\par
+\b\f1 (VAR) Executor\par
+\b0\i   Here you can set the link between the command line and the EXO, use Px to map command line parameter in EXO parameter.\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 _OS_:   ( Set run time by executor (WIN,WIN-IOT))\par
+{\pntext\f2\'B7\tab}_ARC_:   (Architecture set runtime by executor (X86,ARM))\par
+{\pntext\f2\'B7\tab}_BASEBOARD_:   ( IOT:product,Manufacturer,version,serialnumber or winboard)\par
+{\pntext\f2\'B7\tab}_PROG_:   ( program name set runtime by executor)\par
+{\pntext\f2\'B7\tab}STARTLOGO: YES  ( NO,YES)\par
+{\pntext\f2\'B7\tab}CONS:   ( YES,PROG(cns_cmd))\par
+{\pntext\f2\'B7\tab}CONS_OS:   ( NO,YES Os console)\par
+{\pntext\f2\'B7\tab}CONS_OS_PARENT: TERMINATE  ( CONTINUE,SUSPEND,TERMINATE)\par
+{\pntext\f2\'B7\tab}KEEPOPEN:   ( YES if Consolle should be close manualy)\par
+{\pntext\f2\'B7\tab}LIMIT_ONCE: YES  ( if YES allow only one instance to run)\par
+{\pntext\f2\'B7\tab}LIMIT_KEY: GTP-TPL-01  ( Key used by LIMIT_ONCE you can prepend Global\\ or Local\\ for scope visibility)\par
+{\pntext\f2\'B7\tab}PASSWORD:   ( The password needed to open this assembly)\par
+{\pntext\f2\'B7\tab}PASSWORD_ENB:   ( NO,YES)\par
+{\pntext\f2\'B7\tab}ERR_MAIL_ENB:   ( TRUE, FALSE (default FALSE)\par
+{\pntext\f2\'B7\tab}ERR_MAIL_HOST:   ( SMTP Mail server address, for sending crash report)\par
+{\pntext\f2\'B7\tab}ERR_MAIL_IAM:   ( The sending Host (I am))\par
+{\pntext\f2\'B7\tab}ERR_MAIL_FROM:   ( Pseudo email address of this application)\par
+{\pntext\f2\'B7\tab}ERR_MAIL_TO:   ( Destination email)\par
+{\pntext\f2\'B7\tab}ERR_DUMP: TRUE  ( TRUE, FALSE (default TRUE))\par
+{\pntext\f2\'B7\tab}ON_ERR:   ( RESTART)\par
+{\pntext\f2\'B7\tab}EXO: Main  ( Program entry point)\par
+{\pntext\f2\'B7\tab}PARLIS:   ( Main Attribute for Command Line Parameter LIS PTR)\par
+{\pntext\f2\'B7\tab}P1:   ( Main Attribute for First command line parameter)\par
+{\pntext\f2\'B7\tab}P2:   ( Main Attribute for Second command line parameter)\par
+\pard\li345 --------------------------------------------------\par
+\pard ================================================================================\par
+\b\f1 (GUI) MG\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\f0 _AUTOLOAD_: ON  (Values: ON,OFF to disable)\par
+{\pntext\f2\'B7\tab}_ADDR_:   (Values: gui IP address empty=default)\par
+{\pntext\f2\'B7\tab}_PORT_:   (Values: gui IP PORT address empty=default)\par
+{\pntext\f2\'B7\tab}_FILE_: MG  (Name of the UserInterface resources)\par
+{\pntext\f2\'B7\tab}_TRIG_: trig  (Trigger EXO or MTHD)\par
+{\pntext\f2\'B7\tab}_PTR_:   (Pointer to open gui)\par
+{\pntext\f2\'B7\tab}_EVT_:   (System Event)\par
+{\pntext\f2\'B7\tab}_SIGNAL_:   (User Event)\par
+{\pntext\f2\'B7\tab}_PTH_ITEM_:   (Path and Name of ITEM generating a mouse event)\par
+{\pntext\f2\'B7\tab}_ITEM_:   (Name of ITEM generating a mouse event)\par
+{\pntext\f2\'B7\tab}_PTH_ITEM_ACT_:   (Path and Name of active ITEM)\par
+{\pntext\f2\'B7\tab}_ITEM_ACT_:   (Name of active ITEM)\par
+{\pntext\f2\'B7\tab}_X_:   (X relative to Form)\par
+{\pntext\f2\'B7\tab}_Y_:   (Y relative to Form)\par
+{\pntext\f2\'B7\tab}_XW_:   (X relative to Screen)\par
+{\pntext\f2\'B7\tab}_YW_:   (X relative to Screen)\par
+{\pntext\f2\'B7\tab}_XC_:   (X relative to Control)\par
+{\pntext\f2\'B7\tab}_YC_:   (X relative to Control)\par
+{\pntext\f2\'B7\tab}_BL_:   (Button Left)\par
+{\pntext\f2\'B7\tab}_BR_:   (Button Right)\par
+{\pntext\f2\'B7\tab}_ON_:   (If mouse is On the form)\par
+{\pntext\f2\'B7\tab}_KEY_FLG_:   (VLD(b1) ALT(b2) CTRL(b3) SHT(b4) CAPS LOCK(b5) NUM LOCK(b6) SCROLL LOCK(b7))\par
+{\pntext\f2\'B7\tab}_KEY_CODE_:   (The Key CODE)\par
+{\pntext\f2\'B7\tab}_KEY_KEY_:   ( The Key pressed)\par
+{\pntext\f2\'B7\tab}_KEY_VAL_:   ( The Key value)\par
+{\pntext\f2\'B7\tab}_GUI_:   (GUI name)\par
+{\pntext\f2\'B7\tab}caller: \par
+{\pntext\f2\'B7\tab}runFlg:   (Core is in execution)\par
+{\pntext\f2\'B7\tab}nId:   (Id Number)\par
+{\pntext\f2\'B7\tab}evtL:   (Event List)\par
+{\pntext\f2\'B7\tab}evtMx: 10  (Max EVT n\'b0 in LIS)\par
+{\pntext\f2\'B7\tab}evtTmMx: 250  (Max time for EVT)\par
+{\pntext\f2\'B7\tab}VoiceSts: \par
+{\pntext\f2\'B7\tab}VOICEcmd: \par
+{\pntext\f2\'B7\tab}LSTPROMPT: \par
+\pard --------------------------------------------------\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) trig\par
+\pard\li690 (SWITCH) _SIGNAL_\par
+\pard\li1035 (CASE) _DEFAULT_\par
+\pard\li1380 (IF) if\par
+\b0\i  _SIGNAL_ is valid\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _COND_: \par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725 ..............................\par
+_COND_= ~_SIGNAL_;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2070\b0 ..............................\par
+\f0 #IF(runFlg==1);\par
+#IF(LIS_NUM(evtL)<evtMx);\par
+LIS_ADD(evtL,LIS_NEW(_SIGNAL_,_PTH_ITEM_,\'a3));\par
+#END;\par
+#END;\par
+..............................\par
+\pard\li690\b\f1 (IF) if\par
+\b0\i  _SIGNAL_ -> skip events\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_= ~_SIGNAL_;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1380 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li690\b\f1 (SWITCH) _EVT_\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 C_CLOSE: WIND_CLS\par
+{\pntext\f2\'B7\tab}C_WINDOW_MOVE: WIND_MOV\par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035\b\f1 (CASE) _DEFAULT_\par
+(CASE) C_CLOSE\par
+\pard\li1380\b0 ..............................\par
+\f0 #IF(runFlg==1);\par
+#IF(LIS_NUM(evtL)<evtMx);\par
+LIS_ADD(evtL,LIS_NEW(\'a3CLOSE,\'a3,\'a3));\par
+#END;\par
+#END;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_WINDOW_MOVE\par
+\pard\li1380\b0 ..............................\par
+\f0 #IF(runFlg==1);\par
+#IF(LIS_NUM(evtL)<evtMx);\par
+LIS_ADD(evtL,LIS_NEW(\'a3winMov,\'a3,\'a3));\par
+#END;\par
+#END;\par
+..............................\par
+\pard\li690\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li690 --------------------------------------------------\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) Manager\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 action: \par
+{\pntext\f2\'B7\tab}opt1: \par
+{\pntext\f2\'B7\tab}opt2: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (SWITCH) action\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 C_SHOW: SHOW\par
+{\pntext\f2\'B7\tab}C_CLOSE: CLOSE\par
+{\pntext\f2\'B7\tab}C_onLoop: onLoop\par
+{\pntext\f2\'B7\tab}C_WINDOW_MOVE: winMov\par
+{\pntext\f2\'B7\tab}C_DO: DO\par
+{\pntext\f2\'B7\tab}C_STARTSTOP: StartStop\par
+{\pntext\f2\'B7\tab}C_VOICE: VOICE\par
+{\pntext\f2\'B7\tab}C_REDO: REDO\par
+{\pntext\f2\'B7\tab}C_CRED: CRED\par
+{\pntext\f2\'B7\tab}C_CLR: CLR\par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035\b\f1 (CASE) _DEFAULT_\par
+\pard\li1380\b0 ..............................\par
+\f0 chatput("[ERR] Unrecognized signal"..action.."(",dbgline,")");\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_SHOW\par
+\pard\li1380\b0 ..............................\par
+\f0 GUI_SND(_PTR_,\'a3SHOW);\par
+FOCUS@\\MG\\pag\\QRY=\'a3YES;\par
+\par
+\'b0tb=MODEL@\\Main;\par
+\'b0in=tbl_inf(\'b0tb,\'a3ROW);\par
+\'b0i=0;\par
+\'b0it=\'a3;\par
+#while(\'b0i+=1 <=\'b0in);\par
+\par
+\'b0e=Tbl_itm(\'b0tb,\'a3id,\'b0i);\par
+#if(SRCH(\'b0e,"gpt",NULL,0 ));\par
+\par
+\'b0it=\'b0it++if(~\'b0it,",",\'a3)++\'b0e;\par
+VALUE@\\MG\\pag\\pSETTING\\MODEL=\'b0e;\par
+#end;\par
+\par
+#end;\par
+\par
+ITEMS@\\MG\\pag\\pSETTING\\MODEL=\'b0it;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_CLOSE\par
+\pard\li1380\b0 ..............................\par
+\f0 runFlg=0;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_onLoop\par
+(CASE) C_WINDOW_MOVE\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 eX: \par
+{\pntext\f2\'B7\tab}eY: \par
+{\pntext\f2\'B7\tab}eSizX: \par
+{\pntext\f2\'B7\tab}eSizY: \par
+{\pntext\f2\'B7\tab}eWSizX: \par
+{\pntext\f2\'B7\tab}eWSizY: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380\b\i\f1 default disabled\par
+\i0 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1380 --------------------------------------------------\par
+..............................\par
+!!! Wait for BUTTON release ;\par
+\'b0t3=TMR+1500;\par
+#WHILE(_BL_==1 AND TMR<=\'b0t3 );\par
+SLEEP(100);\par
+#END;\par
+\par
+!!! Get Desktop size ;\par
+\'b0t2= NULL;\par
+\'b0t1= "EXEC:_GUI_INFO_;VDUSIZ;"++$\'b0t2;\par
+\'b0rf1="_PTR_@\\"++_GUI_;\par
+GUI_SND(REF(\'b0rf1),\'b0t1);\par
+\par
+!!! Wait response ;\par
+\'b0t1 = WAITCND($\'b0t2,\'a3NOTNULL,5000);\par
+\par
+!!! Decode Desktop size ;\par
+\'b0lis1=CSV(\'b0t2,";");\par
+\par
+\'b0t1=LIS_POS(\'b0lis1,1);\par
+eWSizX=SPLT(\'b0t1,":",\'a3RIGHT);\par
+\par
+\'b0t1=LIS_POS(\'b0lis1,2);\par
+eWSizY=SPLT(\'b0t1,":",\'a3RIGHT);\par
+\par
+TRASH(\'b0lis1);\par
+\par
+\par
+eSizX=REF("SizX@\\"++_GUI_++"\\pag");\par
+eSizY=REF("SizY@\\"++_GUI_++"\\pag");\par
+\par
+eX=\'a3;\par
+eY=\'a3;\par
+\par
+#WHILE(1);\par
+\'b0rf1="X@\\"++_GUI_++"\\pag";\par
+\'b0t1=REF(\'b0rf1);\par
+#IF(eX!=\'b0t1);!!! X changed ? ;\par
+eX=\'b0t1;\par
+\par
+#IF(eX<0);\par
+REF(\'b0rf1)=0;\par
+#ELSE;\par
+\'b0t1=eWSizX-eSizX;\par
+#IF(eX>\'b0t1);\par
+REF(\'b0rf1)=\'b0t1;\par
+#END;\par
+#END;\par
+#END;\par
+\par
+\'b0rf1="Y@\\"++_GUI_++"\\pag";\par
+\'b0t1=REF(\'b0rf1);\par
+#IF(eY!=\'b0t1);!!! Y changed ? ;\par
+eY=\'b0t1;\par
+\par
+#IF(eY<0);\par
+REF(\'b0rf1)=0;\par
+#ELSE;\par
+\'b0t1=eWSizY-eSizY;\par
+#IF(eY>\'b0t1);\par
+REF(\'b0rf1)=\'b0t1;\par
+#END;\par
+#END;\par
+#END;\par
+\par
+#IF(_BL_!=1);!!! Mouse released ;\par
+#BREAK;\par
+#END;\par
+\par
+SLEEP(250);\par
+#END;\par
+..............................\par
+\b\f1 (EXEC) evt_clear\par
+\pard\li1035 (CASE) C_DO\par
+\pard\li1380\b0 ..............................\par
+\f0 Visible@\\MG\\pag\\INPROGRESS=\'a3TRUE;\par
+TEXT@\\MG\\pag\\HTTP=\'a3;\par
+LSTPROMPT=VALUE@\\MG\\pag\\QRY;\par
+..............................\par
+\b\f1 (EXEC) \\AI_CORE\\QRY\par
+\pard\li1725 (SET) set\par
+\pard\li2070\b0 ..............................\par
+\f0 QRY=LSTPROMPT;\par
+MAXT=VALUE@\\MG\\pag\\pSETTING\\MAXT;\par
+MODEL=VALUE@\\MG\\pag\\pSETTING\\MODEL;\par
+..............................\par
+\pard\li1725\b\f1 (GET) get\par
+\pard\li2070\b0 ..............................\par
+\f0\'b0rply=RPLY;\par
+\'b0res=RES;\par
+..............................\par
+\pard\li1380 ..............................\par
+\'b0cr=char(13);\par
+#if(\'b0res==\'a3OK);\par
+\par
+SEL_START@\\MG\\pag\\REPLY=1;\par
+SEL_CLRFRG@\\MG\\pag\\REPLY="230;230;230";\par
+SEL_FNT_SIZ@\\MG\\pag\\REPLY=12;\par
+SEL_FNT_STYLE@\\MG\\pag\\REPLY=\'a3BOLD;\par
+\par
+SEL_TXT@\\MG\\pag\\REPLY=\'b0cr++"USER:"++\'b0cr;\par
+\par
+SEL_CLRFRG@\\MG\\pag\\REPLY="220;220;240";\par
+SEL_FNT_STYLE@\\MG\\pag\\REPLY=\'a3;\par
+\par
+SEL_TXT@\\MG\\pag\\REPLY=LSTPROMPT++\'b0cr;\par
+\par
+!!=============================;\par
+\par
+SEL_START@\\MG\\pag\\REPLY=1;\par
+SEL_CLRFRG@\\MG\\pag\\REPLY="230;230;230";\par
+SEL_FNT_SIZ@\\MG\\pag\\REPLY=12;\par
+SEL_FNT_STYLE@\\MG\\pag\\REPLY=\'a3BOLD;\par
+\par
+SEL_TXT@\\MG\\pag\\REPLY=\'b0cr++"GPTx:"++\'b0cr;\par
+\par
+SEL_CLRFRG@\\MG\\pag\\REPLY="220;240;220";\par
+SEL_FNT_STYLE@\\MG\\pag\\REPLY=\'a3ITALIC;\par
+\par
+SEL_TXT@\\MG\\pag\\REPLY=\'b0rply++\'b0cr;\par
+\par
+#if(VOICEcmd);\par
+TEXT@\\MG\\pag\\AUDIO_name\\VOICE=\'b0rply;\par
+#end;\par
+\par
+VALUE@\\MG\\pag\\QRY=\'a3;  \par
+\par
+#end;\par
+\par
+Visible@\\MG\\pag\\INPROGRESS=\'a3FALSE;\par
+TEXT@\\MG\\pag\\HTTP=\'b0res;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_VOICE\par
+\pard\li1380\b0 ..............................\par
+\f0 #if(VOICEcmd==1);\par
+TEXT@\\MG\\pag\\VOICE="Audio ON";\par
+VOICEcmd=0;\par
+STOP@\\MG\\pag\\AUDIO_name\\VOICE=1;\par
+#else;\par
+TEXT@\\MG\\pag\\VOICE="Audio OFF";\par
+VOICEcmd=1;\par
+#end;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_STARTSTOP\par
+(CASE) C_REDO\par
+\pard\li1380\b0 ..............................\par
+\f0 VALUE@\\MG\\pag\\QRY= LSTPROMPT=VALUE@\\MG\\pag\\QRY;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_CRED\par
+\pard\li1380\b0 ..............................\par
+\f0 Visible@\\MG\\pag=\'a3FALSE;\par
+..............................\par
+\b\f1 (EXEC) \\CRD\\Starter\par
+\pard\li1725 (SET) set\par
+\pard\li2070\b0 ..............................\par
+\f0 mode=\'a3EXEC;   !!EXEC,THREAD;\par
+par_nId=\'a3;\par
+par_Gui=\'a3;\par
+..............................\par
+\pard\li1380 ..............................\par
+Visible@\\MG\\pag=\'a3True;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_CLR\par
+\pard\li1380\b0 ..............................\par
+\f0 VALUE@\\MG\\pag\\REPLY=\'a3;\par
+tbl_chg(tblCht@\\AI_CORE,NULL,0);\par
+..............................\par
+\pard\li690\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li690 --------------------------------------------------\par
+\b\i\f1 <->\par
+\pard\li345\b0\i0 ========================================\par
+\b (MTHD) Core\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 t1: \par
+{\pntext\f2\'B7\tab}locRes: \par
+{\pntext\f2\'B7\tab}evtIni: \par
+{\pntext\f2\'B7\tab}lis1: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+runFlg=1;\par
+\par
+evtL=LIS_NEW();\par
+VOICEcmd=0;\par
+TEXT@\\MG\\pag\\VOICE="Audio ON";\par
+..............................\par
+\b\f1 (EXEC) Manager\par
+\pard\li1035 (SET) set\par
+\pard\li1380\b0 ..............................\par
+\f0 action=\'a3SHOW;\par
+..............................\par
+\pard\li690\b\f1 (WHILE) while\par
+\b0\i  Main Loop\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_= runFlg;\par
+..............................\par
+\b\f1 (DO) do\par
+\pard\li1380 (EXEC) Manager\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _PAR_: ONCE  (SYNC ONCE ONCE_FOR_CALLER)\par
+{\pntext\f2\'B7\tab}_RSLT_:   (For ONCExx the name of the symbol where to put the result -1=failToStart 0=starting 1=start. ONCE_FOR_CALLER is syncronous)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725\b\f1 (SET) set\par
+\pard\li2070\b0 ..............................\par
+\f0 action=\'a3onLoop;\par
+opt1=\'a3;\par
+opt2=\'a3;\par
+..............................\par
+\pard\li1380\b\f1 (WHILE) while\par
+\b0\i  Loop EVT\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _COND_: \par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725\b\f1 (PRE) pre\par
+\pard\li2070\b0 ..............................\par
+\f0 evtIni=TMR;\par
+t1=evtIni+evtTmMx;\par
+..............................\par
+\pard\li1725 ..............................\par
+_COND_= TMR<=t1;\par
+..............................\par
+\b\f1 (DO) do\par
+\pard\li2070\b0 ..............................\par
+\f0 lis1=LIS_POP(evtL);\par
+..............................\par
+\b\f1 (IF) if\par
+\b0\i  Event to manage ?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li2070\f0 _COND_: \par
+\pard\li2070 --------------------------------------------------\par
+\pard\li2415 ..............................\par
+_COND_= lis1>0;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2760 (EXEC) Manager\par
+\pard\li3105 (SET) set\par
+\pard\li3450\b0 ..............................\par
+\f0 action=LIS_POS(lis1,1);\par
+opt1=LIS_POS(lis1,2);\par
+opt2=LIS_POS(lis1,3);\par
+..............................\par
+\pard\li2760 ..............................\par
+TRASH(lis1);\par
+..............................\par
+\pard\li2415\b\f1 (ELSE) else\par
+\pard\li2760\b0 ..............................\par
+\f0 SLEEP(25);\par
+..............................\par
+\pard\li1380\b\f1 (LBL) GUI_Alive\par
+\pard\li1725\b0 ..............................\par
+\f0 locRes=GUI_ALV(_PTR_);\par
+..............................\par
+\b\f1 (IF) if\par
+\b0\i  Lost alive\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1725\f0 _COND_: \par
+\pard\li1725 --------------------------------------------------\par
+\pard\li2070 ..............................\par
+_COND_= locRes!=1;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2415 (GOTO) Exit\par
+\pard\li690\i ---\par
+\i0 (LBL) Exit\par
+\pard\li1035\b0 ..............................\par
+\f0 GUI_SND(_PTR_,\'a3HIDE);\par
+runFlg=0;\par
+\par
+#IF(evtL>0);\par
+TRASH(LIS_USE(evtL));!!! Trash of pointer inside evtL ;\par
+TRASH(evtL);!!! Trash of evtL ;\par
+#END;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) Starter\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 mode:   (\'a3EXEC,\'a3THREAD : EXEC wait until the page is closed, THREAD launch the page as indipendent)\par
+{\pntext\f2\'B7\tab}par_nId:   (For remotable page: it is the number of connection, conNId in the man_usr method of ES (enterprise server) block. Otherwise it is unused (write \'a3 or so))\par
+{\pntext\f2\'B7\tab}par_Gui:   (Name of the caller gui, for advanced uses. You can not specify it (\'a3) if the page is not remotable.)\par
+{\pntext\f2\'B7\tab}locRes: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (LBL) GUI_Dup\par
+\pard\li1035 (IF) if\par
+\b0\i  Local?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 _COND_: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380 ..............................\par
+_COND_= _AUTOLOAD_==\'a3ON;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1725 (CALL) Init_Var\par
+(GOTO) End\par
+\pard\li1035 (EXEC) \\ULib\\GUI\\Gui_Fnc\par
+\pard\li1380 (SET) set\par
+\pard\li1725\b0 ..............................\par
+\f0 action=\'a3Prepare;   !!SetPos, Dup, Destroy, Prepare, Show;\par
+Opt=par_nId;   !!;\par
+RefPg=_FILE_;   !!Reference no @\\;\par
+distX=\'a3;   !!Distance X from border;\par
+distY=\'a3;   !!Distance Y from border;\par
+..............................\par
+\pard\li1380\b\f1 (GET) get\par
+\pard\li1725\b0 ..............................\par
+\f0 locRes=res;   !!Risultato;\par
+..............................\par
+\pard\li1035\b\f1 (IF) if\par
+\b0\i  ERR?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 _COND_: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380 ..............................\par
+_COND_= locRes==\'a3ERR;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1725\b0 ..............................\par
+\f0 chatput("[ERR] Error in page preparation (",dbgline,")");\par
+..............................\par
+\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1725\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1725 --------------------------------------------------\par
+\pard\li1035\b\f1 (IF) if\par
+\b0\i  LOAD?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 _COND_: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380 ..............................\par
+_COND_= locRes==\'a3LOAD;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1725 (CALL) Init_Var\par
+(CALL) translation\par
+\pard\li1035 (LBL) End\par
+\pard\li690 (IF) if\par
+\b0\i  Already running\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_= runFlg@\\MG==1;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1380\b0 ..............................\par
+\f0 GUI_SND(_PTR_@\\MG,\'a3SHOW);\par
+..............................\par
+\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li690\b\f1 (IF) if\par
+\b0\i  Run as THREAD or EXEC\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_= mode==\'a3THREAD;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1380 (THREAD) \\MG\\Core\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _PAR_: ONCE  (SYNC ONCE ONCE_FOR_CALLER)\par
+{\pntext\f2\'B7\tab}_RSLT_:   (For ONCExx the name of the symbol where to put the result -1=failToStart 0=starting 1=start. ONCE_FOR_CALLER is syncronous)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1035\b\f1 (ELSE) else\par
+\pard\li1380 (EXEC) \\MG\\Core\par
+\pard\li690 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li690 --------------------------------------------------\par
+\b\i\f1 <->\par
+\i0 (BLK) Init_Var\par
+\pard\li1035\b0 ..............................\par
+\f0 caller@\\MG=par_Gui;\par
+nId@\\MG=par_nID;\par
+..............................\par
+\pard\li690\b\f1 (BLK) translation\par
+\pard\li1035\b0 ..............................\par
+\f0 #WHILE(1);\par
+\'b0res=\'a3SKIP;\par
+\par
+#IF(NOT ISNUM(par_nId));\par
+#BREAK;\par
+#END;\par
+\par
+#IF(NOT EXIST("\\DATA\\TRSL"));\par
+#BREAK;\par
+#END;\par
+\par
+\'b0res=\'a3OK;\par
+#BREAK;\par
+#END;\par
+..............................\par
+\b\f1 (IF) if\par
+\b0\i  OK ?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 _COND_: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380 ..............................\par
+_COND_= \'b0res==\'a3SKIP;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1725 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1725\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1725 --------------------------------------------------\par
+\pard\li1035\b\f1 (EXEC) \\DATA\\TRSL\\gui_lod\par
+\pard\li1380 (SET) set\par
+\pard\li1725\b0 ..............................\par
+\f0 GUI=_GUI_@\\MG;\par
+nId=par_nId;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) evt_clear\par
+\b0\i  Reset the EVT list\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 lis1: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+#WHILE(1);\par
+lis1=LIS_POP(evtL);\par
+#IF(lis1<=0);!!! Invalid PTR -> end of list;\par
+#BREAK;\par
+#END;\par
+\par
+TRASH(lis1);\par
+#END;\par
+..............................\par
+\pard\li345 ========================================\par
+\pard ================================================================================\par
+\b\f1 (GUI) CRD\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\f0 _AUTOLOAD_: ON  (Values: ON,OFF to disable)\par
+{\pntext\f2\'B7\tab}_ADDR_:   (Values: gui IP address empty=default)\par
+{\pntext\f2\'B7\tab}_PORT_:   (Values: gui IP PORT address empty=default)\par
+{\pntext\f2\'B7\tab}_FILE_: CR  (Name of the UserInterface resources)\par
+{\pntext\f2\'B7\tab}_TRIG_: trig  (Trigger EXO or MTHD)\par
+{\pntext\f2\'B7\tab}_PTR_:   (Pointer to open gui)\par
+{\pntext\f2\'B7\tab}_EVT_:   (System Event)\par
+{\pntext\f2\'B7\tab}_SIGNAL_:   (User Event)\par
+{\pntext\f2\'B7\tab}_PTH_ITEM_:   (Path and Name of ITEM generating a mouse event)\par
+{\pntext\f2\'B7\tab}_ITEM_:   (Name of ITEM generating a mouse event)\par
+{\pntext\f2\'B7\tab}_PTH_ITEM_ACT_:   (Path and Name of active ITEM)\par
+{\pntext\f2\'B7\tab}_ITEM_ACT_:   (Name of active ITEM)\par
+{\pntext\f2\'B7\tab}_X_:   (X relative to Form)\par
+{\pntext\f2\'B7\tab}_Y_:   (Y relative to Form)\par
+{\pntext\f2\'B7\tab}_XW_:   (X relative to Screen)\par
+{\pntext\f2\'B7\tab}_YW_:   (X relative to Screen)\par
+{\pntext\f2\'B7\tab}_XC_:   (X relative to Control)\par
+{\pntext\f2\'B7\tab}_YC_:   (X relative to Control)\par
+{\pntext\f2\'B7\tab}_BL_:   (Button Left)\par
+{\pntext\f2\'B7\tab}_BR_:   (Button Right)\par
+{\pntext\f2\'B7\tab}_ON_:   (If mouse is On the form)\par
+{\pntext\f2\'B7\tab}_KEY_FLG_:   (VLD(b1) ALT(b2) CTRL(b3) SHT(b4) CAPS LOCK(b5) NUM LOCK(b6) SCROLL LOCK(b7))\par
+{\pntext\f2\'B7\tab}_KEY_CODE_:   (The Key CODE)\par
+{\pntext\f2\'B7\tab}_KEY_KEY_:   ( The Key pressed)\par
+{\pntext\f2\'B7\tab}_KEY_VAL_:   ( The Key value)\par
+{\pntext\f2\'B7\tab}_GUI_:   (GUI name)\par
+{\pntext\f2\'B7\tab}caller: \par
+{\pntext\f2\'B7\tab}runFlg:   (Core is in execution)\par
+{\pntext\f2\'B7\tab}nId:   (Id Number)\par
+{\pntext\f2\'B7\tab}evtL:   (Event List)\par
+{\pntext\f2\'B7\tab}evtMx: 10  (Max EVT n\'b0 in LIS)\par
+{\pntext\f2\'B7\tab}evtTmMx: 250  (Max time for EVT)\par
+\pard --------------------------------------------------\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) trig\par
+\pard\li690 (SWITCH) _SIGNAL_\par
+\pard\li1035 (CASE) _DEFAULT_\par
+\pard\li1380 (IF) if\par
+\b0\i  _SIGNAL_ is valid\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _COND_: \par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725 ..............................\par
+_COND_= ~_SIGNAL_;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2070\b0 ..............................\par
+\f0 #IF(runFlg==1);\par
+#IF(LIS_NUM(evtL)<evtMx);\par
+LIS_ADD(evtL,LIS_NEW(_SIGNAL_,_PTH_ITEM_,\'a3));\par
+#END;\par
+#END;\par
+..............................\par
+\pard\li690\b\f1 (IF) if\par
+\b0\i  _SIGNAL_ -> skip events\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_= ~_SIGNAL_;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1380 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li690\b\f1 (SWITCH) _EVT_\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 C_CLOSE: WIND_CLS\par
+{\pntext\f2\'B7\tab}C_WINDOW_MOVE: WIND_MOV\par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035\b\f1 (CASE) _DEFAULT_\par
+(CASE) C_CLOSE\par
+\pard\li1380\b0 ..............................\par
+\f0 #IF(runFlg==1);\par
+#IF(LIS_NUM(evtL)<evtMx);\par
+LIS_ADD(evtL,LIS_NEW(\'a3CLOSE,\'a3,\'a3));\par
+#END;\par
+#END;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_WINDOW_MOVE\par
+\pard\li1380\b0 ..............................\par
+\f0 #IF(runFlg==1);\par
+#IF(LIS_NUM(evtL)<evtMx);\par
+LIS_ADD(evtL,LIS_NEW(\'a3winMov,\'a3,\'a3));\par
+#END;\par
+#END;\par
+..............................\par
+\pard\li690\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li690 --------------------------------------------------\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) Manager\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 action: \par
+{\pntext\f2\'B7\tab}opt1: \par
+{\pntext\f2\'B7\tab}opt2: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (SWITCH) action\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 C_SHOW: SHOW\par
+{\pntext\f2\'B7\tab}C_CLOSE: CLOSE\par
+{\pntext\f2\'B7\tab}C_onLoop: onLoop\par
+{\pntext\f2\'B7\tab}C_WINDOW_MOVE: winMov\par
+{\pntext\f2\'B7\tab}C_SAVE: SAVE\par
+{\pntext\f2\'B7\tab}C_OAI: OAI\par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035\b\f1 (CASE) _DEFAULT_\par
+\pard\li1380\b0 ..............................\par
+\f0 chatput("[ERR] Unrecognized signal"..action.."(",dbgline,")");\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_SHOW\par
+\pard\li1380\b0 ..............................\par
+\f0 GUI_SND(_PTR_,\'a3SHOW);\par
+\par
+TEXT@\\CRD\\pag\\info="To use this program you need a key that you can get from OpenAi site (see button below)";\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_CLOSE\par
+\pard\li1380 (IF) if\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _COND_: \par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725 ..............................\par
+_COND_= ~EPT@\\Main==0 or ~KEY@\\Main==0;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2070\b0 ..............................\par
+\f0\'b0r=GUI_DLGMSG(_PTR_,"INVALID CREDENTIAL","Credentiial are invalid: Do you wont to close the program?" ,\'a3OK_CANC,\'a3QUESTION);\par
+..............................\par
+\b\f1 (IF) if\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li2070\f0 _COND_: \par
+\pard\li2070 --------------------------------------------------\par
+\pard\li2415 ..............................\par
+_COND_= \'b0r == \'a3OK;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2760 (END) end\par
+\pard\li2415 (ELSE) else\par
+\pard\li2760 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li2760\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li2760 --------------------------------------------------\par
+\pard\li1380 ..............................\par
+runFlg=0;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_onLoop\par
+\pard\li1380\b0 ..............................\par
+\f0 #if(~VALUE@\\CRD\\pag\\KEY==0 or ~VALUE@\\CRD\\pag\\EPT==0);\par
+Visible@\\CRD\\pag\\SAVE=\'a3FALSE;\par
+#else;\par
+Visible@\\CRD\\pag\\SAVE=\'a3true;\par
+#end;\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_WINDOW_MOVE\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 eX: \par
+{\pntext\f2\'B7\tab}eY: \par
+{\pntext\f2\'B7\tab}eSizX: \par
+{\pntext\f2\'B7\tab}eSizY: \par
+{\pntext\f2\'B7\tab}eWSizX: \par
+{\pntext\f2\'B7\tab}eWSizY: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380\b\i\f1 default disabled\par
+\i0 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1380 --------------------------------------------------\par
+..............................\par
+!!! Wait for BUTTON release ;\par
+\'b0t3=TMR+1500;\par
+#WHILE(_BL_==1 AND TMR<=\'b0t3 );\par
+SLEEP(100);\par
+#END;\par
+\par
+!!! Get Desktop size ;\par
+\'b0t2= NULL;\par
+\'b0t1= "EXEC:_GUI_INFO_;VDUSIZ;"++$\'b0t2;\par
+\'b0rf1="_PTR_@\\"++_GUI_;\par
+GUI_SND(REF(\'b0rf1),\'b0t1);\par
+\par
+!!! Wait response ;\par
+\'b0t1 = WAITCND($\'b0t2,\'a3NOTNULL,5000);\par
+\par
+!!! Decode Desktop size ;\par
+\'b0lis1=CSV(\'b0t2,";");\par
+\par
+\'b0t1=LIS_POS(\'b0lis1,1);\par
+eWSizX=SPLT(\'b0t1,":",\'a3RIGHT);\par
+\par
+\'b0t1=LIS_POS(\'b0lis1,2);\par
+eWSizY=SPLT(\'b0t1,":",\'a3RIGHT);\par
+\par
+TRASH(\'b0lis1);\par
+\par
+\par
+eSizX=REF("SizX@\\"++_GUI_++"\\pag");\par
+eSizY=REF("SizY@\\"++_GUI_++"\\pag");\par
+\par
+eX=\'a3;\par
+eY=\'a3;\par
+\par
+#WHILE(1);\par
+\'b0rf1="X@\\"++_GUI_++"\\pag";\par
+\'b0t1=REF(\'b0rf1);\par
+#IF(eX!=\'b0t1);!!! X changed ? ;\par
+eX=\'b0t1;\par
+\par
+#IF(eX<0);\par
+REF(\'b0rf1)=0;\par
+#ELSE;\par
+\'b0t1=eWSizX-eSizX;\par
+#IF(eX>\'b0t1);\par
+REF(\'b0rf1)=\'b0t1;\par
+#END;\par
+#END;\par
+#END;\par
+\par
+\'b0rf1="Y@\\"++_GUI_++"\\pag";\par
+\'b0t1=REF(\'b0rf1);\par
+#IF(eY!=\'b0t1);!!! Y changed ? ;\par
+eY=\'b0t1;\par
+\par
+#IF(eY<0);\par
+REF(\'b0rf1)=0;\par
+#ELSE;\par
+\'b0t1=eWSizY-eSizY;\par
+#IF(eY>\'b0t1);\par
+REF(\'b0rf1)=\'b0t1;\par
+#END;\par
+#END;\par
+#END;\par
+\par
+#IF(_BL_!=1);!!! Mouse released ;\par
+#BREAK;\par
+#END;\par
+\par
+SLEEP(250);\par
+#END;\par
+..............................\par
+\b\f1 (EXEC) evt_clear\par
+\pard\li1035 (CASE) C_SAVE\par
+\pard\li1380\b0 ..............................\par
+\f0 EPT@\\Main=VALUE@\\CRD\\pag\\EPT;\par
+KEY@\\Main=VALUE@\\CRD\\pag\\KEY;\par
+ORG@\\Main="POWER-KI User";\par
+\par
+\par
+KB1_QRY(KBC@\\MAin,"\\OAI\\EPT="++quos(EPT@\\Main),\'a3TEXT);\par
+KB1_QRY(KBC@\\MAin,"\\OAI\\KEY="++quos(KEY@\\Main),\'a3TEXT);\par
+KB1_QRY(KBC@\\MAin,"\\OAI\\ORG)"++quos(ORG@\\Main),\'a3TEXT);\par
+\par
+kb1_sav(KBC@\\MAin);\par
+..............................\par
+\pard\li1035\b\f1 (CASE) C_OAI\par
+\pard\li1380\b0 ..............................\par
+\f0 OSshell(NULL,\'a3OPEN,"https://platform.openai.com/signup");\par
+..............................\par
+\pard\li690\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li690 --------------------------------------------------\par
+\b\i\f1 <->\par
+\pard\li345\b0\i0 ========================================\par
+\b (MTHD) Core\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 t1: \par
+{\pntext\f2\'B7\tab}locRes: \par
+{\pntext\f2\'B7\tab}evtIni: \par
+{\pntext\f2\'B7\tab}lis1: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+runFlg=1;\par
+\par
+evtL=LIS_NEW();\par
+..............................\par
+\b\f1 (EXEC) Manager\par
+\pard\li1035 (SET) set\par
+\pard\li1380\b0 ..............................\par
+\f0 action=\'a3SHOW;\par
+..............................\par
+\pard\li690\b\f1 (WHILE) while\par
+\b0\i  Main Loop\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_= runFlg;\par
+..............................\par
+\b\f1 (DO) do\par
+\pard\li1380 (EXEC) Manager\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _PAR_: ONCE  (SYNC ONCE ONCE_FOR_CALLER)\par
+{\pntext\f2\'B7\tab}_RSLT_:   (For ONCExx the name of the symbol where to put the result -1=failToStart 0=starting 1=start. ONCE_FOR_CALLER is syncronous)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725\b\f1 (SET) set\par
+\pard\li2070\b0 ..............................\par
+\f0 action=\'a3onLoop;\par
+opt1=\'a3;\par
+opt2=\'a3;\par
+..............................\par
+\pard\li1380\b\f1 (WHILE) while\par
+\b0\i  Loop EVT\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _COND_: \par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725\b\f1 (PRE) pre\par
+\pard\li2070\b0 ..............................\par
+\f0 evtIni=TMR;\par
+t1=evtIni+evtTmMx;\par
+..............................\par
+\pard\li1725 ..............................\par
+_COND_= TMR<=t1;\par
+..............................\par
+\b\f1 (DO) do\par
+\pard\li2070\b0 ..............................\par
+\f0 lis1=LIS_POP(evtL);\par
+..............................\par
+\b\f1 (IF) if\par
+\b0\i  Event to manage ?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li2070\f0 _COND_: \par
+\pard\li2070 --------------------------------------------------\par
+\pard\li2415 ..............................\par
+_COND_= lis1>0;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2760 (EXEC) Manager\par
+\pard\li3105 (SET) set\par
+\pard\li3450\b0 ..............................\par
+\f0 action=LIS_POS(lis1,1);\par
+opt1=LIS_POS(lis1,2);\par
+opt2=LIS_POS(lis1,3);\par
+..............................\par
+\pard\li2760 ..............................\par
+TRASH(lis1);\par
+..............................\par
+\pard\li2415\b\f1 (ELSE) else\par
+\pard\li2760\b0 ..............................\par
+\f0 SLEEP(25);\par
+..............................\par
+\pard\li1380\b\f1 (LBL) GUI_Alive\par
+\pard\li1725\b0 ..............................\par
+\f0 locRes=GUI_ALV(_PTR_);\par
+..............................\par
+\b\f1 (IF) if\par
+\b0\i  Lost alive\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1725\f0 _COND_: \par
+\pard\li1725 --------------------------------------------------\par
+\pard\li2070 ..............................\par
+_COND_= locRes!=1;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2415 (GOTO) Exit\par
+\pard\li690\i ---\par
+\i0 (LBL) Exit\par
+\pard\li1035\b0 ..............................\par
+\f0 GUI_SND(_PTR_,\'a3HIDE);\par
+runFlg=0;\par
+\par
+#IF(evtL>0);\par
+TRASH(LIS_USE(evtL));!!! Trash of pointer inside evtL ;\par
+TRASH(evtL);!!! Trash of evtL ;\par
+#END;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) Starter\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 mode:   (\'a3EXEC,\'a3THREAD : EXEC wait until the page is closed, THREAD launch the page as indipendent)\par
+{\pntext\f2\'B7\tab}par_nId:   (For remotable page: it is the number of connection, conNId in the man_usr method of ES (enterprise server) block. Otherwise it is unused (write \'a3 or so))\par
+{\pntext\f2\'B7\tab}par_Gui:   (Name of the caller gui, for advanced uses. You can not specify it (\'a3) if the page is not remotable.)\par
+{\pntext\f2\'B7\tab}locRes: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (LBL) GUI_Dup\par
+\pard\li1035 (IF) if\par
+\b0\i  Local?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 _COND_: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380 ..............................\par
+_COND_= _AUTOLOAD_==\'a3ON;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1725 (CALL) Init_Var\par
+(GOTO) End\par
+\pard\li1035 (EXEC) \\ULib\\GUI\\Gui_Fnc\par
+\pard\li1380 (SET) set\par
+\pard\li1725\b0 ..............................\par
+\f0 action=\'a3Prepare;   !!SetPos, Dup, Destroy, Prepare, Show;\par
+Opt=par_nId;   !!;\par
+RefPg=_FILE_;   !!Reference no @\\;\par
+distX=\'a3;   !!Distance X from border;\par
+distY=\'a3;   !!Distance Y from border;\par
+..............................\par
+\pard\li1380\b\f1 (GET) get\par
+\pard\li1725\b0 ..............................\par
+\f0 locRes=res;   !!Risultato;\par
+..............................\par
+\pard\li1035\b\f1 (IF) if\par
+\b0\i  ERR?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 _COND_: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380 ..............................\par
+_COND_= locRes==\'a3ERR;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1725\b0 ..............................\par
+\f0 chatput("[ERR] Error in page preparation (",dbgline,")");\par
+..............................\par
+\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1725\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1725 --------------------------------------------------\par
+\pard\li1035\b\f1 (IF) if\par
+\b0\i  LOAD?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 _COND_: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380 ..............................\par
+_COND_= locRes==\'a3LOAD;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1725 (CALL) Init_Var\par
+(CALL) translation\par
+\pard\li1035 (LBL) End\par
+\pard\li690 (IF) if\par
+\b0\i  Already running\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_= runFlg@\\CRD==1;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1380\b0 ..............................\par
+\f0 GUI_SND(_PTR_@\\CRD,\'a3SHOW);\par
+..............................\par
+\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li690\b\f1 (IF) if\par
+\b0\i  Run as THREAD or EXEC\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_= mode==\'a3THREAD;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1380 (THREAD) \\CRD\\Core\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _PAR_: ONCE  (SYNC ONCE ONCE_FOR_CALLER)\par
+{\pntext\f2\'B7\tab}_RSLT_:   (For ONCExx the name of the symbol where to put the result -1=failToStart 0=starting 1=start. ONCE_FOR_CALLER is syncronous)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1035\b\f1 (ELSE) else\par
+\pard\li1380 (EXEC) \\CRD\\Core\par
+\pard\li690 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li690 --------------------------------------------------\par
+\b\i\f1 <->\par
+\i0 (BLK) Init_Var\par
+\pard\li1035\b0 ..............................\par
+\f0 caller@\\CRD=par_Gui;\par
+nId@\\CRD=par_nID;\par
+..............................\par
+\pard\li690\b\f1 (BLK) translation\par
+\pard\li1035\b0 ..............................\par
+\f0 #WHILE(1);\par
+\'b0res=\'a3SKIP;\par
+\par
+#IF(NOT ISNUM(par_nId));\par
+#BREAK;\par
+#END;\par
+\par
+#IF(NOT EXIST("\\DATA\\TRSL"));\par
+#BREAK;\par
+#END;\par
+\par
+\'b0res=\'a3OK;\par
+#BREAK;\par
+#END;\par
+..............................\par
+\b\f1 (IF) if\par
+\b0\i  OK ?\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1035\f0 _COND_: \par
+\pard\li1035 --------------------------------------------------\par
+\pard\li1380 ..............................\par
+_COND_= \'b0res==\'a3SKIP;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1725 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1725\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1725 --------------------------------------------------\par
+\pard\li1035\b\f1 (EXEC) \\DATA\\TRSL\\gui_lod\par
+\pard\li1380 (SET) set\par
+\pard\li1725\b0 ..............................\par
+\f0 GUI=_GUI_@\\CRD;\par
+nId=par_nId;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) evt_clear\par
+\b0\i  Reset the EVT list\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 lis1: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+#WHILE(1);\par
+lis1=LIS_POP(evtL);\par
+#IF(lis1<=0);!!! Invalid PTR -> end of list;\par
+#BREAK;\par
+#END;\par
+\par
+TRASH(lis1);\par
+#END;\par
+..............................\par
+\pard\li345 ========================================\par
+\pard ================================================================================\par
+\b\f1 (VAR) DEB_NetLoader\par
+\b0\i  Inspector NetLoader FOR ISP-07 2.00 14/12/2018\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\f0 port: 4700\par
+{\pntext\f2\'B7\tab}usrId: \par
+{\pntext\f2\'B7\tab}usrPsw: \par
+\pard --------------------------------------------------\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) Launch\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 port: \par
+{\pntext\f2\'B7\tab}sok: \par
+{\pntext\f2\'B7\tab}trg: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+#IF(NOT ISNUM(port));\par
+port=port@\\DEB_NetLoader;\par
+#ELSE;\par
+port@\\DEB_NetLoader=port;\par
+#END;\par
+\par
+sok=SOK_NEW( \'a3TCP,0,port);\par
+\par
+trg=TRIG("\\DEB_NetLoader\\Trig_deb");\par
+TRIGSET(trg,"SOK","SOK");\par
+TRIGSET(trg,"ADDRESS","ADDRESS");\par
+TRIGSET(trg,"PORT","PORT");\par
+\par
+SOK_LKW(sok,0,0,0,trg,\'a3THREAD);\par
+trash(sok);\par
+sok=NULL;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) Trig_deb\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 SOK: \par
+{\pntext\f2\'B7\tab}ADDRESS: \par
+{\pntext\f2\'B7\tab}PORT: \par
+{\pntext\f2\'B7\tab}pck: \par
+{\pntext\f2\'B7\tab}res: \par
+{\pntext\f2\'B7\tab}tmpTree: \par
+{\pntext\f2\'B7\tab}itm: \par
+{\pntext\f2\'B7\tab}itmNew: \par
+{\pntext\f2\'B7\tab}nId: \par
+{\pntext\f2\'B7\tab}pkaTree: \par
+{\pntext\f2\'B7\tab}row: \par
+{\pntext\f2\'B7\tab}sub: \par
+{\pntext\f2\'B7\tab}iLis: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (WHILE) while_con\par
+\b0\i  Loop get Pck\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_= (1);\par
+..............................\par
+\b\f1 (DO) do\par
+\pard\li1380\b0 ..............................\par
+\f0 res=SOK_INQ(sok,1000);\par
+..............................\par
+\b\f1 (IF) if\par
+\b0\i  NULL -> Err\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _COND_: \par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725 ..............................\par
+_COND_= ISNULL(res);\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2070\b0 ..............................\par
+\f0 chatput("[ERR] NULL packet -> Close connection (",dbgline,")");\par
+..............................\par
+\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li2070\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li2070 --------------------------------------------------\par
+\pard\li1380\b\f1 (IF) if\par
+\b0\i  Nothing to read\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _COND_: \par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725 ..............................\par
+_COND_= res<=0;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2070 (GOTO) while_con\par
+\pard\li1380\b0 ..............................\par
+\f0 pck=SOK_RDS(sok,\'a3PKT,NULL,1000);\par
+..............................\par
+\b\f1 (IF) if\par
+\b0\i  Empty pck -> no received\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _COND_: \par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725 ..............................\par
+_COND_= (~pck==0);\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2070\b0 ..............................\par
+\f0 !!chatput("Empty packet (",dbgline,")");\par
+..............................\par
+\pard\li1725\b\f1 (ELSE) else\par
+\pard\li2070\b0 ..............................\par
+\f0 !!chatput("Packet <",pck,"> (",dbgline,")");\par
+\par
+tmpTree=TREE_OPN(\'a3NEW);\par
+TREE_PARSE(tmpTree,pck);\par
+\par
+itm=TREE_PTH(tmpTree,"DEB");\par
+..............................\par
+\b\f1 (IF) if\par
+\b0\i  Item not found -> close connection\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li2070\f0 _COND_: \par
+\pard\li2070 --------------------------------------------------\par
+\pard\li2415 ..............................\par
+_COND_= itm<=0;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li2760\b0 ..............................\par
+\f0 TRASH(tmpTree);\par
+..............................\par
+\b\f1 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li2760\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li2760 --------------------------------------------------\par
+\pard\li2070 ..............................\par
+itmNew=TREE_ITM(tmpTree,itm,\'a3DUP);\par
+nId=UCNT();\par
+TREE_ITM(tmpTree,itmNew,\'a3ITM,"DEB_"++nId);\par
+..............................\par
+\b\f1 (EXEC) blk_import_row_renamer\par
+\pard\li2415 (SET) set\par
+\pard\li2760\b0 ..............................\par
+\f0 row=100000;   !!Initial row number;\par
+itm=itmNew;   !!Item to rename;\par
+tree=tmpTree;   !!Tree of item;\par
+..............................\par
+\pard\li2070 ..............................\par
+TRASH(tmpTree);\par
+\par
+\par
+!!! Import item into program tree;\par
+pkaTree=TREE_OPN();\par
+itm=TREE_PTH(pkaTree,"DEB_NetLoader");\par
+TREE_ITM(pkaTree,itm,\'a3ADDA,itmNew);\par
+\par
+\par
+REF("thisNam@\\DEB_"++nId)="DEB_"++nId;\par
+ALIASPTH("\\DEB","\\DEB_"++nId);\par
+..............................\par
+\b\f1 (EXEC) \\DEB\\Trig_deb\par
+\pard\li2415 (SET) set\par
+\pard\li2760\b0 ..............................\par
+\f0 SOK=SOK;\par
+ADDRESS=ADDRESS;\par
+PORT=PORT;\par
+..............................\par
+\pard\li2070 ..............................\par
+TREE_ITM(pkaTree,itmNew,\'a3DEL);\par
+\par
+TRASH(pkaTree);\par
+..............................\par
+\pard\li345 ========================================\par
+\b\i\f1 <->\par
+\i0 (MTHD) blk_import_row_renamer\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 row:   (Initial row number)\par
+{\pntext\f2\'B7\tab}itm:   (Item to rename)\par
+{\pntext\f2\'B7\tab}tree:   (Tree of item)\par
+{\pntext\f2\'B7\tab}sub: \par
+{\pntext\f2\'B7\tab}iLis: \par
+{\pntext\f2\'B7\tab}eItm: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+!!! Battezzo righe;\par
+TREE_ITM(tree,itm,\'a3IDX,row);\par
+sub=TREE_ITM(tree,itm,\'a3SUB);\par
+#IF(sub>0);\par
+iLis=LIS_NEW(sub);\par
+#END;\par
+\par
+#WHILE(LIS_NUM(iLis)>0);\par
+eItm=LIS_POP(iLis);\par
+row=row+1;\par
+TREE_ITM(tree,eItm,\'a3IDX,row);\par
+\par
+sub=TREE_ITM(tree,eItm,\'a3NXT);\par
+#IF(sub>0);\par
+LIS_PSH(iLis,sub);\par
+#END;\par
+\par
+sub=TREE_ITM(tree,eItm,\'a3SUB);\par
+#IF(sub>0);\par
+LIS_PSH(iLis,sub);\par
+#END;\par
+#END;\par
+\par
+TRASH(iLis);\par
+..............................\par
+\pard\li345 ========================================\par
+\b\i\f1 09/01/2019\par
+\par
+*) fix problema con puntatori ad alberi\par
+\par
+14/12/2018\par
+\par
+*) aggiunto ribattezzo delle righe del codice importato tramite MTHD blk_import_row_renamer\par
+\pard\b0\i0 ================================================================================\par
+\b (EXO) JSON\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\f0 TEXT: \par
+{\pntext\f2\'B7\tab}kb1: \par
+\pard --------------------------------------------------\par
+\pard\li345\b\f1 (EXEC) PARSE\par
+\pard\li690 (SET) set\par
+\pard\li1035\b0 ..............................\par
+\f0 JSON=TEXT;   !!JSON text;\par
+..............................\par
+\pard\li690\b\f1 (GET) get\par
+\pard\li1035\b0 ..............................\par
+\f0 kb1=kb1;   !!PTR to KB1;\par
+..............................\par
+\pard\li345\b\f1 (MTHD) PARSE\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 JSON:   (JSON text)\par
+{\pntext\f2\'B7\tab}kb1:   (PTR to KB1)\par
+{\pntext\f2\'B7\tab}TKN:   (LIS of Token)\par
+{\pntext\f2\'B7\tab}TT:   (Token Typ)\par
+{\pntext\f2\'B7\tab}TK:   (Token)\par
+{\pntext\f2\'B7\tab}LTT: \par
+{\pntext\f2\'B7\tab}LTK: \par
+{\pntext\f2\'B7\tab}STK:   (Stack TBL)\par
+{\pntext\f2\'B7\tab}stkIDX:   (Stack index;)\par
+{\pntext\f2\'B7\tab}STS:   (Status)\par
+{\pntext\f2\'B7\tab}STKSTS:   (Stack status)\par
+{\pntext\f2\'B7\tab}PTH:   (Path)\par
+{\pntext\f2\'B7\tab}OBJCNT:   (Object Count)\par
+{\pntext\f2\'B7\tab}ARYCNT:   (Array count)\par
+{\pntext\f2\'B7\tab}ARYELM: \par
+{\pntext\f2\'B7\tab}OBJ:   (Actual Oject)\par
+{\pntext\f2\'B7\tab}NOBJ: \par
+{\pntext\f2\'B7\tab}TOBJ:   (Counter OBJ)\par
+{\pntext\f2\'B7\tab}TARY:   (Counter Ary)\par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (IF) if\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+_COND_=0;\par
+JSON=NSP(JSON);\par
+#if(len(JSON));\par
+\par
+JSON=SYMB_RPLC(JSON,"\\d\\n",char(0x8000));\par
+JSON=SYMB_RPLC(JSON,"\\n",char(0x8000));\par
+JSON=SYMB_RPLC(JSON,"\\""",char(0x8001));\par
+JSON=SYMB_RPLC(JSON,"\\\\",char(0x8002));\par
+\par
+tkn=tknzop(JSON,"[","\{","\}","]",":",",","""");\par
+\par
+#if(!lis_num(tkn));\par
+trash(tkn);\par
+_COND_= 1;\par
+#end;\par
+#end;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1380 (BREAK) break\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 _LEVEL_:   (Type of ITEM that break)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li690\b\f1 (LBL) NoToken\par
+\b0\i  Detect token inside ""\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 nlis:   (New List)\par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035 ..............................\par
+\'b0nlis=lis_new;\par
+\'b0inf=0;\par
+\par
+\'b0tk=\'a3;\par
+\'b0tkn=\'a3;\par
+lis_pos(tkn,1);\par
+#while(lis_num(tkn));\par
+\par
+\'b0ltk=\'b0tk;\par
+\'b0tk=lis_get(tkn);\par
+\par
+#if(\'b0inf);\par
+\par
+#if(\'b0tk != """" );\par
+\'b0tkn=\'b0tkn++\'b0tk;\par
+#skip;\par
+#end;\par
+\par
+#if(\'b0tk == """");\par
+lis_add(\'b0nlis,quode(\'b0tkn));\par
+\'b0tkn=\'a3;\par
+\'b0inf=0;\par
+#skip;\par
+#end;\par
+\par
+#else;\par
+\par
+#if(\'b0tk != """" );\par
+\'b0tk=NSP(\'b0tk,\'a3SC);\par
+#if(~\'b0tk);\par
+lis_add(\'b0nlis,\'b0tk);\par
+#end;\par
+#skip;\par
+#else;\par
+#if(\'b0Ltk == """");\par
+#skip;\par
+#end;\par
+\par
+#end;\par
+\par
+\'b0inf=1;\par
+\'b0tkn=\'a3;\par
+#end;\par
+#end;\par
+\par
+trash(tkn);\par
+tkn=\'b0nlis;\par
+lis_pos(tkn,1);\par
+..............................\par
+\pard\li690\b\f1 (WHILE) while_1\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035\b\f1 (PRE) pre\par
+\pard\li1380\b0 ..............................\par
+\f0 kb1=KB1_OPN_NTHS();\par
+STS=\'a3ND; !!NOT DEFINED;\par
+PTH="\\JSON";\par
+OBJ=\'a3JSON;\par
+NOBJ=\'a3;\par
+OBJCNT=0;\par
+ARYCNT=0;\par
+ARYELM=0;\par
+\par
+TOBJ=0;\par
+TARY=0;\par
+trash(stk);\par
+\par
+stk=TBL_NEW(NULL,1,NULL,NULL,"pth;sts;obj;objcnt;arycnt;aryelm");\par
+stkIdx=1;\par
+\par
+lis_pos(tkn,1);\par
+..............................\par
+\pard\li1035 ..............................\par
+_COND_= lis_num(TKN);\par
+..............................\par
+\b\f1 (DO) do\par
+\pard\li1380 (CALL) GetTkn\par
+(SWITCH) TT\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li1380\f0 C_ST: ST  (String)\par
+{\pntext\f2\'B7\tab}C_OB: OB  (Object Begin)\par
+{\pntext\f2\'B7\tab}C_OE: oe  (Object End)\par
+{\pntext\f2\'B7\tab}C_AB: AB  (Array Begin)\par
+{\pntext\f2\'B7\tab}C_AE: AE  (Array End)\par
+{\pntext\f2\'B7\tab}C_VS: VS  (Value Separator)\par
+\pard\li1380 --------------------------------------------------\par
+\pard\li1725\b\f1 (CASE) _DEFAULT_\par
+(CASE) C_ST\par
+\pard\li2070 (SWITCH) STS\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li2070\f0 C_OBJ: OBJ  (Object)\par
+{\pntext\f2\'B7\tab}C_ARY: ARY  (Array)\par
+\pard\li2070 --------------------------------------------------\par
+\pard\li2415\b\f1 (CASE) _DEFAULT_\par
+(CASE) C_OBJ\par
+\pard\li2760\b0 ..............................\par
+\f0 #if(fst(tk)=="""" and lst(tk)=="""");\par
+TK=(TK <<1)>>1 ;\par
+#end;\par
+..............................\par
+\b\f1 (CALL) GetTkn\par
+\b0 ..............................\par
+\f0 #if(TT==\'a3VS);\par
+!!TT=\'a3ST;\par
+TK=LTK;\par
+#end;\par
+\par
+#if(fst(tk)=="""" and lst(tk)=="""");\par
+TK=(TK <<1)>>1 ;\par
+#end;\par
+\par
+#if(TT==\'a3ST or TT==\'a3VS);\par
+\par
+TK=quose(TK);\par
+\par
+!!chatput(pth++"."++LTK++"="++tk);\par
+kb1_dlg(kb1,pth++"."++LTK++"="++tk);\par
+TT=LTT;\par
+\par
+#else;\par
+NOBJ=LTK;\par
+#end;\par
+..............................\par
+\pard\li2415\b\f1 (CASE) C_ARY\par
+\pard\li2760\b0 ..............................\par
+\f0 #if(fst(tk)=="""" and lst(tk)=="""");\par
+TK=(TK <<1)>>1 ;\par
+#end;\par
+..............................\par
+\b\f1 (CALL) GetTkn\par
+\b0 ..............................\par
+\f0 #if(TT==\'a3VS or TT==\'a3AE);\par
+aryelm+=1;\par
+\'b0obj="_AE_"++aryelm;\par
+\par
+LTK=quose(LTK);\par
+\par
+!!chatput(pth++"."++\'b0obj++"="++ltk);\par
+\par
+kb1_dlg(kb1,pth++"."++\'b0obj++"="++ltk);\par
+\par
+#else;\par
+NOBJ=ltk;\par
+#end;\par
+..............................\par
+\pard\li1725\b\f1 (CASE) C_OB\par
+\pard\li2070\b0 ..............................\par
+\f0 #if(~NOBJ==0);\par
+#if(STS==\'a3ARY);\par
+arycnt+=1;\par
+nobj="_AE_"++arycnt;\par
+\'b0TOBJ="_AE_"++arycnt;\par
+#else;\par
+TOBJ+=1;\par
+objCnt+=1;\par
+nobj="_OBJ_"++objCnt;\par
+\'b0TOBJ="_OBJ_"++TOBJ;\par
+#end;\par
+#else; \par
+\'b0TOBJ=NOBJ;\par
+#end;\par
+\par
+tbl_itm(stk,\'a3STS,stkidx,sts);\par
+tbl_itm(stk,\'a3Pth,stkidx,pth);\par
+tbl_itm(stk,\'a3OBJ,stkidx,obj);\par
+tbl_itm(stk,\'a3OBJcnt,stkidx,objcnt);\par
+tbl_itm(stk,\'a3ARYcnt,stkidx,arycnt);\par
+tbl_itm(stk,\'a3ARYelm,stkidx,aryelm);\par
+\par
+stkIdx=tbl_chg(stk,NULL,\'a3ADD,\'a3ROW);\par
+\par
+objcnt=0;\par
+arycnt=0;\par
+aryelm=0;\par
+\par
+OBJ=NOBJ;\par
+pth=pth++"\\"++obj;\par
+NOBJ=\'a3;\par
+\par
+!!chatput(pth++"="++quose(\'b0TOBJ));\par
+kb1_dlg(kb1,pth++"="++quose(\'b0TOBJ)++";"++pth++":=\'a3OBJ");\par
+\par
+\par
+STS=\'a3OBJ;\par
+..............................\par
+\pard\li1725\b\f1 (CASE) C_OE\par
+\pard\li2070\b0 ..............................\par
+\f0 stkIdx=TBL_CHG(stk,NULL,\'a3SUB,\'a3ROW);\par
+\par
+sts=tbl_itm(stk,\'a3STS,stkidx);\par
+pth=tbl_itm(stk,\'a3Pth,stkidx);\par
+obj=tbl_itm(stk,\'a3OBJ,stkidx);\par
+objcnt=tbl_itm(stk,\'a3OBJcnt,stkidx);\par
+arycnt=tbl_itm(stk,\'a3ARYcnt,stkidx);\par
+aryelm=tbl_itm(stk,\'a3ARYelm,stkidx);\par
+..............................\par
+\pard\li1725\b\f1 (CASE) C_AB\par
+\pard\li2070\b0 ..............................\par
+\f0 #if(~NOBJ==0);\par
+#if(STS==\'a3OBJ);\par
+TARY+=1;\par
+aryCnt+=1;\par
+nobj="_ARY_"++aryCnt;\par
+\'b0TOBJ="_ARY_"++TARY;\par
+#else;\par
+aryElm+=1;\par
+nobj="_AE_"++aryElm;\par
+\'b0TOBJ=NOBJ;\par
+#END;\par
+#else;\par
+\'b0TOBJ=NOBJ;\par
+#end;\par
+\par
+tbl_itm(stk,\'a3STS,stkidx,sts);\par
+tbl_itm(stk,\'a3Pth,stkidx,pth);\par
+tbl_itm(stk,\'a3OBJ,stkidx,obj);\par
+tbl_itm(stk,\'a3OBJcnt,stkidx,objcnt);\par
+tbl_itm(stk,\'a3ARYcnt,stkidx,arycnt);\par
+tbl_itm(stk,\'a3ARYelm,stkidx,aryelm);\par
+\par
+stkIdx=tbl_chg(stk,NULL,\'a3ADD,\'a3ROW);\par
+\par
+objcnt=0;\par
+arycnt=0;\par
+aryelm=0;\par
+\par
+OBJ=NOBJ;\par
+pth=pth++"\\"++obj;\par
+NOBJ=\'a3;\par
+\par
+#if(STS==\'a3ARY);\par
+\'b0tag="ARY,AE";\par
+#else;\par
+\'b0tag="ARY";\par
+#end;\par
+\par
+!!chatput(pth++"="++quose(\'b0TOBJ));\par
+kb1_dlg(kb1,pth++"="++quose(\'b0TOBJ)++";"++pth++":="++quos(\'b0tag));\par
+\par
+STS=\'a3ARY;\par
+..............................\par
+\pard\li1725\b\f1 (CASE) C_AE\par
+\pard\li2070\b0 ..............................\par
+\f0 stkIdx=tbl_chg(stk,NULL,\'a3SUB,\'a3ROW);\par
+\par
+sts=tbl_itm(stk,\'a3STS,stkidx);\par
+pth=tbl_itm(stk,\'a3Pth,stkidx);\par
+obj=tbl_itm(stk,\'a3OBJ,stkidx);\par
+objcnt=tbl_itm(stk,\'a3OBJcnt,stkidx);\par
+arycnt=tbl_itm(stk,\'a3ARYcnt,stkidx);\par
+aryelm=tbl_itm(stk,\'a3ARYelm,stkidx);\par
+..............................\par
+\pard\li1725\b\f1 (CASE) C_VS\par
+\pard\li2070 (CALL) GetTkn\par
+\pard\li1035 (DONXT) doNxt\par
+\pard\li1380\b0 ..............................\par
+\f0 trash(tkn);\par
+\par
+!!kb1_sav(kb1,"Json.kb1");\par
+..............................\par
+\pard\li690\b\f1 (BLK) GetTkn\par
+\pard\li1035\b0 ..............................\par
+\f0 LTK=tk;\par
+LTT=tt;\par
+\par
+#while(LIS_NUM(tkn));\par
+tk=nsp(LIS_GET(tkn));\par
+\par
+#if(tk==",");\par
+TT=\'a3VS;\par
+#else;\par
+TT=SYMB_DCD(TK,"[,],\{,\},:",\'a3AB,\'a3AE,\'a3OB,\'a3OE,\'a3NS);\par
+#if(IsNULL(TT) and ~TK);\par
+TT=\'a3ST;\par
+TK=SYMB_RPLC(TK,char(0x8000),crlf);\par
+TK=SYMB_RPLC(TK,char(0x8001),"""");\par
+TK=SYMB_RPLC(TK,char(0x8002),"\\");\par
+#break;\par
+#end;\par
+#end;\par
+\par
+#if(TT !="NS" );\par
+#break;\par
+#end;\par
+#end;\par
+..............................\par
+\pard\li345 ========================================\par
+\pard ================================================================================\par
+\b\f1 (VAR) CONFIG\par
+\b0\i  Strumenti\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\f0 TBLIDX:   (Main Tbl)\par
+{\pntext\f2\'B7\tab}TGEN: \par
+{\pntext\f2\'B7\tab}TOAI:   (Tabella OpenAi)\par
+{\pntext\f2\'B7\tab}TVOI:   (Tabella Voice)\par
+{\pntext\f2\'B7\tab}TPFX:   (Tsbella Prefissi)\par
+{\pntext\f2\'B7\tab}TFTR:   (Tabella Filtro)\par
+\pard --------------------------------------------------\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) TV_2_TBL_int\par
+\b0\i  Ritorna il contenuto di una Tavola (doc) in una tabella\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 DOC:   (PTR to doc)\par
+{\pntext\f2\'B7\tab}TVI:   (Nome Tavola)\par
+{\pntext\f2\'B7\tab}HEAD:   (\'a3YES \'a3NO)\par
+{\pntext\f2\'B7\tab}TBL: \par
+{\pntext\f2\'B7\tab}tv: \par
+{\pntext\f2\'B7\tab}nr: \par
+{\pntext\f2\'B7\tab}nc: \par
+{\pntext\f2\'B7\tab}nh: \par
+{\pntext\f2\'B7\tab}r: \par
+{\pntext\f2\'B7\tab}c: \par
+{\pntext\f2\'B7\tab}h: \par
+{\pntext\f2\'B7\tab}nrt:   (Row con dati)\par
+{\pntext\f2\'B7\tab}f: \par
+{\pntext\f2\'B7\tab}t: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (WHILE) while\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035\b\f1 (PRE) pre\par
+\pard\li1380\b0 ..............................\par
+\f0 TBL=NULL;\par
+h=\'a3;\par
+tv=DOC_TBL(doc,TVI);\par
+nrt=0;\par
+nr=0;\par
+nc=0;\par
+r=0;\par
+\par
+#if(tv>0);\par
+nr=DOC_TINF(tv,\'a3ROWDAT);\par
+nc=DOC_TINF(tv,\'a3COL);\par
+\par
+#if(HEAD==\'a3YES);\par
+c=0;\par
+nh=DOC_TINF(tv,\'a3ROW) - nr;\par
+#if(nh>0);\par
+#while(c+=1 <=NC);\par
+#if(~H);H=H++";";#end;\par
+H=h++DOC_TVL(tv,c,nh,NULL,NULL,\'a3TRUE);\par
+#end;\par
+#end;\par
+\par
+#end;\par
+#end;\par
+\par
+#if(nr>0);\par
+#if(~H);\par
+tbl=TBL_NEW(NULL,nr,NULL,NULL,H);\par
+#else;\par
+tbl=TBL_NEW(nc,nr);\par
+#end;\par
+#end;\par
+..............................\par
+\pard\li1035 ..............................\par
+_COND_= r+=1 <=nr;\par
+..............................\par
+\b\f1 (DO) do\par
+\pard\li1380\b0 ..............................\par
+\f0 c=0;\par
+f=0;\par
+#while(c+=1 <=nc);\par
+t=DOC_TVL(tv,c,r);\par
+#if(~t);\par
+#if(f==0);nrt+=1;f=1;#end;\par
+\par
+tbl_itm(tbl,c,nrt,t);\par
+#end;\par
+#end;\par
+..............................\par
+\pard\li1035\b\f1 (DONXT) doNxt\par
+\pard\li1380\b0 ..............................\par
+\f0 #if(!nrt);\par
+trash(tbl);\par
+tbl=NULL;\par
+#else;\par
+#if(nrt != tbl_inf(tbl,\'a3row));\par
+tbl_chg(tbl,NULL,nrt);\par
+#end;\par
+#end;\par
+\par
+trash(tv);\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) TV_2_TBL\par
+\b0\i  Ritorna il contenuto di una Tavola (doc) in una tabella\par
+con la prima colonna come row index\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 DOC:   (PTR to doc)\par
+{\pntext\f2\'B7\tab}TVI:   (Nome Tavola)\par
+{\pntext\f2\'B7\tab}HEAD:   (\'a3YES \'a3NO)\par
+{\pntext\f2\'B7\tab}TBL: \par
+{\pntext\f2\'B7\tab}i: \par
+{\pntext\f2\'B7\tab}in: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (EXEC) TV_2_TBL_int\par
+\pard\li1035 (SET) set\par
+\pard\li1380\b0 ..............................\par
+\f0 DOC=DOC;   !!PTR to doc;\par
+TVI=TVI;   !!Nome Tavola;\par
+HEAD=HEAD;   !!\'a3YES \'a3NO;\par
+..............................\par
+\pard\li1035\b\f1 (GET) get\par
+\pard\li1380\b0 ..............................\par
+\f0 TBL=TBL;\par
+..............................\par
+\pard\li690 ..............................\par
+#if(~TBL);\par
+\par
+i=0;\par
+in=tbl_inf(tbl,\'a3ROW);\par
+\par
+#while(i+=1 <=in);\par
+TBL_NAM(tbl,\'a3ROW,i,Tbl_itm(tbl,1,i));\par
+#end;\par
+\par
+#end;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) TS_2_TXT\par
+\b0\i  Time stamp to Text\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 TS: \par
+{\pntext\f2\'B7\tab}YMD: \par
+{\pntext\f2\'B7\tab}DMY: \par
+{\pntext\f2\'B7\tab}HMS: \par
+{\pntext\f2\'B7\tab}DT: \par
+{\pntext\f2\'B7\tab}TD: \par
+{\pntext\f2\'B7\tab}YY: \par
+{\pntext\f2\'B7\tab}MM: \par
+{\pntext\f2\'B7\tab}DD: \par
+{\pntext\f2\'B7\tab}HH: \par
+{\pntext\f2\'B7\tab}MN: \par
+{\pntext\f2\'B7\tab}SS: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+YY=DT_TSDEC(TS, \'a3YY ,\'a3LOC);\par
+MM=DT_TSDEC(TS, \'a3MM ,\'a3LOC);\par
+DD=DT_TSDEC(TS, \'a3DD ,\'a3LOC);\par
+HH=DT_TSDEC(TS, \'a3HH ,\'a3LOC);\par
+MN=DT_TSDEC(TS, \'a3MN ,\'a3LOC);\par
+SS=DT_TSDEC(TS, \'a3SS ,\'a3LOC);\par
+\par
+YMD=frmt("%02d-%02d-%02d",YY,MM,DD);\par
+DMY=frmt("%02d-%02d-%02d",DD,MM,YY);\par
+\par
+HMS=frmt("%02d:%02d:%02d",HH,MN,SS);\par
+\par
+DT=YMD..HMS;\par
+TD=HMS..DMY;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) ReadCfg\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 Conf:   (Config Manifest elemnt)\par
+{\pntext\f2\'B7\tab}doc: \par
+{\pntext\f2\'B7\tab}cf: \par
+{\pntext\f2\'B7\tab}k: \par
+{\pntext\f2\'B7\tab}kn: \par
+{\pntext\f2\'B7\tab}tbl: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+cf=pkgpth++PKG_MNFGET(NULL,\'a3CFG,conf);\par
+\par
+doc=DOC_DOC(\'a3OO,cf);\par
+Doc_opn(doc);\par
+..............................\par
+\b\f1 (EXEC) TV_2_TBL\par
+\pard\li1035 (SET) set\par
+\pard\li1380\b0 ..............................\par
+\f0 DOC=doc;   !!PTR to doc;\par
+TVI="INDICE TABELLE";   !!Nome Tavola;\par
+HEAD=\'a3YES;   !!\'a3YES \'a3NO;\par
+..............................\par
+\pard\li1035\b\f1 (GET) get\par
+\pard\li1380\b0 ..............................\par
+\f0 tblIDX=TBL;\par
+..............................\par
+\pard\li690\b\f1 (WHILE) while\par
+\b0\i  Carica tutte le tabelle dell`indice\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 _COND_: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035\b\f1 (PRE) pre\par
+\pard\li1380\b0 ..............................\par
+\f0 k=0;\par
+kn=tbl_inf(tblIdx,\'a3ROW);\par
+..............................\par
+\pard\li1035 ..............................\par
+_COND_= k+=1 <=kn;\par
+..............................\par
+\b\f1 (DO) do\par
+\pard\li1380 (EXEC) TV_2_TBL\par
+\pard\li1725 (SET) set\par
+\pard\li2070\b0 ..............................\par
+\f0 DOC=doc;   !!PTR to doc;\par
+TVI=TBL_ITM(tblIDX,\'a3TABELLA,k);   !!Nome Tavola;\par
+HEAD=\'a3YES;   !!\'a3YES \'a3NO;\par
+..............................\par
+\pard\li1725\b\f1 (GET) get\par
+\pard\li2070\b0 ..............................\par
+\f0 TBL=TBL;\par
+..............................\par
+\pard\li1380 ..............................\par
+ref(TBL_ITM(tblIDX,\'a3TBL,k))=TBL;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) INIT\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 t: \par
+{\pntext\f2\'B7\tab}dlg: \par
+{\pntext\f2\'B7\tab}n: \par
+{\pntext\f2\'B7\tab}ctIepNrm: 0  (Contatore iep Normali)\par
+{\pntext\f2\'B7\tab}i: \par
+{\pntext\f2\'B7\tab}in: \par
+{\pntext\f2\'B7\tab}docAlr: \par
+{\pntext\f2\'B7\tab}tblAlr: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (LBL) ReadCfg\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li690\f0 doc: \par
+{\pntext\f2\'B7\tab}nr: \par
+{\pntext\f2\'B7\tab}r: \par
+{\pntext\f2\'B7\tab}i: \par
+{\pntext\f2\'B7\tab}in: \par
+{\pntext\f2\'B7\tab}t: \par
+\pard\li690 --------------------------------------------------\par
+\pard\li1035\b\f1 (EXEC) ReadCfg\par
+\pard\li1380 (SET) set\par
+\pard\li1725\b0 ..............................\par
+\f0 Conf=\'a3Config;   !!Config Manifest elemnt;\par
+..............................\par
+\pard\li1380\b\f1 (GET) get\par
+\pard\li1725\b0 ..............................\par
+\f0 doc=doc;\par
+..............................\par
+\pard\li1035 ..............................\par
+trash(doc);\par
+..............................\par
+\pard\li345 ========================================\par
+\pard ================================================================================\par
+\b\f1 (VAR) GPT\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\f0 ept:    (End Point)\par
+{\pntext\f2\'B7\tab}key:   (API KEI)\par
+{\pntext\f2\'B7\tab}hsrv:   (HTTp server)\par
+{\pntext\f2\'B7\tab}org:   (ORGANIZATION ID)\par
+{\pntext\f2\'B7\tab}hdr: \par
+{\pntext\f2\'B7\tab}TFILE: \par
+{\pntext\f2\'B7\tab}TMDL: \par
+\pard --------------------------------------------------\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) INIT\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 EPT:   (End point)\par
+{\pntext\f2\'B7\tab}Key:   (Key)\par
+{\pntext\f2\'B7\tab}ORG: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+hsrv=HTTP_OPN(\'a3HTTPS,ept);\par
+\par
+\par
+hdr="Content-type: application/json"++crlf++\par
+"Authorization: Bearer"..key++crlf;\par
+\par
+ept@\\GPT=ept;\par
+key@\\GPT=key;\par
+org@\\GPT=org;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) PROMPT\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 QRY: \par
+{\pntext\f2\'B7\tab}MAXT: \par
+{\pntext\f2\'B7\tab}TEMP: \par
+{\pntext\f2\'B7\tab}MODEL: \par
+{\pntext\f2\'B7\tab}SUFFIX: \par
+{\pntext\f2\'B7\tab}RPLY: \par
+{\pntext\f2\'B7\tab}TKN:   (Total,Prompt,Completition)\par
+{\pntext\f2\'B7\tab}RES:   (\'a3OK, \'a3ERR)\par
+{\pntext\f2\'B7\tab}INF:   (HTTP res)\par
+{\pntext\f2\'B7\tab}MSG: \{"model": "\'a7MODEL", "prompt": "\'a7PROMPT", "temperature": \'a7TEMP, "max_tokens": \'a7MAXT \'a7SUFFIX \'a7USER\}\par
+{\pntext\f2\'B7\tab}\par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+MODEL=if(~MODEL,MODEL, "text-davinci-003");\par
+\par
+maxt=if(maxt<1,1000,MAXT);\par
+temp=if(temp<1,0,temp);\par
+\par
+qry=SYMB_RPLC(qry,"\\","\\\\");\par
+qry=SYMB_RPLC(qry,crlf,"\\n");\par
+qry=SYMB_RPLC(qry,"""","\\""");\par
+qry=SYMB_RPLC(qry,char(10),"\\n");\par
+qry=SYMB_RPLC(qry,char(15),"\\t");\par
+qry=SYMB_RPLC(qry,char(13),"\\r");\par
+\par
+#if(~SUFFIX);\par
+SUFFIX=SYMB_RPLC(SUFFIX,"\\","\\\\");\par
+SUFFIX=SYMB_RPLC(SUFFIX,crlf,"\\n");\par
+SUFFIX=SYMB_RPLC(SUFFIX,"""","\\""");\par
+SUFFIX=SYMB_RPLC(SUFFIX,char(10),"\\n");\par
+SUFFIX=SYMB_RPLC(SUFFIX,char(15),"\\t");\par
+SUFFIX=SYMB_RPLC(SUFFIX,char(13),"\\r");\par
+#end;\par
+..............................\par
+..............................\par
+\'b0cmd="/v1/completions";\par
+\'b0msg=SYMB_RPLC(msg,"\'a7PROMPT",QRY,NULL,NULL,0);\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7MODEL",MODEL,NULL,NULL,0);\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7MAXT",MAXT,NULL,NULL,0);\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7TEMP",TEMP,NULL,NULL,0);\par
+\par
+#if(~SUFFIX);\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7SUFFIX",","++QUOD(\'a3suffix)++":"..quod(suffix),NULL,NULL,0);\par
+#else;\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7SUFFIX",\'a3,NULL,NULL,0);\par
+#end;\par
+\par
+#if(~ORG);\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7USER",","++QUOD(\'a3user)++":"..quod(org),NULL,NULL,0);\par
+#else;\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7USER",\'a3,NULL,NULL,0);\par
+#end;\par
+\'b0hdr=hdr;\par
+\par
+\'b0rpl=HTTP_POST(hsrv,\'b0cmd,\'a3TEXT,\'a3UTF,\'b0msg,\'a3TEXT,\'a3UTF,NULL,\'b0hdr,\'a3HEADER)->\'b0rhdr;\par
+\par
+#if(~\'b0rhdr);\par
+\par
+INF=SPLT(\'b0rhdr,crlf,\'a3LEFT);\par
+\par
+#if(~\'b0rpl and srch(INF,200));\par
+\par
+\'b0kb1=EXO("\\JSON",TEXT::\'b0rpl, ?kb1);\par
+\'b0tbl=KB1_QRY(\'b0kb1,"TBLATT(\\\\\\.text,'text')");\par
+\par
+\'b0i=0;\par
+\'b0in=tbl_inf(\'b0tbl,\'a3ROW);\par
+rply=\'a3;\par
+#while(\'b0i+=1 <=\'b0in);\par
+rply=rply++Tbl_itm(\'b0tbl,\'a3TEXT,\'b0i);\par
+#end;\par
+\par
+rply=SYMB_RPLC(rply,"\\r\\n",crlf);\par
+rply=SYMB_RPLC(rply,"\\t",char(15));\par
+rply=SYMB_RPLC(rply,"\\r",char(13));\par
+rply=SYMB_RPLC(rply,"\\n",char(10));\par
+\par
+tkn=KB1_QRY(\'b0kb1,"\\Json\\_OBJ_1\\usage.prompt_tokens++','++\\Json\\_OBJ_1\\usage.completion_tokens++','++\\Json\\_OBJ_1\\usage.total_tokens",\'a3TEXT);\par
+\par
+RES=\'a3OK;\par
+trash(\'b0kb1,\'b0tbl);\par
+#else;\par
+RES=\'a3ERR;\par
+#end;\par
+#else;\par
+RES=\'a3ERR;\par
+INF=\'a3TMO;\par
+\par
+#end;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) CHAT\par
+\b0\i  Role: system, user, assistant\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 QRY: \par
+{\pntext\f2\'B7\tab}MAXT: \par
+{\pntext\f2\'B7\tab}TEMP: \par
+{\pntext\f2\'B7\tab}MODEL: \par
+{\pntext\f2\'B7\tab}SUFFIX:   (Ignored)\par
+{\pntext\f2\'B7\tab}RPLY: \par
+{\pntext\f2\'B7\tab}TKN:   (Total;Prompt;Completition)\par
+{\pntext\f2\'B7\tab}RES:   (\'a3OK, \'a3ERR)\par
+{\pntext\f2\'B7\tab}INF:   (HTTP res)\par
+{\pntext\f2\'B7\tab}MSG: \{"model": "\'a7MODEL", "messages": [\'a7PROMPT], "temperature": \'a7TEMP, "max_tokens": \'a7MAXT\}\par
+{\pntext\f2\'B7\tab}\par
+{\pntext\f2\'B7\tab}MSGELM1: \{"role": "\'a7ROLE", "content": "\'a7CONTENT"\}\par
+{\pntext\f2\'B7\tab}\par
+{\pntext\f2\'B7\tab}MSGELM2: \{"role": "\'a7ROLE", "name": "\'a7NAME", "content": "\'a7CONTENT"\}\par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+#if(~MODEL==0);\par
+\'b0MODEL3="gpt-4";\par
+\'b0MODEL4="gpt-4-0314";\par
+\'b0MODEL1="gpt-3.5-turbo";\par
+\'b0MODEL2="gpt-3.5-turbo-0301";\par
+MODEL=\'b0MODEL3;\par
+#end;\par
+\par
+maxt=if(maxt<1,1000,MAXT);\par
+temp=if(temp<1,0,temp);\par
+\par
+\par
+#if(PtrTyp(qry)==\'a3TBL);\par
+\'b0tb=qry;\par
+\'b0Todel=0;\par
+#else;\par
+\'b0Todel=1;\par
+\'b0tb=TBL_NEW(NULL,1,NULL,NULL,"ROLE;CONTENT");\par
+tbl_itm(\'b0tb,\'a3ROLE,1,"user");\par
+tbl_itm(\'b0tb,\'a3CONTENT,1,Qry);\par
+#end;\par
+\par
+\'b0msgElm=\'a3;\par
+\'b0in=tbl_inf(\'b0tb,\'a3ROW);\par
+\'b0i=0;\par
+\par
+#while(\'b0i+=1 <=\'b0in);\par
+\'b0role=tbl_itm(\'b0tb,\'a3ROLE,\'b0i);\par
+QRY=tbl_itm(\'b0tb,\'a3CONTENT,\'b0i);\par
+\par
+qry=SYMB_RPLC(qry,"\\","\\\\");\par
+qry=SYMB_RPLC(qry,crlf,"\\n");\par
+qry=SYMB_RPLC(qry,"""","\\""");\par
+qry=SYMB_RPLC(qry,char(10),"\\n");\par
+qry=SYMB_RPLC(qry,char(15),"\\t");\par
+qry=SYMB_RPLC(qry,char(13),"\\r");\par
+\par
+\'b0elm=MSGELM1;\par
+#if(tbl_inf(\'b0tb,\'a3COL)>2);\par
+\'b0name=tbl_itm(\'b0tb,\'a3NAME,\'b0i);\par
+#if(~\'b0name);\par
+\'b0elm=MSGELM2;\par
+SYMB_RPLC(\'b0elm,"\'a7NAME",\'b0name,NULL,NULL,0);\par
+#end;\par
+#end;\par
+\par
+\'b0elm=SYMB_RPLC(\'b0elm,"\'a7ROLE",\'b0role,NULL,NULL,0);\par
+\'b0elm=SYMB_RPLC(\'b0elm,"\'a7CONTENT",qry,NULL,NULL,0);\par
+\'b0msgElm=\'b0msgElm++if(~\'b0msgElm,",",\'a3)++\'b0elm;\par
+#end;\par
+\par
+#if(\'b0Todel);trash(\'b0tb);#end;\par
+\par
+QRY=\'b0msgElm;\par
+..............................\par
+..............................\par
+\'b0cmd="/v1/chat/completions";\par
+\'b0msg=SYMB_RPLC(msg,"\'a7PROMPT",QRY,NULL,NULL,0);\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7MODEL",MODEL,NULL,NULL,0);\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7MAXT",MAXT,NULL,NULL,0);\par
+\'b0msg=SYMB_RPLC(\'b0msg,"\'a7TEMP",TEMP,NULL,NULL,0);\par
+\par
+\'b0hdr=hdr;\par
+\par
+\'b0rpl=HTTP_POST(hsrv,\'b0cmd,\'a3TEXT,\'a3UTF,\'b0msg,\'a3TEXT,\'a3UTF,NULL,\'b0hdr,\'a3HEADER)->\'b0rhdr;\par
+\par
+chatput(\'a3MSG++crlf..\'b0msg++crlf++\'b0rpl..crlf..\'b0rhdr++crlf);\par
+\par
+#if(~\'b0rhdr);\par
+\par
+INF=SPLT(\'b0rhdr,crlf,\'a3LEFT);\par
+\par
+#if(~\'b0rpl and srch(INF,200));\par
+\par
+\'b0kb1=EXO("\\JSON",TEXT::\'b0rpl, ?kb1);\par
+\'b0tbl=KB1_QRY(\'b0kb1,"TBLATT(\\\\\\.role,'role;content')");\par
+\par
+\'b0i=0;\par
+\'b0in=tbl_inf(\'b0tbl,\'a3ROW);\par
+rply=\'a3;\par
+#while(\'b0i+=1 <=\'b0in);\par
+rply=rply++Tbl_itm(\'b0tbl,\'a3CONTENT,\'b0i);\par
+#end;\par
+\par
+rply=SYMB_RPLC(rply,"\\r\\n",crlf);\par
+rply=SYMB_RPLC(rply,"\\t",char(15));\par
+rply=SYMB_RPLC(rply,"\\r",char(13));\par
+rply=SYMB_RPLC(rply,"\\n",char(10));\par
+\par
+tkn=KB1_QRY(\'b0kb1,"\\Json\\_OBJ_1\\usage.prompt_tokens++','++\\Json\\_OBJ_1\\usage.completion_tokens++','++\\Json\\_OBJ_1\\usage.total_tokens",\'a3TEXT);\par
+\par
+RES=\'a3OK;\par
+trash(\'b0kb1,\'b0tbl);\par
+#else;\par
+RES=\'a3ERR;\par
+#end;\par
+#else;\par
+RES=\'a3ERR;\par
+INF=\'a3TMO;\par
+\par
+#end;\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) MODEL\par
+\b0\i  Returnm a tbl with  available models (ID column)\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 RPLY: \par
+{\pntext\f2\'B7\tab}TKN:   (Total,Prompt,Completition)\par
+{\pntext\f2\'B7\tab}RES:   (\'a3OK, \'a3ERR)\par
+{\pntext\f2\'B7\tab}INF:   (HTTP res)\par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+\'b0cmd="/v1/models";\par
+\par
+\'b0hdr=hdr;\par
+\par
+\'b0rpl=HTTP_GET(hsrv,\'b0cmd,\'a3TEXT,\'a3UTF,NULL,\'b0hdr,\'a3HEADER)->\'b0rhdr;\par
+\par
+!!chatput(\'a3MODELS..\'b0rpl);\par
+\par
+#if(~\'b0rhdr);\par
+\par
+INF=SPLT(\'b0rhdr,crlf,\'a3LEFT);\par
+\par
+#if(~\'b0rpl and srch(INF,200));\par
+\par
+\'b0kb1=EXO("\\JSON",TEXT::\'b0rpl, ?kb1);\par
+\par
+\'b0tbl=KB1_QRY(\'b0kb1,"tblatt(\\JSON\\_OBJ_1\\data\\,'id')");\par
+\par
+rply=\'b0tbl;\par
+trash(\'b0kb1);\par
+#else;\par
+RES=\'a3ERR;\par
+#end;\par
+#else;\par
+RES=\'a3ERR;\par
+INF=\'a3TMO;\par
+\par
+#end;\par
+..............................\par
+\pard\li345 ========================================\par
+\pard ================================================================================\par
+\b\f1 (VAR) AI_CORE\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\f0 tblCht:   (TBL chat)\par
+{\pntext\f2\'B7\tab}maxCht: 20  (max tblCht elem)\par
+\pard --------------------------------------------------\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) INIT\par
+\pard\li690\b0 ..............................\par
+\f0 tblCht=TBL_NEW(NULL,0,NULL,NULL,"ROLE;CONTENT");\par
+..............................\par
+\pard\li345 ========================================\par
+\b\f1 (MTHD) QRY\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 qry: \par
+{\pntext\f2\'B7\tab}MAXT: \par
+{\pntext\f2\'B7\tab}MODEL: \par
+{\pntext\f2\'B7\tab}RPLY: \par
+{\pntext\f2\'B7\tab}RES: \par
+{\pntext\f2\'B7\tab}Stop:   (messo a 1 se funzione completata)\par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+\'b0in=tbl_inf(tblCht,\'a3ROW);\par
+#while(\'b0in>maxCht);\par
+tbl_chg(tblCht,NULL,\'a3DEL);\par
+#end;\par
+\par
+\'b0in=TBL_CHG(tblCht,NULL,\'a3ADD,\'a3ROW);\par
+\par
+\'b0t="actual date and time are:"..DT_TSDEC(CLOCK,\'a3ALL);\par
+TBl_ITM(tblCht,\'a3ROLE,1,"system");\par
+TBl_ITM(tblCht,\'a3CONTENT,1,\'b0t);\par
+\par
+#if(\'b0in==1);\par
+\'b0in=TBL_CHG(tblCht,NULL,\'a3ADD,\'a3ROW);\par
+#end;\par
+\par
+TBl_ITM(tblCht,\'a3ROLE,\'b0in,"user");\par
+TBl_ITM(tblCht,\'a3CONTENT,\'b0in,qry);\par
+\par
+rply=EXO("\\GPT\\CHAT",QRY::tblCht,MAXT::MAXT,MODEL::MODEL,?rply,?res)->res;\par
+\par
+#if(res==\'a3OK);\par
+\'b0in=tbl_chg(tblCht,NULL,\'a3ADD,\'a3ROW);\par
+TBl_ITM(tblCht,\'a3ROLE,\'b0in,"assistant");\par
+TBl_ITM(tblCht,\'a3CONTENT,\'b0in,rply);\par
+#else;\par
+tbl_chg(tblCht,NULL,\'a3DEL++\'b0in);\par
+#end;\par
+..............................\par
+\pard\li345 ========================================\par
+\pard ================================================================================\par
+\b\f1 (EXO) Main\par
+\b0\i  Entry point you can change by editing EXO@\\pwk\\EXECUTOR\par
+\i0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\f0 PORT_DBG: 4704  (ISP port)\par
+{\pntext\f2\'B7\tab}runflg: \par
+{\pntext\f2\'B7\tab}vctDat: \par
+{\pntext\f2\'B7\tab}FILTRO: \par
+{\pntext\f2\'B7\tab}KbC:   (KB credential)\par
+{\pntext\f2\'B7\tab}EPT: \par
+{\pntext\f2\'B7\tab}KEY: \par
+{\pntext\f2\'B7\tab}ORG: \par
+{\pntext\f2\'B7\tab}MODEL:   (TBL modelli)\par
+\pard --------------------------------------------------\par
+\pard\li345 ..............................\par
+runflg=1;\par
+KBC=KB1_OPN("MyGPT.kb1");\par
+..............................\par
+\b\f1 (THREAD) \\DEB_NetLoader\\Launch\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 _PAR_:   (SYNC ONCE ONCE_FOR_CALLER)\par
+{\pntext\f2\'B7\tab}_RSLT_:   (For ONCExx the name of the symbol where to put the result -1=failToStart 0=starting 1=start. ONCE_FOR_CALLER is syncronous)\par
+\pard\li345 --------------------------------------------------\par
+\pard\li690\b\f1 (SET) set\par
+\pard\li1035\b0 ..............................\par
+\f0 port=PORT_DBG;\par
+..............................\par
+\pard\li345 ..............................\par
+EPT=KB1_QRY(KBC,"\\OAI\\EPT",\'a3TEXT);\par
+KEY=KB1_QRY(KBC,"\\OAI\\KEY",\'a3TEXT);\par
+ORG=KB1_QRY(KBC,"\\OAI\\ORG",\'a3TEXT);\par
+..............................\par
+\b\f1 (IF) if\par
+\b0 --------------------------------------------------\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\li345\f0 _COND_: \par
+\pard\li345 --------------------------------------------------\par
+\pard\li690 ..............................\par
+_COND_= ~KEY==0 or ~EPT==0 ;\par
+..............................\par
+\b\f1 (THEN) then\par
+\pard\li1035 (EXEC) \\CRD\\Starter\par
+\pard\li1380 (SET) set\par
+\pard\li1725\b0 ..............................\par
+\f0 mode=\'a3EXEC;   !!EXEC,THREAD;\par
+par_nId=\'a3;\par
+par_Gui=\'a3;\par
+..............................\par
+\pard\li345\b\f1 (EXEC) \\CONFIG\\INIT\par
+(EXEC) \\GPT\\INIT\par
+\pard\li690 (SET) set\par
+\pard\li1035\b0 ..............................\par
+\f0 EPT=EPT;   !!End point;\par
+Key=KEY;   !!Key;\par
+ORG=ORG;\par
+..............................\par
+\pard\li345\b\f1 (EXEC) \\GPT\\MODEL\par
+\pard\li690 (GET) get\par
+\pard\li1035\b0 ..............................\par
+\f0 MODEL=RPLY;\par
+!!=RES;   !!\'a3OK, \'a3ERR;\par
+!!=INF;   !!HTTP res;\par
+..............................\par
+\pard\li345\b\f1 (EXEC) \\AI_CORE\\INIT\par
+(EXEC) \\MG\\Starter\par
+\pard\li690 (SET) set\par
+\pard\li1035\b0 ..............................\par
+\f0 mode=\'a3EXEC;   !!EXEC,THREAD;\par
+par_nId=\'a3;\par
+par_Gui=\'a3;\par
+..............................\par
+\pard ================================================================================\par
+\par
+}
+ 
