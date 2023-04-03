@@ -1,2 +1,2 @@
-![GPTx+POWER-KI!](GPT+PWK.png "")
+![!](GPT+PWK.png "")
 # GPT
