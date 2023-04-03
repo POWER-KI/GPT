@@ -1,4 +1,4 @@
-#GPT-DEMO-01
+# GPT-DEMO-01
 This program is a very basic implementation of the GPT chat, the use is simple, it is required a KEY that you can get from openai site.
 
 <figure>
@@ -20,10 +20,7 @@ This program is a very basic implementation of the GPT chat, the use is simple, 
 GET the program:
 <a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-01/GPT-DEMO-01.pwk"> GPT-DEMO-01.pwk</a>
 
-##Plain text code
+## Plain text code
 
-<code>
+[link](DEMO-01.pdf)
 
-[link](DEMO-01.rtf)
-
-</code>
