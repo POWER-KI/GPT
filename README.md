@@ -9,4 +9,4 @@ If, on the other hand, you want to examine the code to study or modify it, insta
 
 ## DEMO
 
-*  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-01"> DEMO-01: simple GPT chat </a>
+*  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-01"> DEMO-01 </a>  simple GPT chat
