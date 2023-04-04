@@ -22,7 +22,9 @@ This program is a very basic implementation of the GPT chat, the use is simple, 
 <b>
 <a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-01/GPT-DEMO-01.pwk"> GPT-DEMO-01.pwk</a>
 </b>
-NOTE. Credential are stored on YOUR computer only.
+
+## NOTE. 
+Credential are stored on YOUR computer only.
 
 ## Plain text code
 
