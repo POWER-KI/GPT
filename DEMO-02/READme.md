@@ -1,7 +1,10 @@
 # GPT-DEMO-02
-This is  a  FREE program software demonstrating how by combining programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. With it you can create a local database on your computer of .pdf or .txt documents which you can query with the mediation of GPT.
+This is  a  FREE program software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. With it you can create a local database on your computer of .pdf or .txt documents which you can query with the mediation of GPT.
+It is supplied in Open Source executable to allow interested parties to study it.
 
-Privacy
+
+<b>Privacy</b>
+
 All information is kept on your computer, documents for embedding are sent in fragments to openAi, and also part of the content for creating responses.
 
 ## DESCRIPTION
