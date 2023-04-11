@@ -7,7 +7,7 @@ For their execution the <a href="https://github.com/POWER-KI/POWER-KI/raw/master
 
 If, on the other hand, you want to examine the code to study or modify it, install the  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
 
-If you need <b>powerful CUSTOM applications</b> please contact <a href="http://xplab.net/CONTACTS_EN.html"> XPLAB</a>.
+These are just demos, but if you need <b>powerful CUSTOM applications</b>, you can contact us <a href="http://xplab.net/CONTACTS_EN.html"> XPLAB</a>.
 
 ## DEMO
 
