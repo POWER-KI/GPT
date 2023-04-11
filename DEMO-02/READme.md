@@ -20,6 +20,7 @@ a box where the replies and the history of the chat are displayed;
 * a box for entering questions;
 * the buttons area;
 * the information zone.
+
 The right side of the page displays the documents (Pdf, txt)  which you have uploaded to your database (that is local on your PC), and the button to carry out these uploads.
 
 </br>
