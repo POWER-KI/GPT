@@ -22,3 +22,5 @@ These are just demos, but if you need <b>powerful CUSTOM applications</b>, you c
 <a href="http://www.xplab.net"> XPLAB site</a> 
 
 (C) 2023 XPLAB - Research in Automation - Brescia -ITALY
+
+(C) 2010-2023 POWER-KI(R) by XPLAB
