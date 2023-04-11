@@ -14,7 +14,7 @@ When starting the program, if it has not already been entered, the OpenAi KEY is
 </figure>
 
 Once this operation has been carried out, you access the main page of the application whose main elements are:
-a box where the replies and the history of the chat are displayed;
+* a box where the replies and the history of the chat are displayed;
 * the settings area (see below);
 * a box to enter directives for GPT;
 * a box for entering questions;
