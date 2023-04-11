@@ -20,3 +20,5 @@ If you need <b>powerful CUSTOM applications</b> please contact <a href="http://x
 <a href="http://www.power-ki.com"> POWER-KI official site</a> 
 
 <a href="http://www.xplab.net"> XPLAB site</a> 
+
+(C) 2023 XPLAB - Research in Automation - Brescia -ITALY
