@@ -3,9 +3,8 @@ This is  a  FREE program software demonstrating how by combining POWER-KI progra
 It is supplied in Open Source executable to allow interested parties to study it.
 
 
-<b>Privacy</b>
-
-All information is kept on your computer, documents for embedding are sent in fragments to openAi, and also part of the content for creating responses.
+## Privacy
+All information Credential, Documents Data Base are stored on your computer; for embedding documents are sent in fragments to openAi, and also part of the content for creating responses.
 
 ## DESCRIPTION
 When starting the program, if it has not already been entered, the OpenAi KEY is requested. In this case, a button allows you to access the OpenAi web page where you can register, the key thus obtained can be inserted in the program page, and will be kept on your computer for subsequent accesses.
@@ -44,10 +43,6 @@ The right side of the page displays the documents (Pdf, txt)  which you have upl
 Do not forget .. 
  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> must be installed 
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
-
-
-## NOTE. 
-Credential and DataBase are stored on YOUR computer only.
 
 ## Plain text code
 
