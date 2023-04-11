@@ -47,7 +47,7 @@ Do not forget ..
 
 
 ## NOTE. 
-Credential are stored on YOUR computer only.
+Credential and DataBase are stored on YOUR computer only.
 
 ## Plain text code
 
