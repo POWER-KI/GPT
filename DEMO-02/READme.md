@@ -2,7 +2,6 @@
 This is  a  FREE program software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. With it you can create a local database on your computer of .pdf or .txt documents which you can query with the mediation of GPT.
 It is supplied in Open Source executable to allow interested parties to study it.
 
-
 ## Privacy
 All information Credential, Documents Data Base are stored on your computer; for embedding documents are sent in fragments to openAi, and also part of the content for creating responses.
 
@@ -24,8 +23,6 @@ Once this operation has been carried out, you access the main page of the applic
 * the information zone.
 
 The right side of the page displays the documents (Pdf, txt)  which you have uploaded to your database (that is local on your PC), and the button to carry out these uploads.
-
-</br>
 </br>
 
 <figure>
@@ -33,7 +30,6 @@ The right side of the page displays the documents (Pdf, txt)  which you have upl
          alt="chat page">
     <figcaption>The chat page with the list of your documents</figcaption>
 </figure>
-
 
 # GET the program:
 <b>
@@ -45,7 +41,6 @@ Do not forget ..
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
 
 ## Plain text code
-
 [Plain Code list](DEMO-02.pdf)
 
 ## Remarks
@@ -53,4 +48,3 @@ XPLAB gives no guarantee as to its functioning, its reliability and the validity
 It is supplied in Open Source executable to allow interested parties to study it.
 The production of derivative software is prohibited.
 This package contains XPLAB non-production software created and copyrighted (1996-2021) by Glyph & Cog, LLC, distributed in executable form as directed by them.
-
