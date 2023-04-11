@@ -1,6 +1,6 @@
 ![image](GPT+PWK.png )
 # GPT
-POWER-KI is the perfect complement to create intelligent applications that make use of GPT technologies.
+<a href="http://www.power-ki.com>POWER-KI</a> is the perfect complement to create intelligent applications that make use of GPT technologies.
 in this repository we will publish some examples that can be freely downloaded.
 
 For their execution the <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> must be installed. 
