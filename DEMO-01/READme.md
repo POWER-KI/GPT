@@ -1,4 +1,4 @@
-# GPT-DEMO-01
+# GPT-DEMO-01-CHAT
 This program is a very basic implementation of the GPT chat, the use is simple, a KEY that you can get from openai site is required.
 
 <figure>
