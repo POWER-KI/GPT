@@ -36,8 +36,8 @@ Download and install (if not already done) the latest..
  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> 
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
 </br>
-Then Download the PWK executable <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> GPT-DEMO-02-PDF.pwk</a>
-</b>
+Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> Download the PWK executable GPT-DEMO-02-PDF.pwk</a>
+</b>(to execute just click on).
 
 
 ## Plain text code
