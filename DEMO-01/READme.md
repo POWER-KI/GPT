@@ -17,16 +17,13 @@ This program is a very basic implementation of the GPT chat, the use is simple, 
     <figcaption>The chat page</figcaption>
 </figure>
 
-
 # GET the program:
-<b>
-<a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-01/GPT-DEMO-01.pwk"> GPT-DEMO-01.pwk</a>
-</b>
-</br>
-Do not forget .. 
- <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> must be installed 
+Download and install (if not already done) the latest.. 
+ <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> 
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
-
+</br>
+Then Download the PWK executable <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-01/GPT-DEMO-01.pwk"> GPT-DEMO-01.pwk</a>
+</b>(to execute just click on).
 
 ## NOTE. 
 Credential are stored on YOUR computer only.
