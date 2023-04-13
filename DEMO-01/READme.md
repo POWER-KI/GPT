@@ -29,7 +29,7 @@ Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-01/GPT-DEMO-01.pw
 Credential are stored on YOUR computer only.
 
 ## Plain text code
-[Code list](DEMO-01.pdf)
+[Plain Code list](DEMO-01.pdf)
 
 ## Remarks
 XPLAB gives no guarantee as to its functioning, its reliability and the validity of the results and answers it can provide.
