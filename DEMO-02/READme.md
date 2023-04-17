@@ -49,7 +49,10 @@ Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PD
 This program in perfect POWER-KI style is complete, meaning it doesn't have the boring dependencies typical of other systems. Being a demo it has some limitations but since it is provided in executable source form, it can be studied and modified.
 The application parts specific to GPT are:
 - (VAR) GPT: interfacing with OpenAi API;
-- (VAR) AI_DB: management of the Vector-fragment Database.
+- (VAR) AI_DB: management of the Vector-fragment Database 
+
+Uploaded documents (.pdt, .txt) are saved in GPT_PDF.DB and GPT_PDF.VCT
+
 
 ## Plain text code
 [Plain Code list](DEMO-02.pdf)
