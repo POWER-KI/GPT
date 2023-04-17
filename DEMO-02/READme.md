@@ -46,7 +46,7 @@ Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PD
          alt="PKG in WorkBech">    
 </figure>
 
-This program in perfect POWER-KI style is complete, meaning it doesn't have the boring dependencies typical of other systems. Being a demo it has some limitations but since it is provided in executable source form, it can be studied and modified.
+This program in perfect POWER-KI style is complete, meaning it doesn't have the boring dependencies typical of other systems. Being a demo it has some limitations but since it is provided in executable source form, can be studied and modified.
 
 The application parts specific to GPT are:
 - (VAR) GPT: interfacing with OpenAi API;
