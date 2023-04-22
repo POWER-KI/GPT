@@ -51,8 +51,8 @@ This program in perfect POWER-KI style is complete, meaning it doesn't have the 
 
 The application parts specific to GPT are:
 - (VAR) GPT:    interfacing with OpenAi API;
-- (VAR) AI_DB:  management of the Vector-fragment Database 
-- (VAR) AI_CORE:execution of queries 
+- (VAR) AI_DB:  management of the Vector-fragment Database; 
+- (VAR) AI_CORE: execution of queries to GPT. 
 
 Uploaded documents (.pdt, .txt) are saved in GPT_PDF.DB and GPT_PDF.VCT
 
