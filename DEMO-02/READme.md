@@ -62,5 +62,4 @@ Uploaded documents (.pdt, .txt) are saved in GPT_PDF.DB and GPT_PDF.VCT
 ## Remarks
 XPLAB gives no guarantee as to its functioning, its reliability and the validity of the results and answers it can provide.
 It is supplied in Open Source executable to allow interested parties to study it.
-The production of derivative software is prohibited.
 This package contains XPLAB non-production software created and copyrighted (1996-2021) by Glyph & Cog, LLC, distributed in executable form as directed by them.
