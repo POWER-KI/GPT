@@ -37,7 +37,7 @@ Download and install (if not already done) the latest <b>(build 35.14 or above)<
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
 </br>
 Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> Download the PWK executable GPT-DEMO-02-PDF.pwk</a>
-</b>(to execute just click on).
+</b>(after the download, to execute just click on).
 (last update : 27/04/23)
 
 
