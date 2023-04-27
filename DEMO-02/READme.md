@@ -38,7 +38,7 @@ Download and install (if not already done) the latest <b>(build 35.14 or above)<
 </br>
 Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> Download the PWK executable GPT-DEMO-02-PDF.pwk</a>
 </b>(to execute just click on).
-(last update : 17/04/23)
+(last update : 27/04/23)
 
 
 # Notes for programmers
