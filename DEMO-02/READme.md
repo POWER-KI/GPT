@@ -32,7 +32,7 @@ The right side of the page displays the documents (Pdf, txt)  which you have upl
 </figure>
 
 # GET the program:
-Download and install (if not already done) the latest.. 
+Download and install (if not already done) the latest <b>(build 35.14 or above)</b> 
  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> 
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
 </br>
