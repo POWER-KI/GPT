@@ -1,5 +1,5 @@
 # GPT-DEMO-02 V2 
-This is  a  FREE program software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. With it you can create a local database on your computer of .pdf or .txt documents which you can query with the mediation of GPT.
+This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. With it you can create a local database on your computer of .pdf or .txt documents which you can query with the mediation of GPT.
 It is supplied in Open Source executable to allow interested parties to study it.
 
 <b>This is an upgrade of the previous version, faster embedding, new look, require PWK build 35.19 or upper. </b>
