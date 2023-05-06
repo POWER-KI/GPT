@@ -1,5 +1,5 @@
 # GPT-DEMO-03: DEBATE
-A DEBATE is a structured, formal discussion between opposing sides on a specific topic, where each side presents arguments and evidence to support their viewpoint. This software allows the comparison between two teams with different opinions using the capabilities of OpenAI models.Each TEAM also has the option to upload .pdf or .txt documents in support of their position.
+A DEBATE is a structured, formal discussion between opposing sides on a specific topic, where each side presents arguments and evidence to support their viewpoint. This software allows the comparison between two teams with different opinions, using the capabilities of OpenAI models. Each TEAM also has the option to upload .pdf or .txt documents in support of their position.
 
 This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. 
 
@@ -8,7 +8,7 @@ It is supplied in Open Source executable to allow interested parties to study it
 ## Privacy
 All information Credential, Documents Data Base are stored on your computer; for embedding documents are sent in fragments to openAi, and also part of the content for creating responses.
 
-## DESCRIPTION
+## USE
 When starting the program, if it has not already been entered, the OpenAi KEY is requested. In this case, a button allows you to access the OpenAi web page where you can register, the key thus obtained can be inserted in the program page, and will be kept on your computer for subsequent accesses.
 
 <figure>
