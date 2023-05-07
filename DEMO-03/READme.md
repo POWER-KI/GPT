@@ -1,6 +1,19 @@
 # GPT-DEMO-03: DEBATE
 <i><b>A DEBATE is a structured, formal discussion between opposing sides on a specific topic, where each side presents arguments and evidence to support their viewpoint. This software allows the comparison between two teams with different opinions, using the capabilities of OpenAI models. Each TEAM also has the option to upload .pdf or .txt documents in support of their position.</b></i>
 
+Examples of debate:
+- Topic: Which came first, the egg or the chicken?
+- TEAM A: Definitely the egg.
+- TEAM B: Without the chicken, there's no egg.
+
+Or less trivial:
+- Topic: Is artificial intelligence dangerous?
+- TEAM A: Yes, it can dominate the world.
+- TEAM B: No, it's just a tool that will help the progress of humanity.
+
+This tool also allows you to compare the different opinions available on the internet, or if we move to a personal level, it helps to clarify one's thoughts in the presence of a dilemma
+
+----
 This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. 
 
 It is supplied in Open Source executable to allow interested parties to study it.
