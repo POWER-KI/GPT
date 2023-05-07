@@ -79,5 +79,5 @@ This package contains XPLAB non-production software created and copyrighted (199
 <a href="http://www.power-ki.com"> POWER-KI official site</a></br> 
 <a href="http://www.xplab.net"> XPLAB site</a> 
 
-(C) 2023 XPLAB - Research in Automation - Brescia -ITALY
+(C) 2023 XPLAB - Research in Automation - Brescia -ITALY</br> 
 (C) 2010-2023 POWER-KI(R) by XPLAB
