@@ -14,7 +14,8 @@ Or less trivial:
 This tool also you to compare the different opinions available on the internet, or if we move to a personal level, it helps to clarify one's thoughts in the presence of a dilemma. If used as an educational tool, it allows students to research facts and build documents to support their thesis, then checking how the debate evolves. 
 In addition to all this, but no less important, it helps to better understand how GPT works.
 
-(Last update 07/05/23 - 11:51)
+(Last update 07/05/23 - 11:51 : More accurate prompt)
+
 ----
 This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. 
 
