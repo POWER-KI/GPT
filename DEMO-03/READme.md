@@ -45,7 +45,8 @@ Once this operation has been carried out, you access the main page
 Download and install (if not already done) the latest <b>(build 35.20 or above)</b> 
  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> 
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
-</br>
+
+
 Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-03/GPT-DEMO-03-DEBATE.pwk"> Download the PWK executable GPT-DEMO-03-DEBATE.pwk</a>
 
 </b>(after the download, to execute just click on).
