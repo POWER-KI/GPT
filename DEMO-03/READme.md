@@ -20,6 +20,8 @@ This is  a  FREE software demonstrating how by combining POWER-KI programming la
 
 It is supplied in Open Source executable to allow interested parties to study it.
 
+<a href=" https://github.com/POWER-KI/GPT" download> Our GPT DEMO page</a> 
+
 ## Privacy
 All information Credential, Documents Data Base are stored on your computer; for embedding documents are sent in fragments to openAi, and also part of the content for creating responses.
 
