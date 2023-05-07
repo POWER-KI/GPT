@@ -14,7 +14,6 @@ Or less trivial:
 - TEAM A: Yes, it can dominate the world.
 - TEAM B: No, it's just a tool that will help the progress of humanity.
 
-(Last update 07/05/23 - 11:51 : More accurate prompt)
 
 ----
 This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. 
@@ -51,6 +50,7 @@ Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-03/GPT-DEMO-03-DE
 
 </b>(after the download, to execute just click on).
 
+(Last update 07/05/23 - 11:51 : More accurate prompt)
 
 # Notes for programmers
 <figure>
