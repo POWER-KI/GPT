@@ -1,6 +1,9 @@
 # GPT-DEMO-03: DEBATE
 <i><b>A DEBATE is a structured, formal discussion between opposing sides on a specific topic, where each side presents arguments and evidence to support their viewpoint. This software allows the comparison between two teams with different opinions, using the capabilities of OpenAI models. Each TEAM also has the option to upload .pdf or .txt documents in support of their position.</b></i>
 
+This tool also you to compare the different opinions available on the internet, or if we move to a personal level, it helps to clarify one's thoughts in the presence of a dilemma. If used as an educational tool, it allows students to research facts and build documents to support their thesis, then checking how the debate evolves. 
+In addition to all this, but no less important, it helps to better understand how GPT works.
+
 Examples of debate:
 - Topic: Which came first, the egg or the chicken?
 - TEAM A: Definitely the egg.
@@ -10,9 +13,6 @@ Or less trivial:
 - Topic: Is artificial intelligence dangerous?
 - TEAM A: Yes, it can dominate the world.
 - TEAM B: No, it's just a tool that will help the progress of humanity.
-
-This tool also you to compare the different opinions available on the internet, or if we move to a personal level, it helps to clarify one's thoughts in the presence of a dilemma. If used as an educational tool, it allows students to research facts and build documents to support their thesis, then checking how the debate evolves. 
-In addition to all this, but no less important, it helps to better understand how GPT works.
 
 (Last update 07/05/23 - 11:51 : More accurate prompt)
 
