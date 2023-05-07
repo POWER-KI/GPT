@@ -75,8 +75,8 @@ It is supplied in Open Source executable to allow interested parties to study it
 This package contains XPLAB non-production software created and copyrighted (1996-2021) by Glyph & Cog, LLC, distributed in executable form as directed by them.
 
 ## ABOUT
-<a href="https://github.com/POWER-KI"> POWER-KI on GitHub</a> 
-<a href="http://www.power-ki.com"> POWER-KI official site</a> 
+<a href="https://github.com/POWER-KI"> POWER-KI on GitHub</a></br> 
+<a href="http://www.power-ki.com"> POWER-KI official site</a></br> 
 <a href="http://www.xplab.net"> XPLAB site</a> 
 
 (C) 2023 XPLAB - Research in Automation - Brescia -ITALY
