@@ -1,8 +1,14 @@
 # GPT-DEMO-02 V2 
-This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. With it you can create a local database on your computer of .pdf or .txt documents which you can query with the mediation of GPT.
+With this software, you can create a knowledge base of your documents (.pdf, .txt) on your PC, which you can query using GPT. Manuals, user guides, and notes become a source of information for answers to your questions.
+
+<b>This is an upgrade of the previous version, faster embedding, new look, require PWK build 35.20 or upper. </b>
+
+----
+This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. 
+
 It is supplied in Open Source executable to allow interested parties to study it.
 
-<b>This is an upgrade of the previous version, faster embedding, new look, require PWK build 35.19 or upper. </b>
+See other demo in our<a href="https://github.com/POWER-KI/GPT"> GPT DEMO page</a>. 
 
 ## Privacy
 All information Credential, Documents Data Base are stored on your computer; for embedding documents are sent in fragments to openAi, and also part of the content for creating responses.
@@ -34,7 +40,7 @@ The right side of the page displays the documents (Pdf, txt)  which you have upl
 </figure>
 
 # GET the program:
-Download and install (if not already done) the latest <b>(build 35.19 or above)</b> 
+Download and install (if not already done) the latest <b>(build 35.20 or above)</b> 
  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> 
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
 </br>
