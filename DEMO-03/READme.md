@@ -52,7 +52,7 @@ Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-03/GPT-DEMO-03-DE
 
 </b>(after the download, to execute just click on).
 
-(Last update 07/05/23 - 11:51 : More accurate prompt)
+(Last update 08/05/23 - 15:39 : More accurate prompt)
 
 # Notes for programmers
 <figure>
