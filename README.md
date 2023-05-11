@@ -13,14 +13,14 @@ These are just demos, but if you need <b>powerful CUSTOM applications</b>, you c
     <img src="CalcGPT.png" width="60%">    
 </figure>
 
-<b>NOTE: DEMO-02 and DEMO-03 are now enclosed in POWER-KI distributions DEV and EXEC</b>
+<b>NOTE: DEMO-02 and DEMO-03 are now enclosed in POWER-KI distributions DEV and EXEC and can be executed from Calcolatrice</b>
 
 
 
 ## DEMO
 
 *  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-01"> DEMO-01 </a>  simple GPT chat
-*  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-02"> DEMO-02 </a>  query your database of .pdf, .txt documents with GPT  (updated 03/05/23)
+*  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-02"> DEMO-02 </a>  query your database of .pdf, .txt documents with GPT 
 *  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-03"> DEMO-03 </a>  DEBATE "Which came first, the egg or the chicken?"
 
 ## ABOUT
