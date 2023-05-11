@@ -40,14 +40,15 @@ The right side of the page displays the documents (Pdf, txt)  which you have upl
 </figure>
 
 # GET the program:
-Download and install (if not already done) the latest <b>(build 35.20 or above)</b> 
+Starting from Build 35.23, the app is included in the DEV and EXEC distributions. To run it, launch the "Calcolatrice" application from your desktop.
+ 
  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> 
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
 </br>
-Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> Download the PWK executable GPT-DEMO-02-PDF.pwk</a>
 
-</b>(after the download, to execute just click on).
-(last update : 03/05/23)
+<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> To download the single GPT-DEMO-02-PDF.pwk executable</a>
+
+(last update : 12/05/23)
 
 
 # Notes for programmers

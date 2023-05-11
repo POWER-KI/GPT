@@ -9,6 +9,14 @@ If, on the other hand, you want to examine the code to study or modify it, insta
 
 These are just demos, but if you need <b>powerful CUSTOM applications</b>, you can contact us <a href="http://xplab.net/CONTACTS_EN.html"> XPLAB</a>.
 
+<figure>
+    <img src="CalcGPT.png" width="60%">    
+</figure>
+
+<b>NOTE: DEMO-02 and DEMO-03 are now enclosed in POWER-KI distributions DEV and EXEC</b>
+
+
+
 ## DEMO
 
 *  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-01"> DEMO-01 </a>  simple GPT chat

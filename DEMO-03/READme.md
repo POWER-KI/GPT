@@ -43,16 +43,15 @@ Once this operation has been carried out, you access the main page
 </figure>
 
 # GET the program:
-Download and install (if not already done) the latest <b>(build 35.20 or above)</b> 
+Starting from Build 35.23, the app is included in the DEV and EXEC distributions. To run it, launch the "Calcolatrice" application from your desktop.
+ 
  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> 
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
 
+<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-03/GPT-DEMO-03-DEBATE.pwk"> To download the single GPT-DEMO-03-DEBATE.pwk executable</a>
 
-Then <b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-03/GPT-DEMO-03-DEBATE.pwk"> Download the PWK executable GPT-DEMO-03-DEBATE.pwk</a>
+(last update : 12/05/23)
 
-</b>(after the download, to execute just click on).
-
-(Last update 08/05/23 - 15:39 : More accurate prompt)
 
 # Notes for programmers
 <figure>
