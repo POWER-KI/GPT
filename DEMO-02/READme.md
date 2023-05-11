@@ -45,7 +45,8 @@ Starting from Build 35.23, the app is included in
  or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>. To run it, launch the "Calcolatrice" application from your desktop.
 </br>
 
-<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> To download the single GPT-DEMO-02-PDF.pwk executable</a>
+
+The download the single<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> GPT-DEMO-02-PDF.pwk executable</a>
 
 (last update : 12/05/23)
 
