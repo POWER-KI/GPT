@@ -43,12 +43,17 @@ Once this operation has been carried out, you access the main page
 </figure>
 
 # GET the program:
-Starting from Build 35.23, the app is included in 
+Starting from Build 35.23, this app is included in 
  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> 
- or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>. To run it, launch the "Calcolatrice" application from your desktop.
+ or  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.</br>
+ To run it, launch the "Calcolatrice" application from your desktop.
 </br>
 
-The download of the single<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-03/GPT-DEMO-03-DEBATE.pwk"> GPT-DEMO-03-DEBATE.pwk executable</a>
+<figure>
+    <img src="https://github.com/POWER-KI/GPT/blob/main/CalcICO.png?raw=true" width="10%" >    
+</figure>
+
+The download of the single<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-03/GPT-DEMO-03-DEBATE.pwk"> GPT-DEMO-03-DEBATE.pwk</a>  executable
 
 (last update : 12/05/23)
 
