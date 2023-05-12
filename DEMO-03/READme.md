@@ -15,6 +15,7 @@ Or less trivial:
 - TEAM A: Yes, it can dominate the world.
 - TEAM B: No, it's just a tool that will help the progress of humanity.
 
+NOTE. With GPT-4 works well, with GPT-3.5 does not understand when to stop the debate :-)
 
 ----
 This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. 
