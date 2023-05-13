@@ -46,7 +46,7 @@ Starting from Build 35.23, this app is included in
 To run it, launch the "Calcolatrice" application from your desktop.
 </br>
 <figure>
-    <img src="https://github.com/POWER-KI/GPT/blob/main/CalcICO.png?raw=true" width="10%" >    
+	<img src="CalcICO.png" width="10%" >        
 </figure>
 
 
