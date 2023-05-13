@@ -51,7 +51,7 @@ Starting from Build 35.23, this app is included in
 </br>
 
 <figure>
-    <img src="CalcICO.png" width="10%" >    
+    <img src="CalcICO.png" width="20%" >    
 </figure>
 
 The download of the single<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-03/GPT-DEMO-03-DEBATE.pwk"> GPT-DEMO-03-DEBATE.pwk</a>  executable
