@@ -1,5 +1,5 @@
 # GPT-DEMO-02 V2 
-With this software, you can create a knowledge base of your documents (.pdf, .txt) on your PC, which you can query using GPT. Manuals, user guides, and notes become a source of information for answers to your questions.
+With this software, you can create a knowledge base of your documents (.pdf, .txt) on your PC, which you can query, also with voice command, using GPT. Manuals, user guides, and notes become a source of information for answers to your questions.
 
 <b>This is an upgrade of the previous version, faster embedding, new look, require PWK build 35.20 or upper. </b>
 
