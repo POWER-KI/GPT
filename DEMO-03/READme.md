@@ -43,7 +43,7 @@ Once this operation has been carried out, you access the main page
          alt="Main DEBAT page">
 </figure>
 
-# EXAMPLE
+### EXAMPLE
 For the topic of the picture, the complete debate text:
 
 
