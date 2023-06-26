@@ -13,8 +13,9 @@ These are just demos, but if you need <b>powerful CUSTOM applications</b>, you c
     <img src="CalcGPT.png" width="60%">    
 </figure>
 
-<b>NOTE: DEMO-02 and DEMO-03 are now enclosed in POWER-KI distributions DEV and EXEC and can be executed from Calcolatrice</b>
-
+<b>NOTE: 
+* DEMO-02 and DEMO-03 are now enclosed in POWER-KI distributions DEV and EXEC and can be executed from Calcolatrice;
+* Updated with last GPT Models. </b>
 
 
 ## DEMO
