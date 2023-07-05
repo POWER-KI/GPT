@@ -8,7 +8,7 @@ Watch the video:
 
 <a href="https://youtu.be/YtjLV1ioVFk" target="_blank"><img src="https://img.youtube.com/vi/YtjLV1ioVFk/0.jpg" alt="Video Thumbnail" width="240" height="180"></a>
 
-It is supplied in Open Source executable to allow interested parties to study it.
+It is supplied as Open Source executable to allow interested parties to study it.
 
 See other demo in our<a href="https://github.com/POWER-KI/GPT"> GPT DEMO page</a>. 
 
