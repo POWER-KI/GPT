@@ -3,19 +3,15 @@
 <a href="http://www.power-ki.com">POWER-KI</a> is the perfect complement to create intelligent applications that make use of GPT technologies.
 in this repository we will publish some examples that can be freely downloaded.
 
-For their execution the <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> must be installed. 
-
-If, on the other hand, you want to examine the code to study or modify it, install the  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
+The DEMO are enclosed in POWER-KI distribution:
+* just execute: <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> download POWER-KI executor</a>. 
+* If, on the other hand, you want to examine the code to study or modify it, install the  <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.
 
 These are just demos, but if you need <b>powerful CUSTOM applications</b>, you can contact us <a href="http://xplab.net/CONTACTS_EN.html"> XPLAB</a>.
 
 <figure>
     <img src="CalcGPT.png" width="60%">    
 </figure>
-
-<b>NOTE: 
-* DEMO-02 and DEMO-03 are now enclosed in POWER-KI distributions DEV and EXEC and can be executed from Calcolatrice;
-* Updated with last GPT Models. </b>
 
 
 ## DEMO
