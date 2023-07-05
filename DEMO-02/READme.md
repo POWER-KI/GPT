@@ -8,7 +8,8 @@ It is supplied in Open Source executable to allow interested parties to study it
 
 See other demo in our<a href="https://github.com/POWER-KI/GPT"> GPT DEMO page</a>. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YtjLV1ioVFk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://youtu.be/YtjLV1ioVFk" target="_blank"><img src="https://img.youtube.com/vi/YtjLV1ioVFk/0.jpg" alt="Video Thumbnail" width="480" height="360"></a>
+
 
 ## Privacy
 All information Credential, Documents Data Base are stored on your computer; for embedding documents are sent in fragments to openAi, and also part of the content for creating responses.
