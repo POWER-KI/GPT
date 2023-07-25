@@ -54,9 +54,9 @@ To run it, launch the "Calcolatrice" application from your desktop.
 </figure>
 
 
-The download of the single<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> GPT-DEMO-02-PDF.pwk</a> executable.
+(The download of the single<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> GPT-DEMO-02-PDF.pwk</a> executable.)
 
-(last update : 12/05/23)
+(last update : 25/057/23)
 
 
 # Notes for programmers
