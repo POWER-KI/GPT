@@ -47,7 +47,7 @@ Starting from Build 35.23, this app is included in
 * <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_PWK-EXC_PUB01.msi" download> POWER-KI executor</a> 
  or  
 * <a href="https://github.com/POWER-KI/POWER-KI/raw/master/INSTALL-PACKAGE/Setup_POWER-KI_PUB01.msi" download> POWER-KI Development environment</a>.</br>
-To run it, launch the "Calcolatrice" application from your desktop.
+To run it, launch the "Calcolatrice" application from your desktop and then click on the icon.
 </br>
 <figure>
 	<img src="CalcICO.png" width="20%" >        
