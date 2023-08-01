@@ -3,7 +3,7 @@ With this software, you can create a knowledge base of your documents (.pdf, .tx
 
 <b>NOTES - Not working with: 
 * scanned or protected pdf, 
-* free OpenAI KEY .</b>
+* free OpenAI KEY (Chat works).</b>
 ----
 This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. 
 
