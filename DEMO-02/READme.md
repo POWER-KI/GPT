@@ -36,7 +36,8 @@ Once this operation has been carried out, you access the main page of the applic
 * the buttons area;
 * the information zone.
 
-The right side of the page displays the documents (Pdf, txt)  which you have uploaded to your database (that is local on your PC), and the button to carry out these uploads.
+The right side of the page displays the documents (Pdf: not scanned or protected , txt)  which you have uploaded to your database (that is local on your PC), and the button to carry out these uploads. The "deep parsing" flag allows to get  more accurate results but is slower and use more OpenAi Token.</br> 
+<b>NOTE: this feature require OpenAI payied token.</b>
 </br>
 
 <figure>
@@ -59,7 +60,7 @@ To run it, launch the "Calcolatrice" application from your desktop and then clic
 
 (The download of the single<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> GPT-DEMO-02-PDF.pwk</a> executable.)
 
-(last update : 25/057/23)
+(last update : 07/08/23)
 
 
 # Notes for programmers
