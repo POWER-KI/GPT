@@ -1,4 +1,4 @@
-# GPT-PDF DEMO-02
+# DEMO-02: GPT-PDF 
 With this software, you can create a knowledge base of your documents (.pdf, .txt) on your PC, which you can query, also with voice command, using GPT. Manuals, user guides, and notes become a source of information for answers to your questions.</br>
 
 <b>NOTES - Not working with: 

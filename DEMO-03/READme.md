@@ -1,4 +1,4 @@
-# GPT-DEBATE DEMO-03
+# DEMO-03: GPT-DEBATE 
 <i>A <b>DEBATE</b> is a structured, formal discussion between opposing sides on a specific topic, where each side presents arguments and evidence to support their viewpoint.</br>
 <b>This software</b> allows the comparison between two teams with different opinions, using the capabilities of OpenAI models. Each TEAM also has the option to upload .pdf or .txt documents in support of their position.</i>
 
