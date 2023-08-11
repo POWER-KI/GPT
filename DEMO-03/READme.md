@@ -45,7 +45,7 @@ Once this operation has been carried out, you access the main page
 
 ### EXAMPLE
 For the topic:</br> 
-<b>What effects will the recession of the German economy have on cryptocurrencies?</b></br>
+<b>"What effects will the recession of the German economy have on cryptocurrencies?"</b></br>
 of the picture, the complete debate text:
 
 
