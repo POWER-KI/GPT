@@ -8,7 +8,7 @@ With this software, you can create a knowledge base of your documents (.pdf, .tx
 - Multi-document support;
 - DEEP parsing;
 - Vocal output of responses;
-- Vocal input (Microsoft Cognitive Services);
+- Vocal input (Microsoft Cognitive Services key required);
 - Document database on your PC.
 
 
