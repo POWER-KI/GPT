@@ -1,6 +1,16 @@
 # DEMO-02: GPT-PDF 
 With this software, you can create a knowledge base of your documents (.pdf, .txt) on your PC, with which you can chat and ask questions, also with voice command, using GPT. Manuals, user guides, and notes become a source of information for answers to your questions.</br>
 
+## Main functions:
+- Chat and completion;
+- Support for OpenAI models;
+- Custom instructions;
+- Multi-document support;
+- DEEP parsing;
+- Vocal output of responses;
+- Vocal input (Microsoft Cognitive Services).
+
+
 <b>NOTES - Not working with: 
 * scanned or protected pdf, 
 * free OpenAI KEY (Chat works).</b>
