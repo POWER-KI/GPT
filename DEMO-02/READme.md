@@ -8,13 +8,13 @@ With this software, you can create a knowledge base of your documents (.pdf, .tx
 - Multi-document support;
 - DEEP parsing;
 - Vocal output of responses;
-- Vocal input (Microsoft Cognitive Services)
+- Vocal input (Microsoft Cognitive Services);
 - Document database on your PC.
 
 
-<b>NOTES - Not working with: 
-* scanned or protected pdf, 
-* free OpenAI KEY (Chat works).</b>
+<b>NOTES: 
+* not wrking with scanned or protected pdf, 
+* a paid OpenAI KEY is required for document embedding (Chat works with free key).</b>
 ----
 This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. 
 
