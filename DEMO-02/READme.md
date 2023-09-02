@@ -1,5 +1,5 @@
-# DEMO-02: GPT-PDF Manager 
-With this software, you can create a knowledge base of your documents (.pdf, .txt) on your PC, with which you can chat and ask questions, also with voice command, using GPT. Manuals, user guides, and notes become a source of information for answers to your questions.</br>
+# DEMO-02: GPT-PDF Manager (.pdf, .docx, .pptx, .odt, .ods, .txt)
+With this software, you can create a knowledge base of your documents on your PC, with which you can chat whith GPT-x(OpenAi) and ask questions, also with voice command and reply. Manuals, user guides, and notes become a source of information for answers to your questions. <b>"DEEP Parsing"</b> allows more accurate results.</br>
 
 ## Main functions:
 - Chat and completion;
@@ -9,11 +9,12 @@ With this software, you can create a knowledge base of your documents (.pdf, .tx
 - DEEP parsing;
 - Vocal output of responses;
 - Vocal input (Microsoft Cognitive Services key required);
-- Document database on your PC.
+- Document database on your PC;
+- Supported format: .pdf, .docx, .pptx, .odt, .ods, .txt.
 
 
 <b>NOTES: 
-* not wrking with scanned or protected pdf, 
+* not working with scanned or protected pdf, 
 * a paid OpenAI KEY is required for document embedding (Chat works with free key).</b>
 ----
 This is  a  FREE software demonstrating how by combining POWER-KI programming language and OpenAi's GPT interesting results can be obtained in a simple and compact way. 

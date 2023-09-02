@@ -16,7 +16,7 @@ These are just demos, but if you need <b>powerful CUSTOM applications</b>, you c
 
 ## DEMO
 
-*  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-02"> DEMO-02: GPT-PDF  </a>  chat with your database of .pdf, .txt documents with GPT. 
+*  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-02"> DEMO-02: GPT-PDF  </a>  chat with your database of .pdf, .docx, .pptx, .odt, .ods, .txt documents with GPT. 
 *  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-03"> DEMO-03: GPT-DEBATE  </a> "Which came first, the egg or the chicken?".
 
 ## ABOUT
