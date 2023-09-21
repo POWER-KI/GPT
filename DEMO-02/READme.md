@@ -72,7 +72,7 @@ To run it, launch the "Calcolatrice" application from your desktop and then clic
 
 (The download of the single<b><a href="https://github.com/POWER-KI/GPT/raw/main/DEMO-02/GPT-DEMO-02-PDF.pwk"> GPT-DEMO-02-PDF.pwk</a> executable.)
 
-(last update : 07/08/23)
+(last update : 21/09/23)
 
 
 # Notes for programmers
@@ -88,7 +88,7 @@ The application parts specific to GPT are:
 - (VAR) AI_DB:  management of the Vector-fragment Database; 
 - (VAR) AI_CORE: execution of queries to GPT. 
 
-Uploaded documents (.pdt, .txt) are saved in GPT_PDF.DB and GPT_PDF.VCT
+Uploaded documents (pdt, txt, docx, pptx, pptm, odt, ods ) are saved in GPT_PDF.DB and GPT_PDF.VCT
 
 
 ## Plain text code
