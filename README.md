@@ -19,12 +19,15 @@ These are just demos, but if you need <b>powerful CUSTOM applications</b>, you c
 *  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-02"> DEMO-02: GPT-PDF  </a>  chat with your database of .pdf, .docx, .pptx, .odt, .ods, .txt documents with GPT. 
 *  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-03"> DEMO-03: GPT-DEBATE  </a> "Which came first, the egg or the chicken?".
 
+## TRAIN GPT on POWER-KI programming
+<a href="https://github.com/POWER-KI/GPT/tree/main/DOC/readme.md">Documents</a> useful for GPT train.  
+
 ## ABOUT
 <a href="https://github.com/POWER-KI"> POWER-KI on GitHub</a> 
 
-<a href="http://www.power-ki.com"> POWER-KI official site</a> 
+<a href="https://www.power-ki.com"> POWER-KI official site</a> 
 
-<a href="http://www.xplab.net"> XPLAB site</a> 
+<a href="https://www.xplab.net"> XPLAB site</a> 
 
 (C) 2023 XPLAB - Research in Automation - Brescia -ITALY
 
