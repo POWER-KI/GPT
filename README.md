@@ -20,7 +20,7 @@ These are just demos, but if you need <b>powerful CUSTOM applications</b>, you c
 *  <a href="https://github.com/POWER-KI/GPT/tree/main/DEMO-03"> DEMO-03: GPT-DEBATE  </a> "Which came first, the egg or the chicken?".
 
 ## TRAIN GPT on POWER-KI programming
-<a href="https://github.com/POWER-KI/GPT/tree/main/DOC/readme.md">Documents</a> useful for GPT train.  
+<a href="https://github.com/POWER-KI/GPT/tree/main/DOC/readme.md">Documents</a> useful for GPT train and uderstanding POWER-KI programming.  
 
 ## ABOUT
 <a href="https://github.com/POWER-KI"> POWER-KI on GitHub</a> 
