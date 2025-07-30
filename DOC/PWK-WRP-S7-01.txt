@@ -1,0 +1,383 @@
+[Legenda]
+op : Operator
+fnc: Function
+flw: Flow
+cst: Constant
+
+
+< EXAMPLE.S7.1 
+>
+
+
+< S7 - Snap7 
+[*] () Project Name : 
+
+< DESCRIPTION 
+< MANAGED 
+[*] () STATUS : REPLACE
+
+< REPLACE - USE: //
+< DISTRIBUTION - USE: AVAILABILITY
+< IDENTIFICATION 
+< REVISION 
+< Rev.8 – December 3, 2016 
+>
+
+
+< Glossary entry - USE: Entry definition
+< Text - USE: Description
+[*] (fnc) S7_VER : Return the version Number of the WRAP DLL
+
+< 1.S7_VER 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+
+[RETURN|TYPE|VALUES|COMMENT]
+VER|symb|
+>
+
+
+[*] (fnc) S7_NEW : Create an S7 Object
+
+< 1.S7_NEW 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+WHAT|symb|£CLI(Client); £SRV(Server);£PNR(Partner)|||
+ACTIVE|NV|0;1|For PRN if Active|0|YES
+
+[RETURN|TYPE|VALUES|COMMENT]
+PTR|PTR|
+>
+
+
+[*] (fnc) S7_ErrTxt : Decode an Error code
+
+< 1.S7_ErrTxt 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|PTR||S7 PTR||
+ERRcode|NV||The error code|0|YES
+
+[RETURN|TYPE|VALUES|COMMENT]
+TXT|symb|
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb.|NULL
+>
+
+
+[*] (fnc) S7_SetPar : Set Internal parameters
+Related: GetPar
+Remark: Some parameters are not available for all S7 Object
+
+< 1.S7_SetPar 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|PTR||S7 PTR||
+PARname|Symb|£LocPort(S); £RmtPort(CP); £PingTmo(CP); £SndTmo(CP); £RcvTmo(CP); £WorkInterval(SP); £SrcRef(CP); £DstRef(CP); £PDUrqs(CSP); £MaxCli(S); £BsndTmo(P); £BrcvTmo(P); £RecoveryTime(P); £KeepAliveTime(P)|||
+PARval|NV||||
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb.|
+>
+
+
+[*] (fnc) S7_GetPar : Set Internal parameters
+Related: SetPar
+Remark: Some parameters are not available for all S7 Object
+
+< 1.S7_GetPar 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|PTR||S7 PTR||
+PARname|Symb|£LocPort(S); £RmtPort(CP); £PingTmo(CP); £SndTmo(CP); £RcvTmo(CP); £WorkInterval(SP); £SrcRef(CP); £DstRef(CP); £PDUrqs(CSP); £MaxCli(S); £BsndTmo(P); £BrcvTmo(P); £RecoveryTime(P); £KeepAliveTime(P)|||
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb.|
+>
+
+
+[*] (fnc) S7_ConTyp : CLI : connection type
+
+< 1.S7_ConTyp 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+TYP|symb|£PG;£OP;£S7bas|||
+S7basic|NV||For S7Bas from 0x03-0x10|0x03|YES
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+>
+
+
+[*] (fnc) S7_ConPar : CLI : connection Parameters
+Related: BEG
+Remark: The function must be called just before a BEG
+
+< 1.S7_ConPar 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+IP|symb||PLC IP||
+LTSAP|NV||Local Tsap  (16bit)||
+RTSAP|NV||Remote Tsap (16bit)||
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+>
+
+
+[*] (fnc) S7_Connect : CLI : Start a connection
+
+< 1.S7_Connect - USE: Full parameter
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+IP|symb||PLC IP||
+RACK|NV||RACK number|0|YES
+SLOT|NV||SLOT Number|0|YES
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+
+[EXAMPLE]
+RACK and SLOT: 
+S7  300 CPU    0, 2        Always
+S7  400 CPU    not fixed,  Follow the hw Configuration
+WinAc   CPU    not fixed,  Follow the hw Configuration
+S7 1200 CPU    0, 0        or 0,1
+S7 1500 CPU    0, 0        or 0,1
+CP  343        0, 0        or Follow the hw Configuration
+CP  443        not fixed,  Follow the hw Configuration
+WinAC IE       0, 0        or Follow the hw Configuration
+>
+
+
+< 2.S7_Connect - USE: Without IP (already given with ConPar or by a previous BEG)
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+>
+
+
+[*] (fnc) S7_End : CLI : End a connection (disconnect)
+
+< 1.S7_End - USE: Without IP (already given with ConPar or by a previous BEG)
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+>
+
+
+[*] (fnc) S7_Read : CLI : Read an Area
+
+< 1.S7_Read 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+WHAT|symb|£INP;£OUT;£MRK;£DB;£CNT;£TMR|||
+DBnum|NV||For DB the DB num||YES
+ELEMENTsize|symb|£BIT;£BYTE;£WORD;£DWORD;£REAL|For Counter and Timer the size is set by the system to WORD||
+OFFset|NV||0bsd||
+ELEMENTnum|NV||Number of elements||
+BUF|PTR||PTR to a BUF||
+BUFidx|NV||1bsd Buffer offset|1|YES
+SWAP|symb||£WORD;£DWORD|no Swap|YES
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+>
+
+
+[*] (fnc) S7_Write : CLI : Write an Area
+
+< 1.S7_Write 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+WHAT|symb|£INP;£OUT;£MRK;£DB;£CNT;£TMR|||
+DBnum|NV||For DB the DB num||YES
+ELEMENTsize|symb|£BIT;£BYTE;£WORD;£DWORD;£REAL|For Counter and Timer the size is set by the system to WORD||
+OFFset|NV||0bsd||
+ELEMENTnum|NV||Number of elements||
+BUF|PTR||PTR to a BUF||
+BUFidx|NV||1bsd Buffer offset|1|YES
+SWAP|symb||£WORD;£DWORD|no Swap|YES
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+>
+
+
+[*] (fnc) S7_LisBlk : get the list of block
+Related: LisBlkTyp
+Remark: Return a symbol  suitable to be used to generate a TBL,
+
+< 1.S7_LisBlk 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|symb|
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|NULL
+
+[EXAMPLE]
+Content of  RES :
+  
+OB;Count CRLF FB;Count CRLF FC;Count CRLF SFB;Count CRLF DB;Count CRLF bSDB;Count
+>
+
+
+[*] (fnc) S7_LisBlkTyp : get the list of block fot type
+Related: LisBlk
+
+< 1.S7_LisBlkTyp 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+BLKtyp|symb|£DB; £SDB; £FC; £SFC; “FB; £SFB; £OB|||
+
+[RETURN|TYPE|VALUES|COMMENT]
+BUF|PTR|
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|NULL
+>
+
+
+[*] (fnc) S7_AgBlkTyp : Ag info about a block
+Related: LisBlc
+Remark: Return a symbol  suitable to be used to generate a TBL,
+
+< 1.S7_AgBlkTyp 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A CLI PTR||
+BLKtyp|symb|£DB; £SDB; £FC; £SFC; £FB; £SFB; £OB|||
+BLKnum|NV||||
+
+[RETURN|TYPE|VALUES|COMMENT]
+TEXT|symb|
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|NULL
+
+[EXAMPLE]
+Info :
+BlkType;val CRLF BlkNumber;val CRLF BlkLang;val CRLF BlkFlags;val CRLF MC7Size;val CRLF LoadSize;val CRLF LocalData;val CRLF SBBLength;val CRLF CheckSum;val CRLF Version;val CRLF
+CodeDate;val CRLF IntfDate;val CRLF Author;val CRLF Family;val CRLF Header;val
+>
+
+
+[*] (fnc) S7_Start : Start a server
+
+< 1.S7_Start 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A SRV PTR||
+IP|symb||The server ip|0.0.0.0|YES
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+>
+
+
+[*] (fnc) S7_Stop : Stop a server
+
+< 1.S7_Stop 
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A SRV PTR||
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+>
+
+
+[*] (fnc) S7_Area : Area Operation
+
+< 1.S7_Area - USE: ADD
+
+[PARAMETER|TYPE|VALUES|COMMENT|DEFAULT|OPTIONAL]
+PTR|symb||A SRV PTR||
+WHAT|symb|£ADD;£RMV;£LCKS(lock);£LCKR(unlock)|||
+KIND|symb|£INP;£OUT;£MRK;£DB;£CNT;£TMR|||
+DBnum|NV||For DB||YES
+BUF|PTR||PTR to Buf||YES
+BUF siz|NV||BUF size||
+
+[RETURN|TYPE|VALUES|COMMENT]
+RES|NV|1
+
+[OnError|TYPE|VALUES|COMMENT]
+ERR|symb|
+>
+
+
+< EXAMPLE.S7.1 
+>
+
+
+< S7 - Snap7 
+< S7 - Snap7 
+< S7 - Snap7 
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL
+< Page 20 of 21 - USE: POWER-KI WRAP DLL
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL
+< S7 - Snap7 
+< S7 - Snap7 
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL
+< S7 - Snap7 
+< S7 - Snap7 
+< S7 - Snap7 
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL
+< Page 4 of 21 - USE: POWER-KI WRAP DLL
+< POWER-KI WRAP DLL - USE: POWER-KI WRAP DLL

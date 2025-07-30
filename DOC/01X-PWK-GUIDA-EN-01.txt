@@ -1,0 +1,1120 @@
+# POWER-KI (PWK) programming language (C) XPLAB - Research in Automation - Brescia - Italy - Europe
+
+The executable code part in PWK is enclosed in units called ASSEMBLY. There are two types of applications:
+- the single ASSEMBLY (.pka);
+- the Package (.pwk). 
+
+The latter is a container that encloses one or more ASSEMBLYs, interface elements (GUI GraphicUserInterface, WUI WebUserInterface), resources (e.g. graphic elements), any WRAP DLLs and other elements necessary for the application defined by the programmer. 
+In Packages the Main ASSEMBLY is declared, i.e. the one to be executed when the application is launched. 
+The Package is described by a Manifest that can be managed by special functions.
+The Package is a compressed file with ziplib (whose extension is changed from .zip to .pwk).
+Single ASSEMBLYs (not included in a package) can be executed as console commands.
+
+## Execution, startup parameters, command line
+
+At the time of creation, a VAR (see below) is automatically inserted into the ASSEMBLY that contains two others:
+VAR Editor: configuration parameters to use for editing;
+VAR Executor: configuration parameters for execution.
+
+If the ASSEMBLY is single or has been defined as MAIN in the package, the parameters of its VAR Executor will be those valid for the application. 
+In particular:
+- the EXO attribute: contains the name of the EXO (see below) to execute at startup (default: Main);
+- With the pair of attributes LIMIT_ONCE=YES and LIMIT_KEY=(to a value) on the same PC only one copy of the program having the same two attributes can be executed.
+
+At startup it is possible to pass parameters from the command line: 
+if in parlis@\pwk\Executor (attribute of the var Executor) the name of an attribute of the startup EXO has been inserted, it will find in this attribute the PTR (Pointer) to a LIS with the parameters in order, if attributes have been defined with the letter P followed by a progressive number (by default there are P1 and P2) with the names of attributes of the startup EXO these will be assigned individually to the parameters. 
+If SET attributes have been defined in the EXO entry point and if in the command line the parameters have been associated to these attributes e.g.
+MyProgr.pwk mypar1=one mypar2=two // in the EXO attributes mypar1 and mypar2 the values one and two respectively will be placed.
+
+# ASSEMBLY
+
+## Items, Attributes and references
+ASSEMBLYs can be seen as a "forest" of ITEMs, each of which can contain other ITEMs. 
+Each ITEM except for CODEs can have ATTRIBUTEs to which both numerical values (NV) and non-numerical values (NNV) can be assigned. 
+ATTRIBUTEs are for PWK the equivalent of variables.
+Attributes with name that start and end with "_" (underscore, e.g. _OS_) are reserved for PWK;
+
+ITEMs within the ASSEMBLY are identified through a path (PATH) that can be ABSOLUTE or RELATIVE with respect to the ITEM in which it is used:
+- absolute path: \item\item\item
+- relative path: item\item\item
+- in LIBs reference to the "parent" ASSEMBLY: \\item\item\item
+
+For ATTRIBUTEs the reference can be
+- direct: att 
+- relative: att@itm
+- absolute att@\itm
+
+Relative and direct references are resolved with respect to the executive item in which they are called and where they should be declared. 
+If the executable element is a MTHD the resolution is extended to the parent element (EXO,VAR,GUI).
+
+Indirect references can be given using the REF function although the notation with braces remains: {X} //the reference is contained in attribute X.
+
+NOTE: for references in general and to GUI attributes in particular always verify that the path is complete.
+
+## ITEMs - Primary elements
+The primary ITEMs are: 
+- the executable ones (XI - eXecutable Item) the EXOs and the MTHDs;
+- those that are containers: VAR, GUI.
+
+### EXO EXOsync (EXcutable Object) (XI)
+>> (EXO) MyExo
+
+Executable ITEM, to invoke it:
+- from flow: with ITEM EXEC or EXECsync, THREAD;
+- in CODEs: with functions EXC, EXCTHR;  
+
+In the workbench, Attributes defined with type SET, GET, SET+GET are automatically proposed within flow calls.
+
+Attributes are not persistent and are not globally visible.
+Execution by multiple threads in parallel is possible.
+
+### EXOsync (EXcutable Object) (XI)
+>> (EXOsync) MyExoS
+
+Executable ITEM, to invoke it:
+- from flow ITEM: EXEC or EXECsync, THREAD;
+- in CODEs: with functions EXC, EXCTHR;  
+
+In the workbench, Attributes defined with type SET, GET, SET+GET are automatically proposed within flow calls.
+
+Attributes are persistent and are globally visible.
+Execution by multiple threads is serialized.
+
+### MTHD (Method) (XI)
+>> (MTHD) MyMethod
+
+They are equivalent to EXOs but with the difference that they can only be used within VAR or EXO.
+
+### VAR 
+>> (VAR) Myvar
+
+VARs are container items within which other VARs and MTHDs (methods) can exist. 
+VAR attributes are persistent and visible from all ITEMs.
+
+### GUI - Graphic User Interface (Assembly side)
+>> (GUI) MyGui
+
+Element for connection between ASSEMBLY and GUIs defined by .pki files. They are equivalent to VARs but present predefined attributes and elements.
+When the ASSEMBLY is executed, GUIs with attribute _AUTOLOAD_=ON: 
+- are sent to the PWK-GUI-X01.exe program (Display client) based on the _ADDR_ and _PORT_ attributes, if these are not defined the local machine address and default port are understood;
+- the opening is automatic (made by POWER-KI run-time); 
+
+Functions defined in the GUI library are used for management.
+When created, the "trig" method is inserted in the _TRIG_ GUI element, which will handle receiving user interactions from the GUI;
+the _FILE_ Attribute, if the ASSEBLY is part of a package  will contains the name used  in the manifesto whose values is the file name of the .pki.
+
+## ITEMs - COMPONENTS (definable only within MTHD and EXO / EXOsync)
+Within EXOs and MTHDs a series of components can be defined with flow orientation and/or execution directive functions.
+
+### WHILE 
+>> (WHILE) while
+--> (PRE) pre
+--> (DO) do
+--> (DONXT) donxt
+
+The WHILE flow control has three sub-items:
+- PRE: executed unconditionally but only once;
+- DO: executed continuously only if and as long as the system symbol _COND_ is true;
+- DONXT: executed at the end of DO execution and only if this has been executed at least once and the loop has not been interrupted by a BREAK ITEM.
+
+#### CONT
+>> (CONT) myWhile
+
+The DO loop can be interrupted by a CONT flow control that determines the passage to the next iteration.
+The CONT control requires that the WHILE has a name different from the default "while" assigned (e.g. while_1).
+
+### IF
+>> (IF) if
+--> (THEN) then
+--> (ELSE) else 
+
+If the system symbol _COND_ is true the THEN sub-item is executed otherwise ELSE.
+NOTE: it is not necessary that both (THEN,ELSE) exist, if you want to examine only one condition you can omit the other.
+
+### SWITCH
+>> (SWITCH) SelectCase : Mycase1;...;MycaseX
+-->(CASE) MyCase1
+-->(CASE) ...
+-->(CASE) MycaseX
+
+In SWITCH an attribute must be indicated whose value is searched among the values of its attributes, if found the CODE contained in the CASE sub-item is executed.
+Therefore the attributes associated with CASEs can contain multiple elements separated by space or comma, equivalence to one of these values determines CASE activation.
+If during execution the determining value is changed, the entire switch will be re-executed. This allows state logic to be implemented.
+NOTE: Attribute names are arbitrary, by defining them from WorkBench, corresponding CASEs are automatically created.
+
+### TRUE, FALSE ONERR
+>> (TRUE) MyValue
+>> (FALSE) MyValue
+>> (ONERR) MyValue
+  
+These components evaluate the indicated attribute and activate if the condition is satisfied.
+OnERR considers errors as NULLs and values less than ZERO.
+
+### LBL, BLK
+>> (LBL) MyLabel
+
+LBL (Label) when encountered in the execution flow are executed,
+in this case their usefulness is fundamentally ornamental, or the flow can be directed to them
+with GOTO that references them.
+
+### BLK
+>> (BLK) MyBlk
+BLK (Blocks) are reachable only by CALL and GOTO directives, in normal flow they are ignored. In case of a CALL after execution the flow resumes from the element following the CALL. If attributes are defined with type SET,GET, SET+GET these are proposed by the WorkBench editor in the CALL.
+
+### CALL, GOTO
+>> (CALL) MyBlk
+>> (GOTO) MyLlb
+
+CALL AND GOTO can only be used towards BLK and LBL ITEMs defined within the same EXO or MTHD.
+GOTO definitively transfers the flow to the called one; 
+CALL after execution continues in the calling flow.
+
+
+### EXEC, EXECsync
+>> (EXEC) \MyExo
+--> (SET) set
+--> (GET) get
+
+With these ITEMs the execution of an EXO or MTHD indicated directly or indirectly using the content of a symbol enclosed in braces is invoked.
+In the SET sub-item you can insert the call parameters, that is an assignements  of a knonw variable of the caller to an ATTRIBUTE of the called EXO.  
+In the GET sub-item you can assign return values of ATTRIBUTE of defined in the called to known VARIABLE of the caller.
+Should be noted that the ATTIBUTE of the called con be used only inside SET and GET, in fact they are invalid in other part 
+of the caller.
+
+NOTE: In the editor, in the exec there is a button that allows the construction of the indirect call.
+
+EXECsync ensures that, in case of simultaneity, accesses to the EXO or MTHD by multiple threads, which still invoke it all with EXOsync, are serialized.
+NOTE: By inserting the _PAR_ attribute in EXEC it is possible to programmatically define synchronization with "SYNC" and non-replication of EXO/MTHD with "UNIC".
+
+### THREAD
+>> (THREAD) MyExo
+--> (SET) set;
+
+Execution of an EXO or MTHD in a separate THREAD.
+Also for THREADs there is the possibility to indirectly indicate the name of the EXO/MTHD to execute. 
+If the EXO/MTHD provides SET parameters the editor will propose them.
+THREAD also allows assigning values to two attributes:
+
+_PAR_ :
+ONCE: executes only if not already running;
+ONCE_FOR_CALLER executes only if not already running for the same calling THREAD;
+SYNC: synchronous execution (see EXO).
+
+_RSLT_: allows defining a symbol to receive the command result, which can be: -10 = error, -1 = failed, 0 = starting, 1 = started
+
+### CALC 
+>> (CALC) MyFormula
+
+CALC allows executing the code contained in a symbol, the result is delivered to the symbol whose name is indicated in the _SET_ attribute. If the _PROTECT_=YES attribute name resolution is disabled.
+NOTE: CALC is deprecated since it also exists as an instruction.
+
+### BREAK
+>> (BREAK) break
+
+The BREAK ITEM allows interrupting a WHILE loop, a SWITCH, an EXO, a MTHD, a BLK;
+In the _LEVEL_ attribute it is possible to indicate in case of ambiguity the type of element to interrupt (e.g. while, switch ...)
+The BREAK ITEM should not be confused with #BREAK; which can only be used to interrupt #WHILE; loops of CODEs.
+
+### END
+>> (END) end
+
+Unconditionally terminates ASSEMBLY execution.
+
+
+## ASSEMBLY Structure
+
+- 1st level (root ITEMs)can be only: VAR, GUI, EXO, EXOsync, LIB.
+- VARs can contain: VAR, MTHD.
+- EXOs and EXOsyncs can contain: VAR, MTHD, 
+- COMPONENT ITEMs can only be used within EXO, EXOsync and MTHD.
+
+### Root Items: GUI, VAR, EXO,EXOsync
+
+- GUI
+  -- MTHD 
+  -- VAR
+
+- VAR
+  -- VAR
+  -- MTHD
+  
+- EXO
+  -- VAR
+  -- MTHD
+  
+- EXOsync
+  -- VAR
+  -- MTHD
+
+-- LIB  
+
+#### Component Items in EXO, MTHD
+
+	WHILE
+	-- PRE
+	-- [CODE]
+	-- DO
+	   (-- CONT)
+	-- DONXT
+	
+	SWITCH
+	-- CASE
+	...
+	
+	GOTO
+	
+	CALL
+	
+	LBL
+	BLK
+	
+	IF
+	-- THEN
+	-- ELSE
+	
+	EXEC
+	
+	EXECsync
+	
+	THREAD
+	
+	TRUE
+	
+	FALSE
+	
+	ONERR
+	
+	BREAK
+	
+	END	
+
+	CODE
+
+## CODE
+In CODE operations are performed on attributes and variables, functions are called etc. 
+The syntax is very simple, similar to C.
+In executable code the content of the code can be encoded both in RTF and in plain unicode.
+In CODEs the use of ITEMs is not allowed, but only: ATTRIBUTEs, operators, library functions, temporary variables, flow instructions #IF, #while.
+It is good practice not to write CODEs that are too long, but eventually split the code into successive CODEs.
+If it is necessary to insert operations not executable by CODE (e.g. interrupt the execution of an EXO), Component ITEMs are used.
+
+ATTRIBUTES, Local Temporary Variable (LTV), Global Temporary Variables (GTV)
+In CODE, as Variables you can use either ATTRIBUTES defined in an ITEM, or LTV or GTV.
+e.g.
+ProjectName@\pwk="myProject"; !!ATTRIBUTE;
+PrjectName="myPoject"; !! ATTRIBUTE defined in an ITEM visible from the CODE;
+
+°A=10;		!!LTV;
+°B°="pippo";!!GTV;
+ 
+
+### TO KEEP IN MIND
+- instructions MUST end with semicolon;
+- normally PWK is case insensitive;
+- PTRs returned by functions must be TRASHed at the end of their use;
+- PWK is 1bsd i.e. the base of indices is normally ONE.
+(0bsd implementation, as in C, removes information without adding any advantage - for the User).
+
+### OPERATORS
+Most PWK operators have the same function and behavior as in C.
+With the 0b prefix binary base values are indicated,
+with the 0x prefix hexadecimal base values are indicated
+otherwise the base is decimal.
+With the HEX and BIN functions it is possible to convert to the relative base.
+Operator list:
+----------------
+!!, $ , £ , ? , :: , {} , () , [] , ~ , =, +=, -= , // , / , + , - , * , == , <> , != , < , >, <= , >= , & , | , % , ^ , ! , ->,<< , >> , <<= , ++ , .. , NOT, AND, XOR, OR, ZNOT, ZAND, ZOR, ZXOR, ZSUM, ZFSUM, PAND, POR, PXOR, SIN, COS, TAN, SINH, COSH, TANH, ASIN, ACOS, ATAN, ATAN2, SQRT, EXP, LOG, LOG10, MOD, ABS
+----------------
+$ (address)
+------------------------
+some functions require the address of an element:
+WAITCND($V1,£NOTNULL);
+
+£ (literal)
+------------------------
+prepended defines a constant:
+£test; !! equivalent to writing; "test"
+
+:: ? -> (SET, GET and assignment parameter)
+------------------------
+Used by the EXO function to indicate SET parameters, GET ones (to return) and to assign the latter:
+r1=EXO("\TEST", a::p1,b::p2, ?r1, ?r2, ?r3)->r3->r2;
+
+{} (indirect addressing)
+------------------------
+An attribute enclosed in braces indicates that the true attribute being referenced is the content of the attribute itself:
+a="p1@\main"; {a}=10; !! we will get that p1@\main is assigned the value 10; !! as many levels of braces, as many indirections;
+
+~ (tilde) (note: from keyboard holding ALT type 126)
+------------------------
+applied to an attribute returns true (1) if the content is valid i.e. not null and not all spaces:
+IF( ~v1, £full, £empty); !! the opposite is; IF( ~v1==0, £empty, £full);
+
++= and -= (unary sum and subtraction operators)
+------------------------
+In PWK programs extensive use is made of THREADs there are situations that require atomic operations. Suppose we want to increment the value of a variable: A=A+1 in a parallelism situation it could happen that between acquiring the value of A its increment and its reassignment another Thread has changed its value, unary operators guarantee operation atomicity.
+
+/ (division)
+------------------------
+What could division possibly have different?
+that division by ZERO gives ZERO!
+
+// (integer division)
+------------------------
+10.5 // 3 = 3
+
+^ (power)
+------------------------
+3 ^ 2 = 9
+
+== CMP (comparison)
+------------------------
+ZERO is not NULL:
+r=if( 0 == NULL, £TRUE, £FALSE); !! r will be FALSE;
+For NNVs the == operator performs a case insensitive comparison ignoring spaces at the beginning and end, if you want a precise comparison you must use CMP:
+s1="first";
+s2=" first ";
+s3=" First";
+
+c1=if( s1==s2,£YES,£NO); !! c1 will be YES;
+c2=if( s1 cmp s2 == 0,£YES,£NO); !! c2 will be NO;
+c3=if( s1==s3,£YES,£NO);!! c3 will be YES;
+
+& | % ! (and or xor not)
+------------------------
+BINARY operations.
+
+AND OR XOR NOT
+------------------------
+LOGICAL operations.
+
+<< >> (Left and Right Shift)
+------------------------
+Shift operators their behavior changes if the symbol value is an NV or an NNV:
+a=0b1101; b= a >> 2; !! b will be 0b11;
+A="Tested"; B= A >>2; !! B will be "Test";
+
+++ <<= (concatenation)
+------------------------
+A="Test"; B="One"; C= A ++ B; !! C will be "TestOne";
+A="Test"; B="One"; C= A <<= B; !! C will be "TestOne";
+
+.. (concatenation with space)
+------------------------
+A="Test"; B="One"; C= A .. B; !! C will be "Test One";
+
+ZNOT ZAND ZOR ZXOR ZSUM (Fuzzy operators)
+------------------------
+Note ZSUM which is a PWK extension and for which there is also a form as function ZFSUM that can "sum" more than one element, both are designed on error (0 = no error) so if you want to use it with respect to true (1) the result must be inverted (r= a ZSUM b; r=1-r;);
+
+PAND POR PXOR (probabilistic operators)
+------------------------
+To perform probabilistic logic operations.
+
+### System Functions 
+SYS functions, unlike those of libraries, are indicated by their name without the library prefix. Below is a brief exposition of those that have particularities. For precise reference refer to the manual.
+
+REF, EXIST, TYPOF (references)
+------------------------
+REF indirect reference to an item or attribute can be used as both right and left element in assignments;
+EXIST verifies the existence of an ITEM or attribute;
+TYPOF returns the type of an ITEM or attribute.
+
+HEX, BIN, FLT, INT, UNS, CHAR, CHARCOD (conversions)
+------------------------
+In general the use is intuitive.
+FLT allows specifying the number of decimals,
+CHAR encodes one or more NVs in a symbol,
+CHARCOD returns the numeric code of a character.
+
+MIN, MAX, LIM (control on NVs)
+------------------------
+MIN returns the minimum of a list of values;
+MAX returns the maximum of a list of values;
+LIM(v, mn, mx) returns a value anyway included between limits.
+
+IF (ternary)
+------------------------
+IF(c, a, b) as function evaluates the first parameter if it's true returns the second (a), otherwise the third (b). Being a function all parameters are determined before assignment.
+
+ISNULL, ISEMPTY, ISTRUE, ISERR, TSTX, ISNUM, ISFLT
+------------------------
+Test functions.
+ISTRUE(x)
+- if x is NV returns true (1) if x>0;
+- if x is NNV returns true (1) if x not null and not all spaces;
+ISEMPTY(x) returns true (1) if x is empty and not NULL;
+ISNULL(x) returns true (1) if x is NULL;
+ISERR(x) returns true (1) if x is NULL or <0;
+TSTX(x, "One,Two") returns £One if x is true, otherwise £Two
+ISNUM(X) returns true (1) if x is an NV
+ISFLT(x) returns true (1) if x is an NV of type FLT.
+
+BITF, MID (symbol extraction and/or modification)
+------------------------
+For NVs with BITF you can get or modify a bit field.
+For NNVs with MID you can get or modify a character field.
+
+LEN, NSP, FST, LST, CAT, LWR, UPR, RTF2TXT, NNL, NNLv (operations on symbols)
+------------------------
+LEN(s) returns the length in characters of a symbol;
+NSP(s) removes any spaces from the beginning and end of a symbol;
+FST(s) returns or replaces the first character;
+LST(s) returns or replaces the last character;
+LWR(s) transforms all characters to lowercase;
+UPR(s) transforms all characters to uppercase;
+CAT concatenates symbols;
+RTF2TXT(x) converts RTF text to unicode.
+NNLv(x,v) if x is null returns the value of the second parameter or an empty symbol;
+NNL if x is null returns an empty symbol.
+
+FRMT (format)
+------------------------
+Creates a symbol with C printf notation,
+
+SPLT, TKNZ, TKNZOP, CSV, CSVTBL (split symbols)
+------------------------
+SPLT extracts a side(Left/Right) of a symbol with respect to a separator;
+TKNZ/TKNZOP returns a LIS obtained by splitting the symbol using a list of separators;
+CSV returns a LIS obtained by splitting the symbol using a separator (,);
+CSVTBL returns a TBL obtained by splitting the symbol with separators for element and row, preserving values contained in blocks.
+
+SRCH, MTCH (search in symbols)
+------------------------
+SRCH searches for a symbol within another (with various parameters);
+MTCH symbol comparison for similarity.
+
+QUOS, QUOD,QUOSE, QUODE, ESCP (symbol quoting with apostrophes)
+------------------------
+QUOS (quote single) quotes a symbol with apostrophes;
+QUOD (quote double) quotes a symbol with double quotes;
+QUOSE, QUODE as above but preserves (doubling it) any quote character contained in the symbol.
+
+TMR, CLOCK (time)
+------------------------
+TMR gets system time (from program or thread start) in ms or high resolution, with eventual comparison with a given value;
+CLOCK returns the number of seconds elapsed since January 1, 1970.
+
+EXC, EXCTHR, EXCFLUSH, CALC (execution calls)
+------------------------
+EXC call of an EXO from CODE;
+EXCTHR launches from CODE the execution of an EXO in a new THREAD;
+EXCFLUSH cleans the EXO cache;
+CALC executes the code contained in a symbol.
+
+YIELD, SLEEP, WAITCND (waiting)
+------------------------
+YIELD releases execution time (Time slice) for one cycle;
+SLEEP(x) suspends execution for x milliseconds;
+WAITCND puts the thread waiting for a condition to occur with respect to a symbol.
+
+CNS, CNSOUT, ERROUT, ERRSHW,STDINP,STDOUT (symbol output)
+------------------------
+CNS shows or hides the console;
+CNSOUT transmits to console the symbols put as parameter;
+ERROUT transmits on std error the symbols put as parameter;
+ERRSHW returns the output of system errors;
+STDINP waits for a line from stdInp;
+STDOUT emits on stdout the symbols put as parameter.
+
+CHATMSG, CHATPUT, CHATGET, CHATCLR, CHATSHW (chat)
+------------------------
+CHATMSG returns the number of messages queued for waiting;
+CHATPUT sends to chat the symbols put as parameter;
+CHATGET returns the first message queued for waiting;
+CHATCLR removes messages from chat;
+CHATSHW returns chat messages separated by crlf in a single symbol,
+
+TRIG, TRIGSET, TRIGPAR (triggers)
+------------------------
+TRIG used by some functions as activators of service functions when certain conditions occur.
+(TRIGSET, TRIGPAR deprecated).
+
+OSEXEC, OSSHELL, OSSTART, PWKTASK (starting processes or Operating System commands)
+------------------------
+OSEXEC executes a command on the O.S. (synchronous);
+OSSHELL executes an O.S. command;
+OSSTART starts a new process;
+PWKTASK starts a PWK program as process.
+
+THRINF,THRSYM,THRPRI (THREADs)
+------------------------
+THRINF returns information on THREADs in execution;
+THRSYM management of Auto attributes;
+THRPRI changes the execution priority of threads.
+
+PTRTYP, PTRLIS, PTRDUP, TRASH (PTR pointers)
+------------------------
+PTRTYP returns information on a PTR;
+PTRLIS returns the list of allocated pointers;
+PTRDUP duplicates a pointer,
+TRASH removes PTRs no longer used and sets to NULL the value of the symbol that contained them.
+
+THIS, DBGLINE, DBGINFO, LIBINFO (reflective info)
+------------------------
+THIS returns the address of the current CODE;
+DBGLINE returns the line number of the current code;
+DBGINFO returns debug information (not documented).
+LIBINFO returns information on LIBs present in the system.
+
+SMF, DOOR (synchronization)
+------------------------
+See below.
+
+ALIASPTH, PKGPTH, PWKPTH, PRGPTH (Path routes)
+------------------------
+ALIASPTH get/set an alias for a path of a root element;
+PKGPTH returns the Package path;
+PWKPTH returns the PWK installation directory path;
+PRGPTH returns the path of the program in execution.
+
+CRLF, BOM, UID, UCNT, PI, ENP, RAND (constants or almost)
+------------------------
+CRLF encodes the symbol (0x0d0A) of end of line;
+BOM ByteOrderMark ( 0xFEFF) for UTF-16;
+UID unique id with respect to the application generated by PWK;
+UCNT unique counter with respect to the application generated by PWK;
+PI pi greek 3.14..
+ENP e neperian
+RAND returns a random number.
+
+### FLOW INSTRUCTIONS IN CODEs
+
+#### Conditional flow:
+
+#IF(°cond);
+ ...
+#ELSE; !!Optional;
+ ...
+#END;
+
+The #ELSE; can be replaced by #ELSE_OTIF(°newCond) 
+in case after executing code for the true condition, you want to verify if
+there are conditions to also execute the remaining part of the #IF.
+
+°k=0;
+#IF(°cond);
+ ... !! If °cond is TRUE (true);
+ °k=1; 
+#ELSE_OTIF(°k); !!°k is evaluated only if °cond is true and therefore the previous code has been executed; 
+ ... !! If °cond is FALSE or (if °cond is true and at the end of its execution °k is true);
+#END;
+
+In a #if ... #end; Only one #ELSE or #ELSE_OTIF can exists.
+
+#### For repeated and conditional loops:
+
+#WHILE(°cond);
+
+	!!#SKIP; !! equivalent of C continue;
+	!!#BREAK; !! interrupts the #WHILE - can only be used within a #WHILE;
+
+#end;
+
+e.g.
+°i=0;
+#WHILE(°i += 1 <= °file_count) 
+
+	#if(°i==20);#skip;#end; !! with °i==20 nothing is printed;
+	#if(°i==100);#Break;#end; !! Maximum 100 iterations;
+
+	chatput(£Num..°i);
+#end;
+
+### Call for Execution of EXO/MTHD or Thread within CODEs
+To execute an EXO or MTHD in code use the EXC function 
+and for threads EXCTHR.
+
+The EXO to execute must be indicated as string:
+
+!!Having: myExo(EXO);
+EXC("\myEXO", ...);
+!!or;
+°me="\myEXO";
+EXC(°me, ...);
+
+### CODE encoding elements - (In the following examples for convenience we used a notation §x for some values) 
+
+[001] !!text between two or three exclamation points up to the first semicolon (like this one) is considered a comment and will be ignored at the time of execution;
+
+[002] !!!the semicolon separates distinct executive elements (statements) and any pending results if not assigned are eliminated;
+
+[003] !!String constants are contained by two double apex, to insert in the string a double apex: double it;
+ 
+chatput("world of power-ki";
+--> the world of power-ki
+chatput("the word of ""power-ki"" is beautiful");
+--> the world of "power-ki" is beautiful
+
+!!Escaping with \ does not exists in POWER-KI, so e.g. file path can be written direcly: "\MyPath\Myfile.txt"
+the same is valid for ATTRIBUTE path like: TEXT@\MyGui\pag\myPanel\myTextBox = something;
+
+[004] !!if the string consists of a single word that contains only alphabetic characters, can be written preceded by the character £ (literal);
+ £world
+
+[005] !! to concatenate two symbol are provided the double dot .. operator and the double plus ++ operator. The difference is that .. insert a space between the two symbol;
+"my".."home".."my"++"home" 
+--> my home myhome
+
+[006] !!Numeric constants can be expressed on different bases:"; 
+12.."(decimal)"..0xC.."(prepending 0x for Hexadecimal)"..0b1100.."(prepending 0b for binary)"..12.5.."(with single dot for float)" 
+--> 12 (decimal) 0xC (prepending 0x for Hexadecimal) 0b1100 (prepending 0b for binary) 12.5 (with single dot for float)
+
+[007] !!Local Temporary Variables are defined with a name preceded by the symbol °. They can be declared anywhere in a CODE and are visible at EXO/MTHD level;
+°a=10; !!Declaration by left assignment;
+°a --> 10
+
+[008] !! Global Temporary Variable are persistent and visible to all EXO/MTHD of the Thread. In this example we will declare two variable; 
+:: °a=10; !! LTV exist only inside this code;
+:: °b°=20;!! GTV visible inside the current execution Thread;
+
+[010] !!in PWK you have two ways to make an assignment;
+°a=10; !!standard left assignment (with equal);
+10 ->°b; !!right assignment (with arrow);
+°a..°b 
+--> 10 10 
+
+[011] !!minus and plus assignment are atomic (that is, executed without interruption and therefore thread safe) FUNCTIONS (that is, they can also be called within a calculation);
+°a=5;
+°a+=1; !!so °a will be 6;
+°b= °a+=2 * 3; !! °a gets incremented by 2 and is multiplied by 3, giving;
+"°b is"..°b.."°a now is"..°a..
+"the minus assignment works in the same way:"..
+°b-=4 
+--> °b is 24 °a now is 8 the minus assignment works in the same way: 20
+
+[012] !! a numeric value is TRUE if different from zero,
+   The function tstX(x) return £true or £false;   
+°a=1;
+°b=0;
+tstX(°a)..tstX(°b) 
+--> TRUE FALSE
+
+[013] !! tilde operator ~ (ALT 126) return 0 (FALSE) if a symbol is NULL or empty, otherwise 1 (TRUE);
+°a=£;
+°b="home";
+°c=3;
+~°a..~°b..~°c..~°d !!°d is NULL; 
+--> 0 1 1 0
+
+[014] !!comparison operator return 0(false) or 1(true) they are: < (less than), <= (less or equal), >= (greater or equal), > (greater), == (equal), != (not equal). Can be used with NV (Numerical Values) and NNV (not Numerical Values);
+°a=100;
+°b=100;
+°c=50;
+°d="alfa";
+°e=£beta;
+°a==°b .. °a > °c .. °d < °e .. °d < °a .. °c != °d 
+--> 1 1 1 1 1
+
+[015] !!the if Function is constituted by three parts. The schema is: if(C, T, F).
+All (C,T,F) are executed but if C is true (that is its value is different from zero) the T is returned, otherwise the F;
+°t=1;
+°f=3;
+°c=1; °r1=if(°c, °t, °f); !!True;
+°c=0; °r2=if(°c, °t, °f); !!False;
+!!to prove the execution of °t and °f we increment both;
+°c=1;
+°r3=if(°c, °t+=1, °f+=1);
+!!Now output of results;
+°r1..°r2..°r3..°t..°f 
+--> 1 3 2 2 4
+
+[016] !!The code can be conditionally executed using the schema:
+#if(condition)
+  do something
+#else 
+  option to do something else
+#end;
+
+°a=1;
+°b=5;
+#if(°a);
+ °b+=1;
+#else;
+ °b-=1;
+#end;
+°b  !!Change °a=0 to see what happens;
+--> 6
+
+[017] !!To perform iteration inside a CODE you can use 
+#while(condition is true)
+   do something
+#end
+iterations can be shortened with #skip or interrupted with #break;
+°cnt=0;
+°i=0;
+#while(°i+=1 <=10);
+   #if(°i == 5); #skip; #end; !!to show skip use;
+   °cnt+=1;
+   #if(°i == 8); #break; #end; !!to show break use;
+
+#end;
+°i..°cnt
+--> 8 7
+
+[018] (§a=7, §b=3 are substituted in the following code)
+°r1=§a+§b; !! SUM;
+°r2=§a-§b; !! SUBTRACTION;
+°r3=§a*§b; !! MULTIPLICATION;
+°r4=§a/§b; !! DIVISION note in PWK div by 0 = 0;
+°r5=§a//§b;!! INTEGER Division; 
+°r6=§a MOD §b; !! MODULUS;
+°r7=§a^§b;   !! POWER;
+°r8=sqrt(25);!! Square Root;
+
+°r1..°r2..°r3..°r4..°r5..°r6..°r7..°r8
+--> 10 4 21 2.3333333333333334814 2 1 343 5
+
+[019] (§val=-121 is substituted in the following code)
+°r1=abs(§val); !!Absolute value;
+°r2=flt(7/3,1);!!Limit the number of float decimal;
+°r1..°r2 
+--> 121 2.3
+
+[020] !!PI is greek PI, enp is neperian e;
+PI..enp
+--> 3.141592653589793 2.718281828459045
+
+[021] (§exp=3 is substituted in the following code)
+°x=enp^§exp;
+°y=log(°x); !!! Reverse operation;
+FLT(°x,5)..°y
+--> 20.08554 3
+
+[022] (§a=5 is substituted in the following code)
+°r1=log10(§a);
+°r2=10^°r1; !!reverse operation;
+FLT(°r1,5)..FLT(°r2,5)
+--> 0.69897 5.00000
+
+[023] (§num=12 is substituted in the following code)
+!!To convert number representation to a different base; 
+§num..Hex(§num)..BIN(§num)
+--> 12 0xc 0b1100
+
+[024] !! CRLF is a constant for Carriage Return (0x0d) + Line Feed (0x0a);
+"first"..crlf++"second" 
+--> first 
+second
+
+[025] (§a=145, §b=28 are substituted in the following code)
+BIN(§a).."&"..BIN(§b).."="..BIN(§a & §b)++CRLF++
+BIN(§a).."|"..BIN(§b).."="..BIN(§a | §b)++CRLF++
+BIN(§a).."%"..BIN(§b).."="..BIN(§a % §b)
+--> 0b10010001 & 0b11100 = 0b10000
+0b10010001 | 0b11100 = 0b10011101
+0b10010001 % 0b11100 = 0b10001101
+
+[026] (§num=182, §times=5 are substituted in the following code)
+!! << (left shift)insert a number of Zeroes equal to number of the right side of the operator.  
+>> (right shift) shift the number a number of times equal to number of the right side of the operator;
+bin(§num)..bin(§num<<§times)..bin(§num>>§times)  
+--> 0b10110110 0b1011011000000 0b101
+
+[027] (§bitN=2, §num=182,§startBit=5, §x=3 are substituted in the following code)
+!!Read a field of bits inside a number;
+°r=BITF(§num,§startBit,§bitN);
+BIN(§num)..!!the number in binary;
+BIN(°r)..  !!read the field;
+BIN(BITF(§num,§startBit,§bitN,§x)) !!Write x into a field of bits inside a number and return it;
+--> 0b10110110 0b10 0b10111110
+
+[028] !!Math swap;
+°bv=0x12;
+°bsr=HEX(SWAP(°bv,£BYTE));
+°wv=0x1234;
+°wsr=HEX(SWAP(°wv,£WORD));
+°dv=0x12345678;
+°dsr=HEX(SWAP(°dv,£DWORD));
+°bv.."swapped as byte"..°bsr++","..°wv.."as word"..°wsr++","..°dv.."as double word"..°dsr
+--> 0x12 swapped as byte 0x21, 0x1234 as word 0x3412, 0x12345678 as double word 0x78563412
+
+[029] (§v1=3, §v2=12, §v3=7, §val=20 are substituted in the following code)
+°mn=MIN(§v1,§v2,§v3);
+°mx=MAX(§v1,§v2,§v3);
+"Min and max range=("++°mn++";"++°mx++")"++CRLF++
+"Val limited to range min-max="++LIM(§val,°mn,°mx)
+--> Min and max range=(3;12)
+Val limited to range min-max=12
+
+[030] (§a=0x2 is substituted in the following code)
+ISNULL(§a)..
+ISEMPTY(§a)..!!exists but len is 0 of all spaces;
+ISTRUE(§a)..
+ISERR(§a).. !! a is NULL or its value is <0; 
+ISNUM(§a).. !! Return: 0=false 1=true 2=bin 3=HEX;
+ISFLT(§a)
+-->0 0 1 0 3 0
+
+[031] !!Other constant defined in PWK are: null, true, false;
+°a=null;
+°b=true; !! 1;
+°c=false;!! 0;
+!!pay attention because in PWK many function requires £true or £false that are strings;
+"a="++°a.."b="++°b.."c="++°c 
+--> a= b=1 c=0
+
+[032] (§a=bottle is substituted in the following code)
+°s=§a; !!For convenience assign to °s;
+°nc=len(°s); !!length, in char, of s;
+°f=fst(°s); !!Get first char;
+°l=lst(°s); !!Get last char;
+°sa=fst(°s,£A); !! Set first char to A;
+°sz=lst(°s,£Z); !! Set last char to Z;
+°s..°nc..°f..°l..°sa..°sz
+--> bottle 6 b e Aottle bottlZ
+
+[033] !!Removing space;
+°s=" my length is ";
+°sn=nsp(°s); !!remove any initial and trailing space;
+°s..len(°s)..°sn..len(°sn)
+-->  my length is  14 my length is 12
+
+[034] (§a=big Hello is substituted in the following code)
+UPR(§a)..!! To upper;
+crlf++
+LWR(§a)  !! To Lower;
+--> BIG HELLO 
+big hello
+
+[035] (§code=97 §string=essay are substituted in the following code)
+CHAR(§code)..!! convert a code to CHAR;
+CHARCOD(fst(nsp(§string)))..!! Convert a CHAR to its code;
+CHARCOD(crlf) !!Only the first;
+--> a 101 13
+
+[036] (§partlen=3 §startPos=8 §string=Hello, how are you? are substituted in the following code)
+°r=MID(§string,§startPos,§partLen);!! Returns the requested part of the string; 
+°n=MID(§string,§startPos,§partLen, £who); !!Change part of the string;
+°lf=splt(§string,",",£LEFT);
+°rg=splt(§string,",",£RIGHT);
+§string..crlf++
+°r..crlf++
+°n..crlf++
+°rg..°lf
+--> Hello, how are you? 
+how 
+Hello, who are you? 
+ how are you? Hello
+ 
+[037] (§inp=b is substituted in the following code)
+°alfa="abcdefghijklmnopqrstuvwxyz";
+°l=LWR(FST(§inp));
+°pos=SRCH(°alfa,°l);!!return the position;
+°l..°pos..
+SYMB_RPLC(°alfa,°l, "["++UPR(°l)++"]")
+--> b 2 a[B]cdefghijklmnopqrstuvwxyz
+
+[038] (§a=52 §f=34.222222 are substituted in the following code)
+FRMT("%5d",§a)++CRLF++  !!a 5 digit field; 
+FRMT("%05d",§a)++CRLF++ !!padding with 0; 
+FRMT("%.1f",§f)         !!float with one decimal;
+--> 
+   52
+00052
+34.2
+
+[039] (§str=problem is substituted in the following code)
+°r=(§str<<2)..!!shift left (remove) 2 char; 
+"-"..
+(§str>>3);    !!shift Right (remove) 3 char; 
+°r
+--> oblem - prob
+
+[040] !!Strings - EQU;
+(£==NULL)..  !! £literal is not NULL;
+(£==" ")..   !! All spaces is empty like £;
+(£Ciao==£ciao) !!EQU don't care about case;
+(£ciao==" ciao").. !!EQU don't care about initial and trailing space;
+--> 0 1 1 1
+
+[041] !!CMP compare two symbol and return 
+ 0 : if are equal
+-1 : if the first is before in alphabetic order
+ 1 : if the first is after in alphabetic order.
+MTCH make a statistical comparison;
+CMP(£,NULL)..
+CMP(£," ")..
+CMP(NULL,NULL)..
+CMP(£ciao," ciao")..
+CMP(£Ciao,£ciao)..
+MTCH( £ciao," tiao")
+--> 1 -1 0 1 -1 750
+
+[042] !!NNL, NNLv;
+°r=NULL;
+°s=NNL(°r); !!If null force a £(empty);
+°t=NNLv(°r);
+°u=NNLv(°r,£pippo); !!If null force £pippo;
+
+"r is null?"..TSTx(ISNULL(°r))++CRLF++
+"r is empty?"..TSTx(~°r==0)++CRLF++
+
+"s is null?"..TSTx(ISNULL(°s))++CRLF++
+"s is empty?"..TSTx(~°s==0)++CRLF++
+"t is null?"..TSTx(ISNULL(°t))++CRLF++
+"t is empty?"..TSTx(~°t==0)++CRLF++
+"u values <"++°u++">"
+-->
+r is null? TRUE
+r is empty? TRUE
+s is null? FALSE
+s is empty? TRUE
+t is null? FALSE
+t is empty? TRUE
+u values <pippo>
+
+[043] !!Time . Sleep execution;
+°start=tmr;
+sleep(2000); !!2000 ms delay;
+°stop=tmr;
+°delay=°stop - °start;
+°start..°stop..°delay++ms
+--> //
+
+[044] !!TIME - TMR, Clock;
+°ms=TMR;!!time in ms since application start;
+°sec=CLOCK; !!seconds since 1/1/1970 (unix time);
+°ms..°sec 
+--> //
+
+[045] !!Write in PWK console;
+chatput("Hello world!");
+--> (In pwk console) Hello world!
+
+
+## BASKETs
+It is possible to save in files with .bsk extension POWER-KI code elements (ITEMs) 
+to be able to reuse or transfer them. 
+
+## Multi Threading
+POWER-KI was designed for extensive use of multi Threading, for this reason all functions are basically THREAD safe, however there is always the need to implement synchronizations or activity serialization, so there are functions for this purpose.
+
+### SMF (semaphores)
+SMF allows serializing THREAD activity,
+There are 255 global semaphores (1-255) that can be used simply by indicating the identification number, or they can be created (with the SMF function), in this case their pointer must then be used. Alternatively you can use the semaphore of object PTRs. In use you must remember that: as many times an SMF is locked (£LCKS), as many times it must be unlocked (£LCKR),
+SMFs can be interrogated to know: their state, the THREAD that holds it, the line number where it was locked, the number of threads that have been put in WAIT (waiting) on it, this information together with that obtainable from other functions allows quickly resolving any DEADLOCK (cross-locks).
+
+### DOOR (doors)
+A limitation of SMFs is that once locked, they allow access and can only be unlocked by the thread that holds them. To overcome this limitation, DOORs have been introduced in PWK, They are only system and there are 255 (1-255) they work on the basis of a key: whoever has the key...
+
+## GUIs and Native Cloud (NC)
+An important characteristic of POWER-KI that we call Native Cloud (NC) is the decoupling between the graphical interface GUI and the code that generated it. The GUI can be running on a different machine, even on the other side of the world, and its appearance as well as its functionality are as if it were local. Compared to other solutions, such as WEB interfaces which can still be implemented with PWK (WUI), it presents numerous advantages:
+- better performance;
+- shorter development time;
+- Native appearance;
+- greater security.
+
+How they are implemented
+With the GUI editor the page (.pki) is designed which is referenced in the ASSEMBLY in the GUI ITEM. From assembly it is possible to refer to and modify GUI elements as if they were local, conversely GUI variations are reflected in the ASSEMBLY, particularly EVENTS (mouse movements, page movements etc.). The programmer is given the possibility with SIGNALs to associate such events with actions to be performed with code.
+
+### Gui (NC) and ASSEMBLY / CODE
+To be able to create a connection between Gui (Native Cloud) and ASSEMBLY 
+the GUI ITEM must be inserted which will have a "trig" MTHD connection method.
+When the Gui(NC) is instantiated POWER-KI adds to the GUI ITEM the mapping of
+the page with all contents. By referring to it you can read and write
+Gui (NC) contents, start actions. In the system ATTRIBUTEs (those with underscore at the beginning and end)
+of the Gui (NC) the trig copies in real time events, signal, mouse coordinates etc.
+To perform writes it is necessary to refer to the path of the Gui(NC) elements preceded by the 
+GUI ITEM name:
+e.g.
+Having a GUI (NC) GuiNC whose PAG contains a PANEL "pnl" that contains a TEXTBOX "myBox" and a LABEL "myMsg"
+having created in the ASSEMBLY a GUI element (ITEM) "myGui" for connection, within a CODE:
+
+°val=VALUE@\myGui\pag\pnl\myBox; !!Read the value from the user GUI(NC);     
+TEXT@\myGui\pag\pnl\myMsg=°val; !!Write to the user GUI(NC);
+
+The path to the GUI ATTIBUTES should be complete:
+TEXT@\myGui\pag\pnl\myMsg=°val; !! OK;
+TEXT@\myGui\pag\myMsg=°val; !!OK; !! ERROR;
+
+## User interaction from shell or POWER-KI console
+
+To interact from operating system shell:
+1) CONS_OS@\pwk\executor must have value: £YES;
+2) CONS_OS_PARENT@\pwk\executor must have value: £SUSPEND; 
+3) the program must be launched from command line;
+4) use STDINP and STDOUT functions.
+
+To interact via POWER-KI CONSOLE:
+1) CONS@\pwk\executor must have value: £YES;
+2) use CHATxxx functions.
+
+
+# Common errors to avoid and to check for:
+* forgetting the ";" semicolon at the end of statements;
+* forgetting the ";" semicolon at the end of comments that start with !! or !!!;
+* using ITEMs within code;
+* in strings using \" instead of ""; 
+* insert a double \\ in a path (POWER-KI strings are UNICODE and do not need escaping); 
+  (only allower in LIBs as reference to the "parent" ASSEMBLY: \\Main_ASSEBLY\item\item);
+* in strings \ escape does not exist since power-ki strings are U16;
+* using MTHD outside VAR or EXO ITEMS;
+* using #break outside of #while:
+
+  error example:
+	CODE=======================
+	#if(!°cond1);
+		#break; !!!ERROR;
+	#end;
+	...
+	#if(!°cond2);
+		#break; !!!ERROR;
+	#end;
+	...
+	=======================
+
+  Possible solution right (nesting):	
+
+	CODE=======================
+	#if(°cond1);
+		...
+		#if(°cond2);
+			...
+		#end;		
+	#end;
+	...
+	=======================
+
+* misuse of #ELSE_OTIF 	
+
+  error example:
+	CODE=======================
+	#if(°a==1);
+		...
+	#else_otif(°a==2);
+		...
+	#else_otif(°a==3);
+		...
+	#end;
+	=======================
+	
+  Possible right solution:
+	
+	CODE=======================
+	#while(1);
+		#if(°a==1);
+			...
+			#break;
+		#end;
+		
+		#if(°a==2);
+			...
+			#break;
+		#end;
+
+		#if(°a==3);
+			...
+			#break;
+		#end;
+
+	#break; !!Do not forget this;
+	#end;
+	=======================
+	
+	Or nesting #IF like above.
+	
+	
+	
+
+

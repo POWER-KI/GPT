@@ -1,0 +1,1212 @@
+The following are instruction to create POWER-KI (PWK) GUI Graphic User Interface Native Cloud (NC).
+
+A POWER-KI GUI is defined by a notation close to XML that admint two root element and allows 
+the definition of TYPE  either of an item either of an item attribute using: (type). 
+For ATTRIBUTE the TYPE could be DAT (send from POWER-KI app on change) SNG (alwais sent on write).
+The behaviour of GUI ATTRIBUTE are very close to that of windows FORM. 
+
+# The GUI code  SHOULD be:
+1) <?POWER-KI 1.20 - (R) (C) 2010 XPLAB - Research in Automation - Brescia - ITALY?>
+where 1.20 is the version of the definition used.
+2) <pwk(VAR) .../>  
+The pwk(VAR) contains general information attribute:
+- INTERFACE: source file path;
+- _BUILD_: build number
+
+3) <pag(FORM) .../> 
+The element of type (FORM) usually pag(FORM), contains all the GUI element.
+
+
+# Example of GUI .pki file:
+
+<?POWER-KI 1.20 - (R) (C) 2010 XPLAB - Research in Automation - Brescia - ITALY?>
+<pwk(VAR) INTERFACE="C:\PWK-PRG\GPT-PWK-MDL\simple.pki" VERSION="1.0" _BUILD_="3" COPYRIGHT="(C)2023 XPLAB s.a.s. - Research in Automation - Brescia - Italy" Company="" ProjectName="" ProjectId="" />
+<pag(FORM) SCREEN(DAT)="" StartLocation(DAT)=" " SIZE(DAT)="" X(DAT)="" Y(DAT)="" XY(DAT)="" SizX(DAT)="640" SizY(DAT)="480" SizXY(DAT)="" SizXY_min(DAT)="" SizXY_std(DAT)="" SizXY_max(DAT)="" Enabled(DAT)="true" Visible(DAT)="true" CLR_FRG(DAT)="" CLR_BKG(DAT)="" CLR_TITLE(DAT)="" HLP_TEXT(DAT)="" ButtonClose(DAT)="true" ButtonHelp(DAT)="false" ButtonMin(DAT)="true" ButtonMax(DAT)="false" ButtonNvg(DAT)="false" ButtonPrint(DAT)="false" Alive(DAT)="true" Resaizable(DAT)="false" StdBkg(DAT)="false" TITLE(DAT)="" TITLE_SHW(DAT)="true" FIXED(DAT)="FALSE" TRANSP_CLR(DAT)="" OPACITY(DAT)="100" ESC(DAT)="" TOPMOST(DAT)="" FORM_TYPE(DAT)="" TAB_AUTO(DAT)="" SCALE(DAT)="1" MOUSETRACEOFF(DAT)="" TASKBAR(DAT)="" FOCUSED(DAT)="" SIZSTATUS(DAT)="" >
+     <UserInput(TEXTBOX) X(DAT)="50" Y(DAT)="50" XY(DAT)="" SizX(DAT)="60" SizY(DAT)="30" SizXY(DAT)="" Enabled(DAT)="true" Visible(DAT)="true" READONLY(DAT)="FALSE" CLR_FRG(DAT)="0;0;0;" CLR_BKG(DAT)="" HLP_TEXT(DAT)="" DOCK(DAT)="" ANCHOR(DAT)="TOP,LEFT" VALUE(DAT)="" MULTI(DAT)="" ALLIGN_H(DAT)="" CellRow(DAT)="" CelLCol(DAT)="" CelLRowSpan(DAT)="" CelLColSpan(DAT)="" PASSWORD(DAT)="" SCROLLBARS(DAT)="" BORDER_STYLE(DAT)="" MAXLEN(DAT)="" INPACCEPT(DAT)="" CONFWRET(DAT)="" FOCUS(SGN)="" />
+     <DO(BUTTON) X(DAT)="50" Y(DAT)="50" XY(DAT)="" SizX(DAT)="60" SizY(DAT)="30" SizXY(DAT)="" Enabled(DAT)="true" Visible(DAT)="true" CLR_FRG(DAT)="0;0;0;" CLR_BKG(DAT)="" HLP_TEXT(DAT)="" DOCK(DAT)="" ANCHOR(DAT)="TOP,LEFT" TEXT(DAT)="" ALLIGN_H(DAT)="" ALLIGN_V(DAT)="" CellRow(DAT)="" CelLCol(DAT)="" CelLRowSpan(DAT)="" CelLColSpan(DAT)="" ROLE(DAT)="" FOCUS(SGN)="" >
+          <SIGNAL_name(SIGNAL) MOUSE_MV(DAT)="DEFAULT" MOUSE_ENT(DAT)="DEFAULT" MOUSE_OUT(DAT)="DEFAULT" MOUSE_DW(DAT)="DEFAULT" MOUSE_UP(DAT)="DEFAULT" MOUSE_CR(DAT)="DEFAULT" MOUSE_CL(DAT)="DEFAULT" MOUSE_CS(DAT)="DEFAULT" MOUSE_CD(DAT)="DEFAULT" ITEM_CHG(DAT)="DEFAULT" ITEM_VAL_CHG(DAT)="DEFAULT" ITEM_ENT(DAT)="DEFAULT" ITEM_EDT_BEG(DAT)="DEFAULT" ITEM_EDT_END(DAT)="DEFAULT" KEY_DW(DAT)="DEFAULT" KEY_PRS(DAT)="DEFAULT" KEY_UP(DAT)="DEFAULT" WIND_MOV(DAT)="DEFAULT" WIND_SIZ(DAT)="DEFAULT" WIND_CLS(DAT)="DEFAULT" WIND_MIN(DAT)="DEFAULT" WIND_MAX(DAT)="DEFAULT" WIND_PRT(DAT)="DEFAULT" WIND_HLP(DAT)="DEFAULT" />
+          <IMAGE_name(IMAGE) FILE(SGN)="" LAYOUT(DAT)="STRETCH" DRAW(SGN)="" DRAW_SizX(DAT)="" DRAW_SizY(DAT)="" CACHE(DAT)="YES" />
+     </DO>
+     <FONT_name(FONT) NAME(DAT)="" SIZ(DAT)="" UNIT(DAT)="" STYLE(DAT)="" />
+     <IMAGE_name(IMAGE) FILE(SGN)="" LAYOUT(DAT)="STRETCH" DRAW(SGN)="" DRAW_SizX(DAT)="" DRAW_SizY(DAT)="" CACHE(DAT)="YES" />
+</pag>
+
+
+
+# ITEMS, Container, Property, Components
+
+TYPE		Kind	Comment
+FORM		ITEM	Form item
+BUTTON		ITEM	Button item
+RADIOBUTTON	ITEM	Radio Button item
+LABEL		ITEM	label item
+TEXTBOX		ITEM	Text Box item
+RICHBOX		ITEM	Rich Text Box with rtf encoding
+EDITBOX		ITEM	Rich Text Box with rtf encoding and editing 
+LISTBOX		ITEM	
+COMBOBOX	ITEM	
+CHECKBOX	ITEM	
+DRAWBOX		ITEM	
+PROGRESS	ITEM	Progress Bar
+GRID		ITEM	Data Grid can contain GRIDCOL and GRIDHEADER
+WEB			ITEM	Web Browser - include in a Panel
+WEBFAST		ITEM	Web Browser - include in a Panel
+TRACKBAR	ITEM	Track Bar
+PANEL		CONTAINER	Panel
+PANELFLOW	CONTAINER	A panel that arrange its contents
+SPLITCONTAINER		CONTAINER	Contains two sub panel 
+TABLE		CONTAINER	Table contains TABLEROW and TABLECOL
+IMAGE		RESOURCE	image resource
+FONT		PROPERTY	 
+BORDER		PROPERTY	
+FLASHING	PROPERTY	
+MARGIN		PROPERTY	
+PADDING		PROPERTY	
+SIGNAL		PROPERTY	User Signal max 40 Char
+AUDIO		PROPERTY	
+TABLEROW	COMPONENT	
+TABLECOL	COMPONENT	
+GRIDCOL		COMPONENT	Column component for each columin of the grid numbered postpending the number like col_1 
+GRIDHEADER	COMPONENT	Grid header of grid
+GRIDCELL	COMPONENT	
+VOICE		COMPONENT	Of Audio
+SOUND		COMPONENT	Of Audio
+SPLITPANEL	COMPONENT	Of SPLITCONTAINER
+
+
+
+
+3.1    FORM
+
+Attribute	Default	Values	Comment	AA	TYP
+SCREEN			Screen number - 0=default		
+StartLocation	 	XY;DEFAULT;CENTER			
+SIZE		SizXY;FULLSCREEN			
+X			x Position 		
+Y			Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	640		Size X in Video Uini		
+SizY	480		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+SizXY_min			Min size X;Y		
+SizXY_std			Std size X;Y		
+SizXY_max			Max size X;Y		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG		R;G;B;	ForeGround Colour R;G;B;		
+CLR_BKG		R;G;B;	BackGround Colour R;G;B;		
+CLR_TITLE		R;G;B;	Title Color		
+HLP_TEXT			Help text to show		
+ButtonClose	true	TRUE;FALSE			
+ButtonHelp	false	TRUE;FALSE			
+ButtonMin	true	TRUE;FALSE			
+ButtonMax	false	TRUE;FALSE			
+ButtonNvg	false	TRUE;FALSE	Navigate inside sizes		
+ButtonPrint	false	TRUE;FALSE			
+Alive	true	TRUE;FALSE			
+Resaizable	false	TRUE;FALSE			
+StdBkg	false	TRUE;FALSE			
+TITLE					
+TITLE_SHW	true	TRUE;FALSE	Show/Hide the form title		
+FIXED	FALSE	TRUE;FALSE	Is mouse  movable		
+TRANSP_CLR		R;G;B;	Transparent colour Key		
+OPACITY	100		% of opacity		
+ESC		TRUE;FALSE	Is ESC enabled		
+TOPMOST		TRUE;FALSE	top most form?		
+FORM_TYPE		STD;TOP;NOSHADOW; NOSHADOW_TOP	CFG: NO run time effects		
+TAB_AUTO		TRUE;FALSE	CFG: Auto tab Order of control		
+SCALE	1		SCALE factor float		
+MOUSETRACEOFF		TRUE;FALSE	Inhibit mouse movement tracing 		
+TASKBAR		TRUE;FALSE	Hide or show win task bar		
+FOCUSED			Read (TRUE,FALSE)		
+SIZSTATUS			Read (MIN,MAX,NRM)		
+
+3.2    BUTTON
+
+BUTTON
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+TEXT					
+ALLIGN_H		LEFT;CENTER;RIGHT			
+ALLIGN_V		TOP;MIDDLE;BOTTOM			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+ROLE		STD;ACCEPT;CANC	Role of the button		
+FOCUS		YES;NO	Set the Focus		SGN
+
+3.3    RADIOBUTTON
+
+RADIOBUTTON
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+VALUE		0;1	Is Checked?		
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+TEXT					
+ALLIGN_H		LEFT;CENTER;RIGHT			
+ALLIGN_V		TOP;MIDDLE;BOTTOM			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+Appearance	NORMAL	NORMAL;BUTTON	If Normal or Push Button		
+TEXTPOSITION	AFTER	AFTER;BEFORE;UP;DOWN	Position of the text		
+FOCUS		YES;NO	Set the Focus		SGN
+
+3.4    LABEL
+
+LABEL
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+SIZE_AUTO		TRUE;FALSE			
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+HLP_TEXT_CTRL		TRUE;FALSE	if true is the shower of the HLP		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+TEXT			Text of the label		
+ALLIGN_H		LEFT;CENTER;RIGHT			
+ALLIGN_V		TOP;MIDDLE;BOTTOM			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+BORDER_STYLE		NONE;SINGLE;3D			
+
+3.5    DRAWBOX
+
+DRAWBOX
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+BORDER_STYLE		NONE;SINGLE;3D			
+
+3.6    TEXTBOX
+
+TEXTBOX
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+READONLY	FALSE	TRUE;FALSE			
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+VALUE			Text of the field		
+MULTI		TRUE;FALSE	Multi line :yes,no		
+ALLIGN_H		LEFT;CENTER;RIGHT			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+PASSWORD			£YES or active if defined like # 		
+SCROLLBARS		HORIZONTAL,VERTICAL			
+BORDER_STYLE		NONE;SINGLE;3D			
+MAXLEN			Max size in char (32732)		
+INPACCEPT		NUM,INT,FLT, ALPHA, ALPHANUM, HEX, CHAR[a,1]	Accepted input		
+CONFWRET		TRUE;FALSE	Confirm with RETURN 		
+FOCUS		YES;NO	Set the Focus		SGN
+
+3.7    RICHBOX
+
+RICHBOX
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+READONLY	FALSE	TRUE;FALSE			
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+VALUE			Text of the field		
+RTF			Rich Text Format		
+RTFESC			Read ONLY escaped for DB		
+MULTI		TRUE;FALSE	Multi line :yes,no		
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+BORDER_STYLE		NONE;SINGLE;3D			
+MAXLEN			Max size in char (32732)		
+INPACCEPT		NUM,INT,FLT, ALPHA, ALPHANUM, HEX, CHAR[a,1]	Accepted input		
+CONFWRET		TRUE;FALSE	Confirm with RETURN 		
+FOCUS		YES;NO	Get the Focus		SGN
+SEL_START			Start of Selection		SGN
+SEL_LENGTH			Length of selection		SGN
+SEL_TXT			Selected text		SGN
+SEL_CLRFRG		R;G;B;	Selection Foreground color		SGN
+SEL_CLRBKG		R;G;B;	Selection Background color		SGN
+SEL_BULLET		NO;YES	Bullet active		SGN
+SEL_ALIGN		LEFT;CENTER;RIGHT	Alignment		SGN
+SEL_PROTECT		NO;YES	Protect against modification		SGN
+SEL_FNT_NAME		#FONT#			SGN
+SEL_FNT_SIZ					SGN
+SEL_FNT_UNIT		POINT;PIXEL;MM			SGN
+SEL_FNT_STYLE		BOLD,ITALIC,UNDERLINE			SGN
+SCROLL_TO_CARRET			Any Values		SGN
+
+
+
+
+3.8    EDITBOX
+
+EDITBOX
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+READONLY	FALSE	TRUE;FALSE			
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+VALUE			Text of the field		
+RTF			Rich Text Format		
+RTFESC			Read ONLY escaped for DB		
+MULTI		TRUE;FALSE	Multi line :yes,no		
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+BORDER_STYLE		NONE;SINGLE;3D			
+MAXLEN			Max size in char (32732)		
+INPACCEPT		NUM,INT,FLT, ALPHA, ALPHANUM, HEX, CHAR[a,1]	Accepted input		
+CONFWRET		TRUE;FALSE	Confirm with RETURN 		
+FOCUS		YES;NO	Set the Focus		SGN
+SEL_START			Start of Selection		SGN
+SEL_LENGTH			Length of selection		SGN
+SEL_TXT			Selected text		SGN
+SEL_CLRFRG		R;G;B;	Selection Foreground color		SGN
+SEL_CLRBKG		R;G;B;	Selection Background color		SGN
+SEL_BULLET		NO;YES	Bullet active		SGN
+SEL_ALIGN		LEFT;CENTER;RIGHT	Alignment		SGN
+SEL_PROTECT		NO;YES	Protect against modification		SGN
+SEL_FNT_NAME		#FONT#			SGN
+SEL_FNT_SIZ					SGN
+SEL_FNT_UNIT		POINT;PIXEL;MM			SGN
+SEL_FNT_STYLE		BOLD,ITALIC,UNDERLINE			SGN
+SCROLL_TO_CARRET			Any values		SGN
+
+
+
+
+
+3.9    LISTBOX
+
+LISTBOX
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+VALUE			Text field		
+ITEMS			items List  		
+ITEMS_SEP			separator 1char def , or ;  		
+ALLIGN_H		LEFT;CENTER;RIGHT			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+BORDER_STYLE		NONE;SINGLE;3D			
+SORTED	FALSE	TRUE;FALSE			
+FOCUS		YES;NO	Set the Focus		SGN
+
+
+
+
+3.10    COMBOBOX
+
+COMBOBOX
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+VALUE			Text filed		
+ITEMS			items List  		
+ITEMS_SEP			separator 1char def , or ;  		
+ALLIGN_H		LEFT;CENTER;RIGHT			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+SORTED	FALSE	TRUE;FALSE			
+LISTMODE	DROPDOWN	DROPDOWN;CHOICE;SIMPLE	Behaviour of the list		
+AUTOCOMPLETE	NONE	NONE;SUGGEST;APPEND;SUGGESTAPPEND			
+FOCUS		YES;NO	Set the Focus		SGN
+
+
+
+
+3.11    CHECKBOX
+
+CHECKBOX
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+TEXT			Text		
+VALUE		0;1			
+ALLIGN_H		LEFT;CENTER;RIGHT			
+ALLIGN_V		TOP;MIDDLE;BOTTOM			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+Appearance	NORMAL	NORMAL;BUTTON	If Normal or Push Button		
+FOCUS		YES;NO	Set the Focus		SGN
+
+
+
+
+
+3.12    PROGRESS
+
+PROGRESS
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+MIN			Minimum value		
+MAX			Maximum value		
+STEP			Increment		
+STYLE	BLOCKS	BLOCKS;CONTINUOS;MARQUEE			
+MARQUEE_SPEED			ms		
+VALUE					
+ALLIGN_H		LEFT;CENTER;RIGHT			
+ALLIGN_V		TOP;MIDDLE;BOTTOM			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+
+
+
+3.13    TRACKBAR
+
+TRACKBAR
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG	0;0;0;	R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+ORIENTATION		HORIZONTAL;VERTICAL			
+MIN			Minimum value		
+MAX			Maximum value		
+STEPMIN			Increment in response to arrow		
+STEPMAX			Increment in response to mouse click		
+TICKSTYLE	UP	UP;DOWN;BOTH;NONE	Tick Style		
+TICKSTEP					
+VALUE					
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+FOCUS		YES;NO	Set the Focus		SGN
+
+
+
+
+
+3.14    GRID
+
+For each column a GRIDCOL component are contained in GRID and is indicated by the number of the column (1 based) with _ prepended: 
+example _1 for column one.  
+
+GRID
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	100		Size X in Video Uini		
+SizY	100		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	TRUE	TRUE;FALSE	Send event		
+Visible	TRUE	TRUE;FALSE	Is Visible		
+CLR_FRG		R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+CellRow			If in table		
+CellCol			if in table		
+CellRowSpan			if in table		
+CellColSpan			if in table		
+COLs			Number of columns		
+ROWs			Number of rows		
+READONLY	FALSE	TRUE;FALSE			
+ROWHEADER	NO	YES;NO			
+COLUMNHEADER	YES	YES;NO			
+COLUMNFILL	TRUE	TRUE;FALSE;ALLCELLS;HEADER			
+COLNAMES			Change Column names Format: #,name;#,name ..		SGN
+ROWHEIGHT			Size of the row		
+SELECTIONMODE		CELL;ROW;COLUMN			
+SELECTION		TRUE;FALSE	Enable / disable selectionmode		
+SLC_CLR_BKG		R;G;B	Selection Back color		
+SLC_CLR_FRG		R;G;B	Selection Fore color		
+SELECTROW			Row Num, clear selection		SGN
+SELECTEDROW			Read		
+SELECTCOL			Col Num,		SGN
+SELECTEDCOL			Read		
+SELECTRST			Reset selection (any value)		SGN
+CellMouseRow			Read		
+CellMouseCol			Read		
+CellMouseVal			Read		
+CellCurrRow			Read		
+CellCurrCol			Read		
+CellCurrVal			Read		
+DATASep	;		Char used as separator for get,set		
+DATASep_Row	|		Char used as row separator for SETALL		
+RowSetNum					SGN
+RowSetVal					
+RowGetNum					SGN
+RowGetVal					
+ColSetNum					SGN
+ColSetVal					
+ColGetNum					SGN
+ColGetVal					
+RowDel			Delete a row Write back “”		SGN
+RowIns			Insert a row Write back “”		SGN
+SETALLMODE		DAT;FRG;BKG;FRG+BKG;DATA(01)FRG+BKG
+	Data Or Color
+Use + as inner separator for FRG+BKG		
+SETALL		YES	The grid is cleared and filled whith the ALL content, where 
+Cell data are separated by DATAsep, row by DATAsep_Row. Finally SETALL is cleared.		SGN
+GETALL		YES	In ALL the grd content are returned.GetAll is cleared.		SGN
+ALL			data GRID		
+					
+BORDER_STYLE		NONE;SINGLE;3D			
+CELL_BORDER_STYLE		NONE;RAISED;RaisedH;RaisedV;Single;SingleH;SingleV;Sunken;SunkenH;SunkenV			
+HEADER_BORDER_STYLE		NONE;RAISED;SINGLE;SUNKEN			
+FOCUS		YES;NO	Set the Focus		SGN
+CellMarginH			in Pixel		
+CellMarginV			in Pixel		
+GRID_CLR		R;G;B;	GRID color		
+RESIZECOL		YES;NO	Allow User to resize col		
+RESIZEROW		YES;NO	AlloW User To resize row		
+RESIZEROWHEADW		YES;NO	Allow User to resize row head width		
+RESIZECOLHEADH		YES;NO	Allow User to resize col head height		
+
+
+
+3.15    PANEL
+
+PANEL
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	150		Size X in Video Uini		
+SizY	150		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG		R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+BORDER_STYLE		NONE;SINGLE;3D			
+SCROLLBAR 		FALSE;TRUE	Enable Auto Scroll Bars		
+
+
+
+
+3.16    PANELFLOW
+
+PANELFLOW
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	100		Size X in Video Uini		
+SizY	100		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG		R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+FlowDirection	TopDown	TopDown;BottomUp;LeftToRight;RightToLeft			
+WRAP	FALSE	TRUE;FALSE	If contents are wrapped		
+AutoSize	FALSE	TRUE;FALSE	Arrange its size to the content		
+AutoSizeMode		GrowOnly;FULL			
+AutoScroll	FALSE	TRUE;FALSE			
+BORDER_STYLE		NONE;SINGLE;3D			
+
+
+
+
+3.17    WEB
+
+WEB
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+ScrollBars		YES;NO	Enable scroll Bars		
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+FOCUS		YES;NO	Set the Focus		SGN
+HTMLTEXT			The document to load		SGN
+SCRIPTERR		YES;NO	ENABLE script error		
+NAVIGATION_ENB		YES;NO	Navigation enabled		
+NAVIGATION_TGT		PAGE(this);BROWSER(external)	Target of the navigation		
+NAVIGATION_URI			The target		SGN
+NAVIGATION_STS			1=working 2=navigating 3=navigated		
+HTML_ATT			The attribute of an HTML to search (from bottom up recursively) on Click event		SGN
+HTML_ATT_VAL			READ ONLY the value returned		
+HTML_CBK			READ ONLY invoked by a script as window.external.CBK('string')[STD] PWK_CBK('string')[FAST]		
+HTML_EXEC			invoke a script in the form: script_name : parameters string		SGN
+ENGINE	STD	SDT;FAST			DAT
+
+
+
+NAVIGATION_STS
+1= user has changed the Url
+2= someone has changed the URL
+3=document loaded show in progress
+“”= document loaded
+
+With FAST engine : NAVIGATION_TGT, NAVIGATION_ENB, are not in use
+
+3.18    WEBFAST
+
+WEBFAST
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	60		Size X in Video Uini		
+SizY	30		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+FOCUS		YES;NO	Set the Focus		SGN
+HTMLTEXT			The document to load		SGN
+SCRIPTERR		YES;NO	ENABLE script error		
+NAVIGATION_ENB		YES;NO	Navigation enabled		
+NAVIGATION_TGT		PAGE(this);BROWSER(external)	Target of the navigation		
+NAVIGATION_URI			The target		SGN
+NAVIGATION_STS			1=working 2=navigating 3=navigated		
+NAVIGATION_ERR			READ ONLY		
+HTML_ATT			The attribute of an HTML to search (from bottom up recursively) on Click event		SGN
+HTML_ATT_VAL			READ ONLY the value returned		
+HTML_CBK			READ ONLY invoked by a script as window.external.CBK('string')[STD] PWK_CBK('string')[FAST]		
+HTML_EXEC			invoke a script in the form: script_name : parameters string		SGN
+HTML_EXEC_RES			[FAST]READ ONLY return value of EXEC		
+HTML_EXEC_ERR			[FAST]READ ONLY Last Error		
+GET_TEXT			Writing something return the current page text		SGN
+GET_HTML			Writing something return the current page HTML		SGN
+
+
+
+NAVIGATION_STS
+1= user has changed the Url
+2= someone has changed the URL
+3=document loaded show in progress
+“”= document loaded
+
+With FAST engine : NAVIGATION_TGT, NAVIGATION_ENB, are not in use
+3.19    SPLITCONTAINER
+
+SPLITCONTAINER
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	150		Size X in Video Uini		
+SizY	150		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG		R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+SPLIT_FIXED		TRUE;FALSE			
+SPLIT_WIDTH					
+SPLIT_POS			distance from left top edge		
+SPLIT_ORIENTATION	HORIZONTAL	VERTICAL;HORIZONTAL			
+BORDER_STYLE		NONE;SINGLE;3D			
+
+
+
+
+3.20    SPLITPANEL
+
+SPLITPANEL
+Attribute	Default	Values	Comment	AA	TYP
+Enabled	true	TRUE;FALSE	Send event		
+CLR_FRG		R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+COLLAPSED		TRUE;FALSE			
+SizMin			Minimum Size		
+
+
+
+
+
+3.21    TABLE
+
+TABLE
+Attribute	Default	Values	Comment	AA	TYP
+X	50		x Position 		
+Y	50		Y Position		
+XY			WRITE ONLY: X;Y		
+SizX	150		Size X in Video Uini		
+SizY	150		Size X in Video Uini		
+SizXY			WRITE ONLY: sizX;sizY		
+Enabled	true	TRUE;FALSE	Send event		
+Visible	true	TRUE;FALSE	Is Visible		
+CLR_FRG		R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+HLP_TEXT			Help text to show		
+DOCK		FILL;TOP;BOTTOM;RIGHT;LEFT			
+ANCHOR	TOP,LEFT	TOP,BOTTOM,RIGHT,LEFT;NONE			
+TITLE			Title		
+ROWs			Number of rows		
+COLs			Number of columns		
+ALLIGN_H		LEFT;CENTER;RIGHT	Header alignment		
+ALLIGN_V		TOP;MIDDLE;BOTTOM	Header alignment		
+CellBorder	SINGLE	SINGLE;INSET;INSETDOUBLE;OUTSET;OUTSETDOUBLE;OUTSETPARTIAL;NONE			
+CellRow			If in table		
+CelLCol			if in table		
+CelLRowSpan			if in table		
+CelLColSpan			if in table		
+BORDER_STYLE		NONE;SINGLE;3D			
+
+
+
+Contains TABLEROW and TABLECOL component
+
+3.22    IMAGE
+
+IMAGE
+Attribute	Default	Values	Comment	AA	TYP
+FILE					SGN
+LAYOUT	STRETCH	STRETCH;CENTER;TILE; ZOOM;NONE			
+DRAW			See doc 		SGN
+DRAW_SizX			Set the width of the bitmap		
+DRAW_SizY			Set the Height of the bitmap		
+CACHE	YES	YES;NO	Enable image caching		
+
+
+NOTE: change on DRAW_SizX/_SizY cause the regeneration of the Bitmap any previous draw is lost.
+
+
+DRAW COMMAND
+Each parameter is separated by a semi colon. Command are separated by '#'.
+In the following list [ ] indicate option parameter and (..) admitted values.
+
+The notation for color in DRAW should be hexadecimal: 0xAARRGGBB
+where AA=0 is transparent, AA=FF is solid;
+
+Special colour:
+    • TRANSP : transparent
+    • DEL 	   : Delete colour ,BackGround  color is used
+
+
+COORD[:x1;y1;x2;y2]		//alone reset. Upper Left; bottom right
+CLR[:color]			//alone use default backColor
+
+POINT:color; line; x1;y1;[ …;xn;yn]
+
+LINE: color; line; x1;y1;x2;y2;[ …;xn;yn]
+
+
+RANGE: color; line; fill(FALSE|TRUE|line);x1;y1min;y1max;x2;y2min;y2max
+
+BOX:color; line; fill(TRUE|FALSE); x1;y1;x2;y2
+
+ELLIIPSE:color; line; fill(TRUE|FALSE); xc1;yc1;xc2;yc2
+
+SECTOR:color; line;  fill(TRUE|FALSE); xc1;yc1; xc2, yc2; startAngle; sizeAngle
+
+- xc, yc = centers of elipse or sector
+- startAngle = Clock wise degree int
+
+TEXT:color; x1;y1; text;[ fontName;fontSize;fontUnit(POINT|PIXEL |MM) ; fontStyle(BOLD,ITALIC,UNDERLINE);angle]
+
+GMODE:  {OVER | COPY} 
+To write text should be GMODE:OVER
+
+
+FILL: x;y;clrChk;clrSet;op;dst;spc;w1;w2;w3
+
+	op=0: change clrChk to clrSet for all the points connected to x,y
+	op=1; set to clrSet all the point connected to x,y comprise in clrChk boundaries
+
+	OPTIONAL	
+	if dst (distance flt 0.0 – 1.0) is defined the vector distance D between clrChk 	and actual clr is computed and used for comparison so:
+	D < dst :  change clrChk to clrSet for all the points connected to x,y
+	D > dst :  set to clrSet all the point connected to x,y comprise in 
+		     clrChk boundaries
+
+	spc: RGB | BGR | HSL	; color space default RGB
+
+	If spc=HSL: w1,w2,w3 with value float (0.0 – 1.0) are the weight of H,S,L
+			(default 1.0)
+
+FILLC: x;y;clrChk;clrSet;clrCtr;op;dst;spc;w1;w2;w3
+
+	op=0: change clrChk to clrSet for all the points connected to x,y
+	op=1; set to clrSet all the point connected to x,y comprise in clrChk boundaries
+
+	ClrCtr sign the contour.
+
+	OPTIONAL	
+	if dst (distance flt 0.0 – 1.0) is defined the vector distance D between clrChk 	and actual clr is computed and used for comparison so:
+	D < dst :  change clrChk to clrSet for all the points connected to x,y
+	D > dst :  set to clrSet all the point connected to x,y comprise in 
+		     clrChk boundaries
+
+	spc: RGB | BGR | HSL	; color space default RGB
+
+	If spc=HSL: w1,w2,w3 with value float (0.0 – 1.0) are the weight of H,S,L
+			(default 1.0)
+
+CONTOUR: clrChk;clrSet;op;dst;spc;w1;w2;w3
+
+	if clrChk is 0, contour is defined by the dst between two near pixel.
+  
+
+
+CLRCHG: clrChk;clrSet;op;dst;spc;w1;w2;w3
+
+	op=0: change all point equal to clrChk to clrSet
+	op=1; change all point NOT equal to clrChk to clrSet
+
+	OPTIONAL	
+	if dst (distance flt 0.0 – 1.0) is defined the vector distance D between clrChk 	and actual clr is computed and used for comparison so:
+	D < dst :  change clrChk to clrSet for all the points connected to x,y
+	D > dst :  set to clrSet all the point connected to x,y comprise in 
+		     clrChk boundaries
+
+	spc: RGB | BGR | HSL	; color space default RGB
+
+	If spc=HSL: w1,w2,w3 with value float (0.0 – 1.0) are the weight of H,S,L
+			(default 1.0)
+
+RCOORD[:angle;x1;x2;]		//Rotate Coord alone reset
+
+
+3.23    FONT
+
+FONT
+Attribute	Default	Values	Comment	AA	TYP
+NAME		#FONT#			
+SIZ					
+UNIT		POINT;PIXEL;MM			
+STYLE		BOLD,ITALIC,UNDERLINE			
+
+
+
+
+3.24    BORDER
+
+BORDER
+Attribute	Default	Values	Comment	AA	TYP
+LINE					
+CLR_TOP		R;G;B;			
+CLR_LEFT		R;G;B;			
+CLR_BOTTOM		R;G;B;			
+CLR_RIGHT	 	R;G;B;			
+BOX_LINE	2				
+BOX_CLR	black	R;G;B;			
+
+
+
+
+3.25    FLASHING
+
+FLASHING
+Attribute	Default	Values	Comment	AA	TYP
+ENABLED	FALSE	TRUE;FALSE			
+CLR_FRG		R;G;B;			
+CLR_BKG		R;G;B;			
+TIMER	200		minimun 100 ms		
+
+
+
+
+3.26    MARGIN
+
+MARGIN
+Attribute	Default	Values	Comment	AA	TYP
+ALL		NONE			
+TOP					
+BOTTOM					
+LEFT					
+RIGHT					
+
+
+
+
+3.27    PADDING
+
+PADDING
+Attribute	Default	Values	Comment	AA	TYP
+ALL		NONE			
+TOP					
+BOTTOM					
+LEFT					
+RIGHT					
+
+
+
+
+
+3.28    SIGNAL
+
+SIGNAL
+Attribute	Default	Values	Comment	AA	TYP
+MOUSE_MV	DEFAULT		Mouse_Move		
+MOUSE_ENT	DEFAULT		Mouse Enter		
+MOUSE_OUT	DEFAULT		Mouse Leave		
+MOUSE_DW	DEFAULT		Mouse Down		
+MOUSE_UP	DEFAULT		Mouse UP		
+MOUSE_CR	DEFAULT		Click single RIGHT		
+MOUSE_CL	DEFAULT		Click single LEFT		
+MOUSE_CS	DEFAULT		Click single		
+MOUSE_CD	DEFAULT		Click double		
+ITEM_CHG	DEFAULT		Item Changed		
+ITEM_VAL_CHG	DEFAULT		Value changed		
+ITEM_ENT	DEFAULT		Got Focus		
+ITEM_EDT_BEG	DEFAULT		Edit Begin		
+ITEM_EDT_END	DEFAULT		End  End		
+KEY_DW	DEFAULT		Key Down		
+KEY_PRS	DEFAULT		Key Pressed		
+KEY_UP	DEFAULT		Key Up		
+WIND_MOV	DEFAULT		Windows Move		
+WIND_SIZ	DEFAULT		Windows resize		
+WIND_CLS	DEFAULT		Windows Close BUTTON		
+WIND_MIN	DEFAULT		Windows Min BUTTON		
+WIND_MAX	DEFAULT		Windows Max BUTTON		
+WIND_PRT	DEFAULT		Windows print BUTTON		
+WIND_HLP	DEFAULT		Windows Help BUTTON		
+
+
+
+3.29    TABLEROW
+
+TABLEROW
+Attribute	Default	Values	Comment	AA	TYP
+SizTyp		AUTO;ABSOLUTE;PERCENT;REGULAR			
+Siz			Size		
+
+
+
+
+
+
+3.30    TABLECOL
+
+TABLECOL
+Attribute	Default	Values	Comment	AA	TYP
+SizTyp		AUTO;ABSOLUTE;PERCENT;REGULAR			
+Siz			Size		
+
+
+
+
+3.31    GRIDCOL
+
+GRIDCOL
+Attribute	Default	Values	Comment	AA	TYP
+NAME			Column name		
+Siz			Fill weight  		
+WIDTH			Size in pixel		
+TYPE	TEXTBOX	TEXTBOX;CHECKBOX;COMBOBOX;BUTTON;LED
+			
+TYPEATT		SIMPLE;DROPDOWN;COMBOBOX			
+CONTENT	STRING	STRING;I32;U32;FLT;DBL			
+READONLY	FALSE	TRUE;FALSE			
+FROZEN	FALSE	TRUE;FALSE			
+REORDER	NO	NO;YES			
+ITEMS			COMBO BOX items List  		
+ITEMS_SEP			separator 1char def , or ;  		
+TEXT			Button Text (set UseColTxt) 		
+BUTTON_USE_COLUMN_TEXT		FALSE;TRUE			
+CLR_FRG		R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+SELECTION		TRUE;FALSE	Enable / disable selectionmode		
+SLC_CLR_BKG		R;G;B	Selection Back color		
+SLC_CLR_FRG		R;G;B	Selection Fore color		
+VISIBLE	TRUE	TRUE;FALSE			
+MAXLEN			Max size in char (32732)		
+INPACCEPT		NUM,INT,FLT, ALPHA, ALPHANUM, HEX, CHAR[a,1]	Accepted input		
+CONFWRET		TRUE;FALSE	Confirm with RETURN 		
+ALLIGN_H	LEFT	LEFT;CENTER;RIGHT			
+ALLIGN_V	MIDDLE	TOP;MIDDLE;BOTTOM			
+RMARGIN			In pixel		
+
+
+
+
+
+3.32    GRIDHEADER
+
+GRIDHEADER
+Attribute	Default	Values	Comment	AA	TYP
+CLR_FRG		R;G;B;	ForeGround Color 		
+CLR_BKG		R;G;B;	BackGround Color 		
+VISIBLE	YES	YES;NO			
+HEIGHT					
+ALLIGN_H	CENTER	LEFT;CENTER;RIGHT			
+ALLIGN_V	MIDDLE	TOP;MIDDLE;BOTTOM			
+
+
+
+
+3.33    GRIDCELL
+
+GRIDCELL
+Attribute	Default	Values	Comment	AA	TYP
+ROW			Row		SGN
+COL			Column		SGN
+CLR_FRG		R;G;B;	ForeGround Color 		SGN
+CLR_BKG		R;G;B;	BackGround Color 		SGN
+VALUE					SGN
+SELECTED		0;1	1=true		SGN
+CONNECTED	FALSE	TRUE;FALSE	change in _TRUE_ when connected		SGN
+WRITEONLY		TRUE;FALSE	No update on connection or row or col change		SGN
+READONLY		TRUE;FALSE			SGN
+
+
+
+
+3.34    AUDIO
+
+AUDIO
+Attribute	Default	Values	Comment	AA	TYP
+VOLUME			0 :: 100		
+VOLUME_LEFT			0 :: 100		
+VOLUME_RIGHT			0 :: 100		
+BEEP_MODE		DIRECT;LOOP	Mode 		
+BEEP_FRQ1			Frequency		
+BEEP_DUR1			Duration- start in Direct mode		SGN
+BEEP_WAIT12			Pause between 1 & 2		
+BEEP_FRQ2			Frequency		
+BEEP_DUR2			Duration		
+BEEP_SLEEP			Timer 		
+
+
+
+
+3.35    VOICE
+
+VOICE
+Attribute	Default	Values	Comment	AA	TYP
+TEXT			Text to speach		SGN
+RATE			-10 :: 10		
+GENDER		NONE;MALE;FEMALE;NEUTRAL			
+AGE		NONE;CHILD;TEEN;ADULT;SENIOR			
+VOLUME			0 :: 100		
+LANG					
+NAME		ScanSoftSilvia_Full_22kHz			
+STATUS			ReadOnly 1=speaking		
+STOP		1	Gui reset to empty 		
+
+
+
+
+3.36    SOUND
+
+SOUND
+Attribute	Default	Values	Comment	AA	TYP
+FILE			Wav File name		
+PLAY		TRUE;FALSE;LOOP			SGN
+
+=====================================================
+COLOR FORMAT
+In PWK GUI color can be specified as:
+- R;G;B(;A) where any is a numeric value between 0-255;
+- 0XAARRGGBB Hexadecimal format (AA=00 transparent, =FF solid) this notation is mandatory in DRAW.
+- Window FORM color name.
+
+=====================================================
+
+
+4		Interaction between ASSEMBLY CODE and GUI(NC)
+
+4.1		Reference to GUI attribute form an assembly (pka)
+
+With an example. having in the gui GUI:
+
+<pag(FORM)> <myPnl(PANEL)> <myText(TEXTBOX) value=""/> </myPnl></pag>		
+
+If in the ASSEMBLY the GUI is referenced by the ITEM GUI myGui then
+the refence to the myText value is:
+
+value@\myGui\pag\myPnl\myText = "new value"; !!set a new value;
+
+That is the GUI ITEM shoud be prepended to the complete visual gui path to the attributa:
+
+[ATTRIBUTE] @ [\GUI ITEM] [\visual gui path to the element]
+
+
+4.2		GRID
+
+With an example.
+
+Suppose to have a TBL myTbl with 3 columns and 10 rows and you want to fille with its data a GRID myGrind on the page,
+In the ASSEMBLY the GUI ITEM is MG. So:
+
+°dat=TBL_EXP(myTbl,DATASep@\MG\pag\myGrid,DATASep_Row@\MG\pag\myGrid);
+!! now you have the data with the right separator for the grid;
+ALL@\MG\pag\myGrid=°dat;
+!! prepare the data for sending;
+SETALL@\MG\pag\myGrid=£yes;
+!! send the data;
+
+With "GETALL@\MG\pag\myGrid=£yes" you can get the data in the GRID.
+
+

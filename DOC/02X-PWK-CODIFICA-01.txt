@@ -1,0 +1,1265 @@
+* CODIFICA PROGRAMMI POWER-KI (PWK) *
+
+Il codice POWER-KI (PWK) è un dialetto XML le principali differenze sono:
+- ammette più elementi (ITEM) al primo livello;
+- consente l'attribuzione di un TYP (e.g. <Executor(VAR)..)
+
+# RULES
+
+## TIPI di ITEM
+- Esecutiti: EXO, MTHD;
+- Contenitori: VAR, GUI;
+- Componenti: 
+  - Codice:CODE 
+  - Controlli nel flusso: WHILE, SWITCH, TRUE, FALSE, IF, ONERR
+  - Cambi di flusso: GOTO, CONT, CALL
+  - Target di flusso: LBL, BLK, (WHILE)
+  - Di esecuzione: EXEC, EXECsync, END, BREAK, THREAD
+
+## GERARCHIA
+- Al primo livello possono comparire solo ITEM: VAR, EXO, EXOsync, GUI
+- Le VAR possono contenere solo: VAR, MTHD
+- Gli EXO possono contenere: VAR, MTHD
+- I COMPONENTI possono essere utilizzati solo negli ITEM Esecutivi (EXO, EXOsync, MTHD).
+
+## ATTRIBUTI
+In ogni ITEM è possibile definire degli ATTRIBUTI che possono essere usati come variabili nei CODE e/o 
+nomi di ITEM (in: SIWTCH, TRUE, FALSE, ONERR, GOTO, CONT, CALL, EXEC, EXECsync, THREAD).
+
+## CODE
+Gli ITEM in quanto tali NON possono essere usati nei CODE.
+Nei code come variabili si posso usare  ATTRIBUTI  degli ITEM, LTV (local Temporay Variable)
+GTV (Global Temporary Variable).
+Le funzioni di POWER-KI possono essere usate solo nei CODE.
+Nei CODE la chiamata a EXO e MTHD si fa con la funzione EXC() o EXCTHR() per i thread,
+ai BLK e solo ad essi con CALL().
+
+
+
+# ESEMPIO
+Di seguito un esempio di un package POWER-KI relativo al programma Ciao.pwk
+L'organizzazione del package è definita dal file manifesto.mnf.
+In questo esempio il package contiene un assembly "ciao.pka", una GUI "MG.pki" e 
+alcune risorse: sfondo della pagina e dei bottoni. 
+I file .mnf .pka .pki sono codificati con un dialetto XML cone da esempi seguenti.
+
+## MANIFESTO.mnf 
+<?POWER-KI 1.20 - (R) (C) 2010 XPLAB - Research in Automation - Brescia - ITALY?><MAIN(MAIN) _AUTOSAVE_="ON" _SAVEASYNC_="OFF" _PKGINFO_="" _WITHINFO_="ON" StorageDirectory="" DeployDirectory="" _PASSWORD_="" _PASSWORD_ENB_="" _LICENSE_NAM_="" _LICENSE_KEY_="" _LICENSE_ENB_="" _LICENSE_ONCE_="" _LICENSE_DEMO_="" _PWK_LIC_="55_4B_65_67_11_4F" _PWK_LIC_USR_="--------" _TS_="1748416203" Certificate="ciao" _CERT_VAL_="2012 XPLAB ciao 1748416203 : READ, WRITE, EXECUTE" _CERT_KEY_="1748416203" >ciao<!-- pwk:StorageDirectory; Where to store a copy of the package --><!-- pwk:DeployDirectory; Where to deploy the package --><!-- pwk:Certificate; Name of the .psc file for trusted remote execution --></MAIN><ASSEMBLY(ASSEMBLY) ><ciao >ciao.pka</ciao></ASSEMBLY><UserInterface(UI) ><MG(GUI) >MG.pki</MG></UserInterface><Resources(RES) ><SFD(FILE) >BlueChiaro.png</SFD><BTT(FILE) >BTT_RCT_WHITE_80X40.png</BTT></Resources>
+
+
+## CIAO.pka - Codificato in  sorgente POWER-KI
+<?POWER-KI 1.20 - (R) (C) 2010 XPLAB - Research in Automation - Brescia - ITALY?>
+<pwk(VAR) ASSEMBLY="ciao.pka" VERSION="1.0" _BUILD_="5" COPYRIGHT="(C)2023 XPLAB s.a.s. - Research in Automation - Brescia - Italy" Company="" ProjectName="" ProjectId="" >
+<!-- pwk.PUBLIC; Information and General setting. -->
+<Editor(VAR) itemViewSize="default" itemViewCode="SHOW" itemViewSplit="default" StorageDirectory="" >
+<!-- pwk;Changing these settings change the editor behaviour. -->
+<!-- pwk:itemViewSize; default | BIG -->
+<!-- pwk:itemViewCode; default(SHOW) | HIDE -->
+<!-- pwk:itemViewSplit; default(horizontal) | VERTICAL -->
+<!-- pwk:StorageDirectory; Where to store a copy of the assembly -->
+</Editor>
+<Executor(VAR) _OS_="" _ARC_="" _BASEBOARD_="" _PROG_="" _START_="" STARTLOGO="YES" CONS="" CONS_OS="" CONS_OS_PARENT="TERMINATE" KEEPOPEN="" LIMIT_ONCE="" LIMIT_KEY="" PASSWORD="" PASSWORD_ENB="" ERR_MAIL_ENB="" ERR_MAIL_HOST="" ERR_MAIL_IAM="" ERR_MAIL_FROM="" ERR_MAIL_TO="" ERR_DUMP="TRUE" ON_ERR="" EXO="Main" PARLIS="" P1="" P2="" >
+<!-- pwk; Here you can set the link between the command line and the EXO, use Px to map command line parameter in EXO parameter. -->
+<!-- pwk:_OS_; Set run time by executor (WIN,WIN-IOT) -->
+<!-- pwk:_ARC_;Architecture set runtime by executor (X86,ARM) -->
+<!-- pwk:_BASEBOARD_; IOT:product,Manufacturer,version,serialnumber or winboard -->
+<!-- pwk:_PROG_; program name set runtime by executor -->
+<!-- pwk:_START_; Start date and time in HTTP time format -->
+<!-- pwk:STARTLOGO; NO,YES -->
+<!-- pwk:CONS; YES,PROG(cns_cmd) -->
+<!-- pwk:CONS_OS; NO,YES Os console -->
+<!-- pwk:CONS_OS_PARENT; CONTINUE,SUSPEND,TERMINATE -->
+<!-- pwk:KEEPOPEN; YES if Consolle should be close manualy -->
+<!-- pwk:LIMIT_ONCE; if YES allow only one instance to run -->
+<!-- pwk:LIMIT_KEY; Key used by LIMIT_ONCE you can prepend Global\ or Local\ for scope visibility -->
+<!-- pwk:PASSWORD; The password needed to open this assembly -->
+<!-- pwk:PASSWORD_ENB; NO,YES -->
+<!-- pwk:ERR_MAIL_ENB; TRUE, FALSE (default FALSE -->
+<!-- pwk:ERR_MAIL_HOST; SMTP Mail server address, for sending crash report -->
+<!-- pwk:ERR_MAIL_IAM; The sending Host (I am) -->
+<!-- pwk:ERR_MAIL_FROM; Pseudo email address of this application -->
+<!-- pwk:ERR_MAIL_TO; Destination email -->
+<!-- pwk:ERR_DUMP; TRUE, FALSE (default TRUE) -->
+<!-- pwk:ON_ERR; RESTART -->
+<!-- pwk:EXO; Program entry point -->
+<!-- pwk:PARLIS; Main Attribute for Command Line Parameter LIS PTR -->
+<!-- pwk:P1; Main Attribute for First command line parameter -->
+<!-- pwk:P2; Main Attribute for Second command line parameter -->
+</Executor>
+</pwk>
+
+<MG(GUI) _AUTOLOAD_="ON" _ADDR_="" _PORT_="" _FILE_="MG" _TRIG_="trig" _PTR_="" _EVT_="" _SIGNAL_="" _PTH_ITEM_="" _ITEM_="" _PTH_ITEM_ACT_="" _ITEM_ACT_="" _X_="" _Y_="" _XW_="" _YW_="" _XC_="" _YC_="" _BL_="" _BR_="" _ON_="" _KEY_FLG_="" _KEY_CODE_="" _KEY_KEY_="" _KEY_VAL_="" _GUI_="" caller="" runFlg="" nId="" evtL="" evtMx="10" evtTmMx="250" >
+<!-- pwk.PRIVATE[2|1|1|218,50|2123,1292|419,768|1024,768|2123,1292|0|0|1|1|415|0]; -->
+
+<trig(MTHD) >
+<_SIGNAL_(SWITCH) >
+<_DEFAULT_(CASE) >
+<if(IF) _COND_="" >
+<![CDATA[_COND_= ~_SIGNAL_;]]>
+<then(THEN) >
+<![CDATA[#IF(runFlg==1);
+	#IF(LIS_NUM(evtL)<evtMx);
+		LIS_ADD(evtL,LIS_NEW(_SIGNAL_,_PTH_ITEM_,£));
+	#END;
+#END;]]>
+</then>
+<!-- pwk.PRIVATE;_SIGNAL_ is valid -->
+</if>
+</_DEFAULT_>
+<!-- pwk.PRIVATE[2|1|1|0,0|1483,1060|419,768|1024,768|1483,1060|0|4|1|1|444|0]; -->
+</_SIGNAL_>
+
+<if(IF) _COND_="" >
+<![CDATA[_COND_= ~_SIGNAL_;]]>
+<then(THEN) >
+<break(BREAK) _LEVEL_="" >
+<!-- pwk:_LEVEL_;Type of ITEM that break -->
+</break>
+</then>
+<!-- pwk.PRIVATE;_SIGNAL_ -> skip events -->
+</if>
+
+<_EVT_(SWITCH) C_CLOSE="WIND_CLS" C_WINDOW_MOVE="WIND_MOV" >
+<_DEFAULT_(CASE) >
+<![CDATA[;]]>
+</_DEFAULT_>
+
+<C_CLOSE(CASE) >
+<![CDATA[#IF(runFlg==1);
+	#IF(LIS_NUM(evtL)<evtMx);
+		LIS_ADD(evtL,LIS_NEW(£CLOSE,£,£));
+	#END;
+#END;]]>
+</C_CLOSE>
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+
+<C_WINDOW_MOVE(CASE) >
+<![CDATA[#IF(runFlg==1);
+	#IF(LIS_NUM(evtL)<evtMx);
+		LIS_ADD(evtL,LIS_NEW(£winMov,£,£));
+	#END;
+#END;]]>
+<!-- pwk.PRIVATE[2|0|1|1536,136|1024,768|419,768|1024,768|2123,1300|0|4|1|0|408|0]; -->
+</C_WINDOW_MOVE>
+</_EVT_>
+
+<break(BREAK) _LEVEL_="" >
+<!-- pwk:_LEVEL_;Type of ITEM that break -->
+</break>
+<!-- pwk.INTERNAL[2|0|1|768,316|1024,768|419,768|1024,768|2123,1300|0|4|1|0|390|0]; -->
+</trig>
+
+<Manager(MTHD) action="" opt1="" opt2="" >
+<!-- pwk.PRIVATE[2|1|1|218,50|2123,1300|419,768|1024,768|2123,1300|0|4|1|1|693|0]; -->
+<!-- pwk.PRIVATE[2|0|1|280,98|1024,768|419,768|1024,768|1483,1060|0|0|1|0|390|0]; -->
+
+<action(SWITCH) C_SHOW="SHOW" C_CLOSE="CLOSE" C_onLoop="onLoop" C_WINDOW_MOVE="winMov" C_CLICK="CLICK" >
+<!-- pwk:C_SHOW; -->
+<!-- pwk:C_CLOSE; -->
+<!-- pwk:C_onLoop; -->
+<!-- pwk:C_WINDOW_MOVE; -->
+<!-- pwk:C_CLICK; -->
+
+<_DEFAULT_(CASE) >
+<![CDATA[chatput("[ERR] Unrecognized signal"..action.."(",dbgline,")");]]>
+</_DEFAULT_>
+<!-- pwk.PRIVATE[2|0|1|768,316|1024,768|419,768|1024,768|2123,1300|0|1|1|0|390|0]; -->
+
+<C_SHOW(CASE) >
+<![CDATA[GUI_SND(_PTR_,£SHOW);]]>
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+</C_SHOW>
+
+<C_CLOSE(CASE) >
+<![CDATA[runFlg=	0;]]>
+</C_CLOSE>
+
+<C_onLoop(CASE) >
+<![CDATA[;]]>
+</C_onLoop>
+
+<C_WINDOW_MOVE(CASE) eX="" eY="" eSizX="" eSizY="" eWSizX="" eWSizY="" >
+<!-- default disabled -->
+<break(BREAK) _LEVEL_="" >
+<!-- pwk:_LEVEL_;Type of ITEM that break -->
+</break>
+<![CDATA[!!! Wait for BUTTON release ;
+°t3=	TMR+1500;
+#WHILE(_BL_==1 AND TMR<=°t3 );
+	SLEEP(100);
+#END;
+
+!!! Get Desktop size ;
+°t2= 	NULL;
+°t1= 	"EXEC:_GUI_INFO_;VDUSIZ;"++$°t2;
+°rf1=	"_PTR_@\"++_GUI_;
+GUI_SND(REF(°rf1),°t1);
+
+!!! Wait response ;
+°t1 = 	WAITCND($°t2,£NOTNULL,5000);
+
+!!! Decode Desktop size ;
+°lis1=	CSV(°t2,";");
+
+°t1=		LIS_POS(°lis1,1);
+eWSizX=	SPLT(°t1,":",£RIGHT);
+
+°t1=		LIS_POS(°lis1,2);
+eWSizY=	SPLT(°t1,":",£RIGHT);
+
+TRASH(°lis1);
+
+
+eSizX=		REF("SizX@\"++_GUI_++"\\pag");
+eSizY=		REF("SizY@\"++_GUI_++"\\pag");
+
+eX=		£;
+eY=		£;
+
+#WHILE(1);
+	°rf1=	"X@\"++_GUI_++"\\pag";
+	°t1=	REF(°rf1);
+	#IF(eX!=°t1);				!!! X changed ? ;
+		eX=	°t1;
+
+		#IF(eX<0);
+			REF(°rf1)=	0;
+		#ELSE;
+			°t1=	eWSizX-eSizX;
+			#IF(eX>°t1);
+				REF(°rf1)=	°t1;
+			#END;
+		#END;
+	#END;
+
+	°rf1=	"Y@\"++_GUI_++"\\pag";
+	°t1=	REF(°rf1);
+	#IF(eY!=°t1);				!!! Y changed ? ;
+		eY=	°t1;
+
+		#IF(eY<0);
+			REF(°rf1)=	0;
+		#ELSE;
+			°t1=	eWSizY-eSizY;
+			#IF(eY>°t1);
+				REF(°rf1)=	°t1;
+			#END;
+		#END;
+	#END;
+
+	#IF(_BL_!=1);			!!! Mouse released ;
+		#BREAK;
+	#END;
+
+	SLEEP(250);
+#END;]]>
+<evt_clear(EXEC) />
+<!-- pwk.PRIVATE[2|0|1|458,154|1024,768|419,768|1024,768|2123,1300|0|4|1|0|390|0]; -->
+</C_WINDOW_MOVE>
+
+<C_CLICK(CASE) >
+<![CDATA[TEXT@\\MG\\pag\\OUTtext=VALUE@\\MG\\pag\\INPtext;]]>
+</C_CLICK>
+</action>
+
+<break(BREAK) _LEVEL_="" >
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+<!-- pwk:_LEVEL_;Type of ITEM that break -->
+</break>
+<!-- <-> -->
+<!-- pwk:action.SET; -->
+<!-- pwk:opt1.SET; -->
+<!-- pwk:opt2.SET; -->
+</Manager>
+
+<Core(MTHD) t1="" locRes="" evtIni="" lis1="" guiReconnEnb="" >
+<!-- pwk.INTERNAL[2|0|1|768,312|1024,768|419,768|1024,768|2123,1292|0|4|1|0|390|0]; -->
+<![CDATA[runFlg=	1;
+
+evtL=		LIS_NEW();
+
+
+!!! GUI reconnect ;
+#WHILE(1);
+	guiReconnEnb=	0;
+
+	#IF(_AUTOLOAD_!=£ON);			#BREAK;#END;
+	#IF(NOT EXIST("guiReconIp@\\DEB_NetLoader"));	#BREAK;#END;
+	#IF(NOT EXIST("guiReconPort@\\DEB_NetLoader"));	#BREAK;#END;
+
+	guiReconnEnb=	1;
+	#BREAK;
+#END;]]>
+
+<Manager(EXEC) >
+<set(SET) >
+<![CDATA[action	=	£SHOW;]]>
+</set>
+</Manager>
+
+<while(WHILE) _COND_="" >
+<![CDATA[_COND_= runFlg;]]>
+<do(DO) >
+<Manager(EXEC) _PAR_="ONCE" _RSLT_="" >
+<set(SET) >
+<![CDATA[action	=	£onLoop;
+opt1	=		£;
+opt2	=		£;]]>
+</set>
+<!-- pwk.PRIVATE[2|1|1|0,0|2123,1300|419,768|1024,768|2123,1300|0|4|1|1|415|0]; -->
+</Manager>
+<!-- pwk:_PAR_;SYNC ONCE ONCE_FOR_CALLER -->
+<!-- pwk:_RSLT_;For ONCExx the name of the symbol where to put the result -1=failToStart 0=starting 1=start. ONCE_FOR_CALLER is syncronous -->
+
+<while(WHILE) _COND_="" >
+<pre(PRE) >
+<![CDATA[evtIni=	TMR;
+t1=		evtIni+evtTmMx;]]>
+</pre>
+<![CDATA[_COND_= 	TMR<=t1;]]>
+<do(DO) >
+<![CDATA[lis1=	LIS_POP(evtL);]]>
+<if(IF) _COND_="" >
+<![CDATA[_COND_= lis1>0;]]>
+<then(THEN) >
+<Manager(EXEC) >
+<set(SET) >
+<![CDATA[action	=	LIS_POS(lis1,1);
+opt1	=		LIS_POS(lis1,2);
+opt2	=		LIS_POS(lis1,3);]]>
+</set>
+</Manager>
+<![CDATA[TRASH(lis1);]]>
+</then>
+<!-- pwk.PRIVATE[2|1|1|100,100|2123,1300|419,768|1024,768|2123,1300|0|4|1|1|707|0];Event to manage ? -->
+<else(ELSE) >
+<![CDATA[SLEEP(25);]]>
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|2123,1300|0|4|1|0|390|0]; -->
+</else>
+</if>
+</do>
+<!-- pwk.PRIVATE;Loop EVT -->
+</while>
+
+<GUI_Alive(LBL) >
+<![CDATA[locRes=	GUI_ALV(_PTR_);]]>
+<if(IF) _COND_="" >
+<![CDATA[_COND_= locRes!=1;]]>
+<then(THEN) >
+<Exit(GOTO) />
+</then>
+<!-- pwk.PRIVATE;Lost alive -->
+</if>
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+</GUI_Alive>
+
+<if(IF) _COND_="" >
+<![CDATA[#WHILE(1);
+	°res=	£SKIP;
+
+	#IF(guiReconnEnb==0);			#BREAK;#END;
+
+	#IF(~guiReconIp@\\DEB_NetLoader==0);	#BREAK;#END;	!!! empty reconn IP ;
+	#IF(guiReconPort@\\DEB_NetLoader<=0);	#BREAK;#END;	!!! port invalid ;
+
+	#IF(_ADDR_==guiReconIp@\\DEB_NetLoader);
+		#IF(_PORT_==guiReconPort@\\DEB_NetLoader);
+			#BREAK;
+		#END;
+	#END;
+
+	°res=	£OK;
+	#BREAK;
+#END;
+
+_COND_= °res==£OK;]]>
+<then(THEN) >
+<![CDATA[TRASH(_PTR_);
+
+_ADDR_=	guiReconIp@\\DEB_NetLoader;
+_PORT_=	guiReconPort@\\DEB_NetLoader;]]>
+<![CDATA[GUI_OPN($REF("\"++_GUI_),_ADDR_,_PORT_);]]>
+<Manager(EXEC) >
+<set(SET) >
+<![CDATA[action	=	£SHOW;
+opt1	=		£;
+opt2	=		£;]]>
+</set>
+</Manager>
+</then>
+<!-- pwk.PRIVATE[2|1|1|218,50|2123,1292|419,768|1024,768|2123,1292|0|4|1|1|555|0];GUI reconnect ? -->
+</if>
+</do>
+<!-- pwk.PRIVATE;Main Loop -->
+</while>
+<!-- --- -->
+
+<Exit(LBL) >
+<![CDATA[GUI_SND(_PTR_,£HIDE);
+runFlg=	0;
+
+#IF(evtL>0);
+	TRASH(LIS_USE(evtL));			!!! Trash of pointer inside evtL ;
+	TRASH(evtL);				!!! Trash of evtL ;
+#END;]]>
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+</Exit>
+<!-- pwk:t1.DAT; -->
+<!-- pwk:locRes.DAT; -->
+<!-- pwk:evtIni.DAT; -->
+<!-- pwk:lis1.DAT; -->
+<!-- pwk:guiReconnEnb.DAT; -->
+</Core>
+
+<Starter(MTHD) mode="" par_nId="" par_Gui="" locRes="" >
+<GUI_Dup(LBL) >
+<if(IF) _COND_="" >
+<![CDATA[_COND_= _AUTOLOAD_==£ON;]]>
+<then(THEN) >
+<Init_Var(CALL) />
+<End(GOTO) />
+</then>
+<!-- pwk.PRIVATE;Local? -->
+</if>
+
+<\ULib\GUI\Gui_Fnc(EXEC) >
+<set(SET) >
+<![CDATA[action	=	£Prepare;    	!!SetPos, Dup, Destroy, Prepare, Show;
+Opt	=		par_nId;    	!!;
+RefPg	=	_FILE_;    	!!Reference no @\;
+distX	=		£;    		!!Distance X from border;
+distY	=		£;    		!!Distance Y from border;]]>
+</set>
+<get(GET) >
+<![CDATA[locRes=	res;    !!Risultato;]]>
+</get>
+</\ULib\GUI\Gui_Fnc>
+
+<if(IF) _COND_="" >
+<![CDATA[_COND_= locRes==£ERR;]]>
+<then(THEN) >
+<![CDATA[chatput("[ERR] Error in page preparation (",dbgline,")");]]>
+<break(BREAK) _LEVEL_="" >
+<!-- pwk:_LEVEL_;Type of ITEM that break -->
+</break>
+</then>
+<!-- pwk.PRIVATE;ERR? -->
+</if>
+
+<if(IF) _COND_="" >
+<![CDATA[_COND_= locRes==£LOAD;]]>
+<then(THEN) >
+<Init_Var(CALL) />
+<translation(CALL) />
+</then>
+<!-- pwk.PRIVATE;LOAD? -->
+</if>
+
+<End(LBL) >
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+</End>
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+</GUI_Dup>
+
+<if(IF) _COND_="" >
+<![CDATA[_COND_= runFlg@\\MG==1;]]>
+<then(THEN) >
+<![CDATA[GUI_SND(_PTR_@\\MG,£SHOW);]]>
+<break(BREAK) _LEVEL_="" >
+<!-- pwk:_LEVEL_;Type of ITEM that break -->
+</break>
+</then>
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0];Already running -->
+</if>
+
+<if(IF) _COND_="" >
+<![CDATA[_COND_= mode==£THREAD;]]>
+<then(THEN) >
+<\MG\Core(THREAD) _PAR_="ONCE" _RSLT_="" >
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+<!-- pwk:_PAR_;SYNC ONCE ONCE_FOR_CALLER -->
+<!-- pwk:_RSLT_;For ONCExx the name of the symbol where to put the result -1=failToStart 0=starting 1=start. ONCE_FOR_CALLER is syncronous -->
+</\MG\Core>
+<!-- pwk.PRIVATE[2|1|1|0,0|1483,1060|419,768|1024,768|1483,1060|0|4|1|1|444|0]; -->
+</then>
+<else(ELSE) >
+<\MG\Core(EXEC) >
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+</\MG\Core>
+</else>
+<!-- pwk.PRIVATE;Run as THREAD or EXEC -->
+</if>
+
+<break(BREAK) _LEVEL_="" >
+<!-- pwk:_LEVEL_;Type of ITEM that break -->
+</break>
+<!-- <-> -->
+
+<Init_Var(BLK) >
+<![CDATA[caller@\\MG=	par_Gui;
+nId@\\MG=		par_nID;]]>
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+</Init_Var>
+
+<translation(BLK) >
+<![CDATA[#WHILE(1);
+	°res=	£SKIP;
+
+	#IF(NOT ISNUM(par_nId));
+		#BREAK;
+	#END;
+
+	#IF(NOT EXIST("\\DATA\\TRSL"));
+		#BREAK;
+	#END;
+
+	°res=	£OK;
+	#BREAK;
+#END;]]>
+<if(IF) _COND_="" >
+<![CDATA[_COND_= °res==£SKIP;]]>
+<then(THEN) >
+<break(BREAK) _LEVEL_="" >
+<!-- pwk:_LEVEL_;Type of ITEM that break -->
+</break>
+</then>
+<!-- pwk.PRIVATE;OK ? -->
+</if>
+<\DATA\TRSL\gui_lod(EXEC) >
+<set(SET) >
+<![CDATA[GUI	=	_GUI_@\\MG;
+nId=	par_nId;]]>
+</set>
+<!-- pwk.PRIVATE[2|1|1|218,50|2123,1300|419,768|1024,768|2123,1300|0|4|1|1|542|0]; -->
+</\DATA\TRSL\gui_lod>
+<!-- pwk.PRIVATE[2|0|1|768,316|1024,768|419,768|1024,768|2123,1300|0|4|1|0|408|0]; -->
+</translation>
+<!-- pwk.PRIVATE[2|0|1|768,316|1024,768|419,768|1024,768|2123,1300|0|4|1|0|390|0]; -->
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|1483,1060|0|4|1|0|390|0]; -->
+<!-- pwk:mode.SET;£EXEC,£THREAD : EXEC wait until the page is closed, THREAD launch the page as indipendent -->
+<!-- pwk:par_nId.SET;For remotable page: it is the number of connection, conNId in the man_usr method of ES (enterprise server) block. Otherwise it is unused (write £ or so) -->
+<!-- pwk:par_Gui.SET;Name of the caller gui, for advanced uses. You can not specify it (£) if the page is not remotable. -->
+<!-- pwk:locRes.DAT; -->
+</Starter>
+
+<evt_clear(MTHD) lis1="" >
+<!-- pwk.INTERNAL[2|0|1|768,316|1024,768|419,768|1024,768|2123,1300|0|4|1|0|408|0];Reset the EVT list -->
+<![CDATA[#WHILE(1);
+	lis1=	LIS_POP(evtL);
+	#IF(lis1<=0);			!!! Invalid PTR -> end of list;
+		#BREAK;
+	#END;
+
+	TRASH(lis1);
+#END;]]>
+<!-- pwk:lis1.DAT; -->
+</evt_clear>
+<!-- pwk:_AUTOLOAD_;Values: ON,OFF to disable -->
+<!-- pwk:_ADDR_;Values: gui IP address empty=default -->
+<!-- pwk:_PORT_;Values: gui IP PORT address empty=default -->
+<!-- pwk:_FILE_;Name of the UserInterface resources -->
+<!-- pwk:_TRIG_;Trigger EXO or MTHD -->
+<!-- pwk:_PTR_;Pointer to open gui -->
+<!-- pwk:_EVT_;System Event -->
+<!-- pwk:_SIGNAL_;User Event -->
+<!-- pwk:_PTH_ITEM_;Path and Name of ITEM generating a mouse event -->
+<!-- pwk:_ITEM_;Name of ITEM generating a mouse event -->
+<!-- pwk:_PTH_ITEM_ACT_;Path and Name of active ITEM -->
+<!-- pwk:_ITEM_ACT_;Name of active ITEM -->
+<!-- pwk:_X_;X relative to Form -->
+<!-- pwk:_Y_;Y relative to Form -->
+<!-- pwk:_XW_;X relative to Screen -->
+<!-- pwk:_YW_;X relative to Screen -->
+<!-- pwk:_XC_;X relative to Control -->
+<!-- pwk:_YC_;X relative to Control -->
+<!-- pwk:_BL_;Button Left -->
+<!-- pwk:_BR_;Button Right -->
+<!-- pwk:_ON_;If mouse is On the form -->
+<!-- pwk:_KEY_FLG_;VLD(b1) ALT(b2) CTRL(b3) SHT(b4) CAPS LOCK(b5) NUM LOCK(b6) SCROLL LOCK(b7) -->
+<!-- pwk:_KEY_CODE_;The Key CODE -->
+<!-- pwk:_KEY_KEY_; The Key pressed -->
+<!-- pwk:_KEY_VAL_; The Key value -->
+<!-- pwk:_GUI_;GUI name -->
+<!-- pwk:runFlg;Core is in execution -->
+<!-- pwk:nId;Id Number -->
+<!-- pwk:evtL;Event List -->
+<!-- pwk:evtMx;Max EVT n° in LIS -->
+<!-- pwk:evtTmMx;Max time for EVT -->
+</MG>
+
+<Main(EXO) >
+<!-- pwk.PUBLIC;Entry point you can change by editing EXO@\pwk\EXECUTOR -->
+<![CDATA[;]]>
+<\MG\Starter(EXEC) >
+<set(SET) >
+<![CDATA[mode		=		£EXEC;    	!!EXEC,THREAD;
+par_nId	=	£;
+par_Gui	=	£;]]>
+</set>
+<!-- pwk.PRIVATE[2|0|1|100,100|1024,768|419,768|1024,768|2123,1300|0|4|1|0|409|0]; -->
+</\MG\Starter>
+</Main>
+
+## CIAO.txt Riportato solo per facilitare la comprensione  
+================================================================================
+(VAR) pwk
+  Information and General setting.
+--------------------------------------------------
+· ASSEMBLY: ciao.pka
+· VERSION: 1.0
+· _BUILD_: 5
+· COPYRIGHT: (C)2023 XPLAB s.a.s. - Research in Automation - Brescia - Italy
+· Company: 
+· ProjectName: 
+· ProjectId: 
+--------------------------------------------------
+(VAR) Editor
+ Changing these settings change the editor behaviour.
+--------------------------------------------------
+· itemViewSize: default  ( default | BIG)
+· itemViewCode: SHOW  ( default(SHOW) | HIDE)
+· itemViewSplit: default  ( default(horizontal) | VERTICAL)
+· StorageDirectory:   ( Where to store a copy of the assembly)
+--------------------------------------------------
+(VAR) Executor
+  Here you can set the link between the command line and the EXO, use Px to map command line parameter in EXO parameter.
+--------------------------------------------------
+· _OS_:   ( Set run time by executor (WIN,WIN-IOT))
+· _ARC_:   (Architecture set runtime by executor (X86,ARM))
+· _BASEBOARD_:   ( IOT:product,Manufacturer,version,serialnumber or winboard)
+· _PROG_:   ( program name set runtime by executor)
+· _START_:   ( Start date and time in HTTP time format)
+· STARTLOGO: YES  ( NO,YES)
+· CONS:   ( YES,PROG(cns_cmd))
+· CONS_OS:   ( NO,YES Os console)
+· CONS_OS_PARENT: TERMINATE  ( CONTINUE,SUSPEND,TERMINATE)
+· KEEPOPEN:   ( YES if Consolle should be close manualy)
+· LIMIT_ONCE:   ( if YES allow only one instance to run)
+· LIMIT_KEY:   ( Key used by LIMIT_ONCE you can prepend Global\ or Local\ for scope visibility)
+· PASSWORD:   ( The password needed to open this assembly)
+· PASSWORD_ENB:   ( NO,YES)
+· ERR_MAIL_ENB:   ( TRUE, FALSE (default FALSE)
+· ERR_MAIL_HOST:   ( SMTP Mail server address, for sending crash report)
+· ERR_MAIL_IAM:   ( The sending Host (I am))
+· ERR_MAIL_FROM:   ( Pseudo email address of this application)
+· ERR_MAIL_TO:   ( Destination email)
+· ERR_DUMP: TRUE  ( TRUE, FALSE (default TRUE))
+· ON_ERR:   ( RESTART)
+· EXO: Main  ( Program entry point)
+· PARLIS:   ( Main Attribute for Command Line Parameter LIS PTR)
+· P1:   ( Main Attribute for First command line parameter)
+· P2:   ( Main Attribute for Second command line parameter)
+--------------------------------------------------
+================================================================================
+(GUI) MG
+--------------------------------------------------
+· _AUTOLOAD_: ON  (Values: ON,OFF to disable)
+· _ADDR_:   (Values: gui IP address empty=default)
+· _PORT_:   (Values: gui IP PORT address empty=default)
+· _FILE_: MG  (Name of the UserInterface resources)
+· _TRIG_: trig  (Trigger EXO or MTHD)
+· _PTR_:   (Pointer to open gui)
+· _EVT_:   (System Event)
+· _SIGNAL_:   (User Event)
+· _PTH_ITEM_:   (Path and Name of ITEM generating a mouse event)
+· _ITEM_:   (Name of ITEM generating a mouse event)
+· _PTH_ITEM_ACT_:   (Path and Name of active ITEM)
+· _ITEM_ACT_:   (Name of active ITEM)
+· _X_:   (X relative to Form)
+· _Y_:   (Y relative to Form)
+· _XW_:   (X relative to Screen)
+· _YW_:   (X relative to Screen)
+· _XC_:   (X relative to Control)
+· _YC_:   (X relative to Control)
+· _BL_:   (Button Left)
+· _BR_:   (Button Right)
+· _ON_:   (If mouse is On the form)
+· _KEY_FLG_:   (VLD(b1) ALT(b2) CTRL(b3) SHT(b4) CAPS LOCK(b5) NUM LOCK(b6) SCROLL LOCK(b7))
+· _KEY_CODE_:   (The Key CODE)
+· _KEY_KEY_:   ( The Key pressed)
+· _KEY_VAL_:   ( The Key value)
+· _GUI_:   (GUI name)
+· caller: 
+· runFlg:   (Core is in execution)
+· nId:   (Id Number)
+· evtL:   (Event List)
+· evtMx: 10  (Max EVT n° in LIS)
+· evtTmMx: 250  (Max time for EVT)
+--------------------------------------------------
+========================================
+(MTHD) trig
+(SWITCH) _SIGNAL_
+(CASE) _DEFAULT_
+(IF) if
+ _SIGNAL_ is valid
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= ~_SIGNAL_;
+..............................
+(THEN) then
+..............................
+#IF(runFlg==1);
+#IF(LIS_NUM(evtL)<evtMx);
+LIS_ADD(evtL,LIS_NEW(_SIGNAL_,_PTH_ITEM_,£));
+#END;
+#END;
+..............................
+(IF) if
+ _SIGNAL_ -> skip events
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= ~_SIGNAL_;
+..............................
+(THEN) then
+(BREAK) break
+--------------------------------------------------
+· _LEVEL_:   (Type of ITEM that break)
+--------------------------------------------------
+(SWITCH) _EVT_
+--------------------------------------------------
+· C_CLOSE: WIND_CLS
+· C_WINDOW_MOVE: WIND_MOV
+--------------------------------------------------
+(CASE) _DEFAULT_
+(CASE) C_CLOSE
+..............................
+#IF(runFlg==1);
+#IF(LIS_NUM(evtL)<evtMx);
+LIS_ADD(evtL,LIS_NEW(£CLOSE,£,£));
+#END;
+#END;
+..............................
+(CASE) C_WINDOW_MOVE
+..............................
+#IF(runFlg==1);
+#IF(LIS_NUM(evtL)<evtMx);
+LIS_ADD(evtL,LIS_NEW(£winMov,£,£));
+#END;
+#END;
+..............................
+(BREAK) break
+--------------------------------------------------
+· _LEVEL_:   (Type of ITEM that break)
+--------------------------------------------------
+========================================
+(MTHD) Manager
+--------------------------------------------------
+· action: 
+· opt1: 
+· opt2: 
+--------------------------------------------------
+(SWITCH) action
+--------------------------------------------------
+· C_SHOW: SHOW
+· C_CLOSE: CLOSE
+· C_onLoop: onLoop
+· C_WINDOW_MOVE: winMov
+· C_CLICK: CLICK
+--------------------------------------------------
+(CASE) _DEFAULT_
+..............................
+chatput("[ERR] Unrecognized signal"..action.."(",dbgline,")");
+..............................
+(CASE) C_SHOW
+..............................
+GUI_SND(_PTR_,£SHOW);
+..............................
+(CASE) C_CLOSE
+..............................
+runFlg=0;
+..............................
+(CASE) C_onLoop
+(CASE) C_WINDOW_MOVE
+--------------------------------------------------
+· eX: 
+· eY: 
+· eSizX: 
+· eSizY: 
+· eWSizX: 
+· eWSizY: 
+--------------------------------------------------
+default disabled
+(BREAK) break
+--------------------------------------------------
+· _LEVEL_:   (Type of ITEM that break)
+--------------------------------------------------
+..............................
+!!! Wait for BUTTON release ;
+°t3=TMR+1500;
+#WHILE(_BL_==1 AND TMR<=°t3 );
+SLEEP(100);
+#END;
+
+!!! Get Desktop size ;
+°t2= NULL;
+°t1= "EXEC:_GUI_INFO_;VDUSIZ;"++$°t2;
+°rf1="_PTR_@\"++_GUI_;
+GUI_SND(REF(°rf1),°t1);
+
+!!! Wait response ;
+°t1 = WAITCND($°t2,£NOTNULL,5000);
+
+!!! Decode Desktop size ;
+°lis1=CSV(°t2,";");
+
+°t1=LIS_POS(°lis1,1);
+eWSizX=SPLT(°t1,":",£RIGHT);
+
+°t1=LIS_POS(°lis1,2);
+eWSizY=SPLT(°t1,":",£RIGHT);
+
+TRASH(°lis1);
+
+
+eSizX=REF("SizX@\"++_GUI_++"\pag");
+eSizY=REF("SizY@\"++_GUI_++"\pag");
+
+eX=£;
+eY=£;
+
+#WHILE(1);
+°rf1="X@\"++_GUI_++"\pag";
+°t1=REF(°rf1);
+#IF(eX!=°t1);!!! X changed ? ;
+eX=°t1;
+
+#IF(eX<0);
+REF(°rf1)=0;
+#ELSE;
+°t1=eWSizX-eSizX;
+#IF(eX>°t1);
+REF(°rf1)=°t1;
+#END;
+#END;
+#END;
+
+°rf1="Y@\"++_GUI_++"\pag";
+°t1=REF(°rf1);
+#IF(eY!=°t1);!!! Y changed ? ;
+eY=°t1;
+
+#IF(eY<0);
+REF(°rf1)=0;
+#ELSE;
+°t1=eWSizY-eSizY;
+#IF(eY>°t1);
+REF(°rf1)=°t1;
+#END;
+#END;
+#END;
+
+#IF(_BL_!=1);!!! Mouse released ;
+#BREAK;
+#END;
+
+SLEEP(250);
+#END;
+..............................
+(EXEC) evt_clear
+(CASE) C_CLICK
+..............................
+TEXT@\MG\pag\OUTtext=VALUE@\MG\pag\INPtext;
+..............................
+(BREAK) break
+--------------------------------------------------
+· _LEVEL_:   (Type of ITEM that break)
+--------------------------------------------------
+<->
+========================================
+(MTHD) Core
+--------------------------------------------------
+· t1: 
+· locRes: 
+· evtIni: 
+· lis1: 
+· guiReconnEnb: 
+--------------------------------------------------
+..............................
+runFlg=1;
+
+evtL=LIS_NEW();
+
+
+!!! GUI reconnect ;
+#WHILE(1);
+guiReconnEnb=0;
+
+#IF(_AUTOLOAD_!=£ON);#BREAK;#END;
+#IF(NOT EXIST("guiReconIp@\DEB_NetLoader"));#BREAK;#END;
+#IF(NOT EXIST("guiReconPort@\DEB_NetLoader"));#BREAK;#END;
+
+guiReconnEnb=1;
+#BREAK;
+#END;
+..............................
+(EXEC) Manager
+(SET) set
+..............................
+action=£SHOW;
+..............................
+(WHILE) while
+ Main Loop
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= runFlg;
+..............................
+(DO) do
+(EXEC) Manager
+--------------------------------------------------
+· _PAR_: ONCE  (SYNC ONCE ONCE_FOR_CALLER)
+· _RSLT_:   (For ONCExx the name of the symbol where to put the result -1=failToStart 0=starting 1=start. ONCE_FOR_CALLER is syncronous)
+--------------------------------------------------
+(SET) set
+..............................
+action=£onLoop;
+opt1=£;
+opt2=£;
+..............................
+(WHILE) while
+ Loop EVT
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+(PRE) pre
+..............................
+evtIni=TMR;
+t1=evtIni+evtTmMx;
+..............................
+..............................
+_COND_= TMR<=t1;
+..............................
+(DO) do
+..............................
+lis1=LIS_POP(evtL);
+..............................
+(IF) if
+ Event to manage ?
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= lis1>0;
+..............................
+(THEN) then
+(EXEC) Manager
+(SET) set
+..............................
+action=LIS_POS(lis1,1);
+opt1=LIS_POS(lis1,2);
+opt2=LIS_POS(lis1,3);
+..............................
+..............................
+TRASH(lis1);
+..............................
+(ELSE) else
+..............................
+SLEEP(25);
+..............................
+(LBL) GUI_Alive
+..............................
+locRes=GUI_ALV(_PTR_);
+..............................
+(IF) if
+ Lost alive
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= locRes!=1;
+..............................
+(THEN) then
+(GOTO) Exit
+(IF) if
+ GUI reconnect ?
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+#WHILE(1);
+°res=£SKIP;
+
+#IF(guiReconnEnb==0);#BREAK;#END;
+
+#IF(~guiReconIp@\DEB_NetLoader==0);#BREAK;#END;!!! empty reconn IP ;
+#IF(guiReconPort@\DEB_NetLoader<=0);#BREAK;#END;!!! port invalid ;
+
+#IF(_ADDR_==guiReconIp@\DEB_NetLoader);
+#IF(_PORT_==guiReconPort@\DEB_NetLoader);
+#BREAK;
+#END;
+#END;
+
+°res=£OK;
+#BREAK;
+#END;
+
+_COND_= °res==£OK;
+..............................
+(THEN) then
+..............................
+TRASH(_PTR_);
+
+_ADDR_=guiReconIp@\DEB_NetLoader;
+_PORT_=guiReconPort@\DEB_NetLoader;
+..............................
+..............................
+GUI_OPN($REF("\"++_GUI_),_ADDR_,_PORT_);
+..............................
+(EXEC) Manager
+(SET) set
+..............................
+action=£SHOW;
+opt1=£;
+opt2=£;
+..............................
+---
+(LBL) Exit
+..............................
+GUI_SND(_PTR_,£HIDE);
+runFlg=0;
+
+#IF(evtL>0);
+TRASH(LIS_USE(evtL));!!! Trash of pointer inside evtL ;
+TRASH(evtL);!!! Trash of evtL ;
+#END;
+..............................
+========================================
+(MTHD) Starter
+--------------------------------------------------
+· mode:   (£EXEC,£THREAD : EXEC wait until the page is closed, THREAD launch the page as indipendent)
+· par_nId:   (For remotable page: it is the number of connection, conNId in the man_usr method of ES (enterprise server) block. Otherwise it is unused (write £ or so))
+· par_Gui:   (Name of the caller gui, for advanced uses. You can not specify it (£) if the page is not remotable.)
+· locRes: 
+--------------------------------------------------
+(LBL) GUI_Dup
+(IF) if
+ Local?
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= _AUTOLOAD_==£ON;
+..............................
+(THEN) then
+(CALL) Init_Var
+(GOTO) End
+(EXEC) \ULib\GUI\Gui_Fnc
+(SET) set
+..............................
+action=£Prepare;   !!SetPos, Dup, Destroy, Prepare, Show;
+Opt=par_nId;   !!;
+RefPg=_FILE_;   !!Reference no @\;
+distX=£;   !!Distance X from border;
+distY=£;   !!Distance Y from border;
+..............................
+(GET) get
+..............................
+locRes=res;   !!Risultato;
+..............................
+(IF) if
+ ERR?
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= locRes==£ERR;
+..............................
+(THEN) then
+..............................
+chatput("[ERR] Error in page preparation (",dbgline,")");
+..............................
+(BREAK) break
+--------------------------------------------------
+· _LEVEL_:   (Type of ITEM that break)
+--------------------------------------------------
+(IF) if
+ LOAD?
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= locRes==£LOAD;
+..............................
+(THEN) then
+(CALL) Init_Var
+(CALL) translation
+(LBL) End
+(IF) if
+ Already running
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= runFlg@\MG==1;
+..............................
+(THEN) then
+..............................
+GUI_SND(_PTR_@\MG,£SHOW);
+..............................
+(BREAK) break
+--------------------------------------------------
+· _LEVEL_:   (Type of ITEM that break)
+--------------------------------------------------
+(IF) if
+ Run as THREAD or EXEC
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= mode==£THREAD;
+..............................
+(THEN) then
+(THREAD) \MG\Core
+--------------------------------------------------
+· _PAR_: ONCE  (SYNC ONCE ONCE_FOR_CALLER)
+· _RSLT_:   (For ONCExx the name of the symbol where to put the result -1=failToStart 0=starting 1=start. ONCE_FOR_CALLER is syncronous)
+--------------------------------------------------
+(ELSE) else
+(EXEC) \MG\Core
+(BREAK) break
+--------------------------------------------------
+· _LEVEL_:   (Type of ITEM that break)
+--------------------------------------------------
+<->
+(BLK) Init_Var
+..............................
+caller@\MG=par_Gui;
+nId@\MG=par_nID;
+..............................
+(BLK) translation
+..............................
+#WHILE(1);
+°res=£SKIP;
+
+#IF(NOT ISNUM(par_nId));
+#BREAK;
+#END;
+
+#IF(NOT EXIST("\DATA\TRSL"));
+#BREAK;
+#END;
+
+°res=£OK;
+#BREAK;
+#END;
+..............................
+(IF) if
+ OK ?
+--------------------------------------------------
+· _COND_: 
+--------------------------------------------------
+..............................
+_COND_= °res==£SKIP;
+..............................
+(THEN) then
+(BREAK) break
+--------------------------------------------------
+· _LEVEL_:   (Type of ITEM that break)
+--------------------------------------------------
+(EXEC) \DATA\TRSL\gui_lod
+(SET) set
+..............................
+GUI=_GUI_@\MG;
+nId=par_nId;
+..............................
+========================================
+(MTHD) evt_clear
+ Reset the EVT list
+--------------------------------------------------
+· lis1: 
+--------------------------------------------------
+..............................
+#WHILE(1);
+lis1=LIS_POP(evtL);
+#IF(lis1<=0);!!! Invalid PTR -> end of list;
+#BREAK;
+#END;
+
+TRASH(lis1);
+#END;
+..............................
+========================================
+================================================================================
+(EXO) Main
+ Entry point you can change by editing EXO@\pwk\EXECUTOR
+(EXEC) \MG\Starter
+(SET) set
+..............................
+mode=£EXEC;   !!EXEC,THREAD;
+par_nId=£;
+par_Gui=£;
+..............................
+================================================================================
+
+#############
+
+## PKA-DEMO.pka (codice PWK di esempio)
+Qui si vede come vengono codificati gli attributi, i relativi commenti e se sono SET,GET,SET+GET,DAT (questi solo per gli EXO, MTHD,BLK).
+
+<?POWER-KI 1.20 - (R) (C) 2010 XPLAB - Research in Automation - Brescia - ITALY?>
+<pwk(VAR) ASSEMBLY="PKA-DEMO-01.pka" VERSION="1.0" _BUILD_="2" COPYRIGHT="(C)2023 XPLAB s.a.s. - Research in Automation - Brescia - Italy" Company="" ProjectName="" ProjectId="" >
+<!-- pwk.PUBLIC; Information and General setting. -->
+<Editor(VAR) itemViewSize="default" itemViewCode="SHOW" itemViewSplit="default" StorageDirectory="" >
+<!-- pwk;Changing these settings change the editor behaviour. -->
+<!-- pwk:itemViewSize; default | BIG -->
+<!-- pwk:itemViewCode; default(SHOW) | HIDE -->
+<!-- pwk:itemViewSplit; default(horizontal) | VERTICAL -->
+<!-- pwk:StorageDirectory; Where to store a copy of the assembly -->
+</Editor>
+<Executor(VAR) _OS_="" _ARC_="" _BASEBOARD_="" _PROG_="" _START_="" STARTLOGO="YES" CONS="" CONS_OS="" CONS_OS_PARENT="TERMINATE" KEEPOPEN="" LIMIT_ONCE="" LIMIT_KEY="" PASSWORD="" PASSWORD_ENB="" ERR_MAIL_ENB="" ERR_MAIL_HOST="" ERR_MAIL_IAM="" ERR_MAIL_FROM="" ERR_MAIL_TO="" ERR_DUMP="TRUE" ON_ERR="" EXO="Main" PARLIS="" P1="" P2="" >
+<!-- pwk; Here you can set the link between the command line and the EXO, use Px to map command line parameter in EXO parameter. -->
+<!-- pwk:_OS_; Set run time by executor (WIN,WIN-IOT) -->
+<!-- pwk:_ARC_;Architecture set runtime by executor (X86,ARM) -->
+<!-- pwk:_BASEBOARD_; IOT:product,Manufacturer,version,serialnumber or winboard -->
+<!-- pwk:_PROG_; program name set runtime by executor -->
+<!-- pwk:_START_; Start date and time in HTTP time format -->
+<!-- pwk:STARTLOGO; NO,YES -->
+<!-- pwk:CONS; YES,PROG(cns_cmd) -->
+<!-- pwk:CONS_OS; NO,YES Os console -->
+<!-- pwk:CONS_OS_PARENT; CONTINUE,SUSPEND,TERMINATE -->
+<!-- pwk:KEEPOPEN; YES if Consolle should be close manualy -->
+<!-- pwk:LIMIT_ONCE; if YES allow only one instance to run -->
+<!-- pwk:LIMIT_KEY; Key used by LIMIT_ONCE you can prepend Global\ or Local\ for scope visibility -->
+<!-- pwk:PASSWORD; The password needed to open this assembly -->
+<!-- pwk:PASSWORD_ENB; NO,YES -->
+<!-- pwk:ERR_MAIL_ENB; TRUE, FALSE (default FALSE -->
+<!-- pwk:ERR_MAIL_HOST; SMTP Mail server address, for sending crash report -->
+<!-- pwk:ERR_MAIL_IAM; The sending Host (I am) -->
+<!-- pwk:ERR_MAIL_FROM; Pseudo email address of this application -->
+<!-- pwk:ERR_MAIL_TO; Destination email -->
+<!-- pwk:ERR_DUMP; TRUE, FALSE (default TRUE) -->
+<!-- pwk:ON_ERR; RESTART -->
+<!-- pwk:EXO; Program entry point -->
+<!-- pwk:PARLIS; Main Attribute for Command Line Parameter LIS PTR -->
+<!-- pwk:P1; Main Attribute for First command line parameter -->
+<!-- pwk:P2; Main Attribute for Second command line parameter -->
+</Executor>
+</pwk>
+
+<Main(EXO) UNO="1" DUE="due" Tre="33" QUATTRO="COME DATO " >
+<!-- pwk.PUBLIC[2|0|1|768,312|1024,768|419,768|1024,768|2123,1292|0|4|1|0|407|0];Entry point you can change by editing EXO@\pwk\EXECUTOR -->
+<!-- COMMENTO  nell`EXO -->
+<![CDATA[!! COMMENTO NEL CODICE;
+
+CHATPUT("DEMO");]]>
+<!-- pwk:UNO.SET;Questo è un attributo -->
+<!-- pwk:DUE.GET;Anche questo ma get -->
+<!-- pwk:Tre.S+G;anche questo mA -->
+<!-- pwk:QUATTRO.DAT;ALTRO ATTRIBUTO -->
+</Main>
+
+## CODIFICA dei Basket
+Vari ITEM possono essere salvati in file .bsk (Basket) per essere riutilizzati o condivisi con altri programmatori.
+Il file deve contenere solo il codice degli item senza intestazione (<?POWER-KI 1.20 ..).
+
+### Esempio di formato
+<TestBascket(EXO) >
+<![CDATA[Chatput("Solo per demo del basket");]]>
+<!-- pwk.PRIVATE[2|0|1|768,312|1024,768|419,768|1024,768|2123,1292|0|4|1|0|407|0]; -->
+</TestBascket>

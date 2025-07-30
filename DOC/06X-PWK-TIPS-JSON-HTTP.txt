@@ -1,0 +1,323 @@
+# CODIFICA e DECODIFICA dei Json
+Anche se i messaggi Json possono essere codificati e decodificati usando le funzioni e gli operatori 
+per la gestione delle stringhe può essere conveniente usare delle costanti di testo con dei segnaposto
+(p.e. §MODEL) che saranno sostituiti da valori, o da altre stringhe sulla base della stessa logica.
+Per estrarre i valori può essere conveniente usare la funzione KB1_Json e poi effettuare delle query su 
+di essa per ottenre i valori.
+
+Di seguito un esempio per chattare con CLAUDE.
+
+================================================================================
+(MTHD) CHAT
+ Role: system, user, assistant CLAUDE
+--------------------------------------------------
+QRY: 
+IMG: 
+MAXT: 
+TEMP: 
+MODEL: 
+NO_SYSTEM:   (1=NO)
+SUFFIX:   (Ignored)
+RPLY: 
+TKN:   (Total;Prompt;Completition)
+RES:   (£OK, £ERR)
+INF:   (HTTP res)
+MSG: {"model": "§MODEL", "messages": [§PROMPT], "temperature": §TEMP, "max_tokens": §MAXT}
+
+MSGELM1: {"role": "§ROLE", "content": [
+        {
+          "type": "text",
+          "text": "§CONTENT"
+        } §IMAGE
+      ]}
+
+MSGELM2: {"role": "§ROLE", "name": "§NAME", "content": ": [
+        {
+          "type": "text",
+          "text": "§CONTENT"
+        } §IMAGE
+      ]}
+
+MAXTOKEN: , "max_tokens": §MAXT
+MSGIMG: ,{
+    "type": "image",
+    "source": {
+      "type": "base64",
+      "media_type": "image/§IMG_TYP",
+      "data": "§IMG_DAT"
+    }}
+--------------------------------------------------
+..............................
+#if(~MODEL==0);
+°MODEL1="claude-3-5-sonnet-latest";
+MODEL=°MODEL1;
+#end;
+
+NO_SYSTEM=1;
+
+!!maxt=if(maxt<1,1000,MAXT);
+temp=if(temp<1,0,temp);
+
+
+#if(PtrTyp(qry)==£TBL);
+°tb=qry;
+°Todel=0;
+#else;
+°Todel=1;
+°tb=TBL_NEW(NULL,1,NULL,NULL,"ROLE;CONTENT;PRI");
+tbl_itm(°tb,£ROLE,1,"user");
+tbl_itm(°tb,£CONTENT,1,Qry);
+#end;
+
+°msgElm=£;
+°in=tbl_inf(°tb,£ROW);
+°i=0;
+
+#while(°i+=1 <=°in);
+°role=tbl_itm(°tb,£ROLE,°i);
+°p=if(°role==£system,1,if(°role==£assistant,2,2));
+tbl_itm(°tb,£PRI,°i,°p);
+#end;
+
+TBL_SORT(°tb,£ROW,£PRI,NULL,£NUM);
+
+°i=0;
+#while(°i+=1 <=°in);
+
+°role=tbl_itm(°tb,£ROLE,°i);
+QRY=tbl_itm(°tb,£CONTENT,°i);
+
+#if(NO_SYSTEM==1 and °role==£system);
+°role=£user;
+#end;
+
+qry=SYMB_ENC(qry);
+
+°elm=MSGELM1;
+#if(tbl_inf(°tb,£COL)>3);
+°name=tbl_itm(°tb,£NAME,°i);
+#if(~°name);
+°elm=MSGELM2;
+SYMB_RPLC(°elm,"§NAME",°name,NULL,NULL,0);
+#end;
+#end;
+
+!!------------------------------------------;
+#if(°i==°in and ~IMG);
+°B64=EXC("\GPT\BASE64",IMG::IMG, ?B64);
+#if(~°b64);
+°ity=SPLT(IMG,".",£RIGHT,£REV);
+°ity=if(°ity==£jpg, £jpeg,°ity);
+
+°tm=MSGIMG;
+°tm=SYMB_RPLC(°tm,"§IMG_TYP",°ity,NULL,NULL,0);
+°tm=SYMB_RPLC(°tm,"§IMG_DAT",°B64,NULL,NULL,0);
+°elm=SYMB_RPLC(°elm,"§IMAGE",°tm,NULL,NULL,0);
+#end;
+#else_otif(~°B64==0);
+°elm=SYMB_RPLC(°elm,"§IMAGE",£,NULL,NULL,0);
+#end;
+!!------------------------------------------;
+
+°elm=SYMB_RPLC(°elm,"§ROLE",°role,NULL,NULL,0);
+°elm=SYMB_RPLC(°elm,"§CONTENT",qry,NULL,NULL,0);
+°msgElm=°msgElm++if(~°msgElm,",",£)++°elm;
+#end;
+
+#if(°Todel);trash(°tb);#end;
+
+QRY=°msgElm;
+..............................
+..............................
+°cmd="/v1/messages";
+°msg=SYMB_RPLC(msg,"§PROMPT",QRY,NULL,NULL,0);
+°msg=SYMB_RPLC(°msg,"§MODEL",MODEL,NULL,NULL,0);
+°msg=SYMB_RPLC(°msg,"§TEMP",TEMP,NULL,NULL,0);
+
+
+#if(~MAXT==0);
+°msg=SYMB_RPLC(°msg,MAXTOKEN,£,NULL,NULL,0);
+#else;
+°msg=SYMB_RPLC(°msg,"§MAXT",MAXT,NULL,NULL,0);
+#end;
+
+°hdr=hdr;
+
+SMF(hsrv,£LCKS);
+°rpl=HTTP_POST(hsrv,°cmd,£TEXT,£utf,°msg,£TEXT,£UTF,NULL,°hdr,£HEADER)->°rhdr;
+SMF(hsrv,£LCKR);
+
+°t=°msg;
+
+°t=SYMB_ENC(°t,£UNDO);
+
+FS_FWRS_F("MSG.txt",°msg,£NEW,£UTF);
+!!!chatput(£MSG..°msg++crlf);
+!!!chatput(£CHAT..°t..crlf..°rpl..crlf..°rhdr);
+chatput(£CHAT..°rpl..crlf..°rhdr);
+
+
+#if(~°rhdr);
+
+INF=SPLT(°rhdr,crlf,£LEFT);
+
+#if(~°rpl and srch(INF,200));
+
+°kb1=kb1_Json(°rpl);
+
+°tbl=KB1_QRY(°kb1,"TBLATT(\\\.text,'text')");
+
+°i=0;
+°in=tbl_inf(°tbl,£ROW);
+rply=£;
+#while(°i+=1 <=°in);
+rply=rply++Tbl_itm(°tbl,£TEXT,°i);
+#end;
+
+tkn=KB1_QRY(°kb1,"\Json\_OBJ_1\usage.input_tokens++','++\Json\_OBJ_1\usage.output_tokens",£TEXT);
+
+RES=£OK;
+trash(°kb1,°tbl);
+#else;
+RES=£ERR;
+#end;
+#else;
+RES=£ERR;
+INF=£TMO;
+
+#end;
+
+chatput(£USAGE..tkn..£MESSAGE..len(°msg));
+..............................
+================================================================================
+
+# USARE KB1_Json con TBLATT
+Esempio: il comando LIST delle API di CLAUDE per i files
+Ritorna
+
+jsonTxt=
+{"data":[{"type":"file","id":"file_011CPoMYLJKyV7U3wLqnmbYD","size_bytes":212284,"created_at":"2025-06-04T14:40:44.479000Z","filename":"03X-PWK-MAN-LIB-CORE.txt","mime_type":"text/plain","downloadable":false}],"has_more":false,"first_id":"file_011CPoMYLJKyV7U3wLqnmbYD","last_id":"file_011CPoMYLJKyV7U3wLqnmbYD"}
+
+Inserito in una kb1=KB1_NEW con KB1_JSON(kb1,jsonTxt);
+
+Otteniamo:
+<Json ><_OBJ_1(OBJ,AE) has_more="false" first_id="file_011CPoMYLJKyV7U3wLqnmbYD" last_id="file_011CPoMYLJKyV7U3wLqnmbYD" >1<data(ARY) >data<_AE_1(OBJ,AE) type="file" id="file_011CPoMYLJKyV7U3wLqnmbYD" size_bytes="212284" created_at="2025-06-04T14:40:44.479000Z" filename="03X-PWK-MAN-LIB-CORE.txt" mime_type="text/plain" downloadable="false" >1</_AE_1></data></_OBJ_1></Json>
+
+Per estrarre i dati che ci interessano possiamo operare in questo modo:
+
+!!! Crea tabella per i files;
+FILES_LIST=KB1_QRY(°kb1, "TBLATT(\json\_obj_1\data\,'ID;filename;size_bytes')");
+
+che Con CHATPUT(TBL_EXP(FILES_LIST)) da:
+
+ _AE_1;1;file_011CPoMYLJKyV7U3wLqnmbYD;03X-PWK-MAN-LIB-CORE.txt;212284
+
+
+
+# HTTP POST Multipart
+Esempio di invio file con http POST Multipart ad un server WHISPER.cpp
+
+================================================================================
+(MTHD) WHISPER
+--------------------------------------------------
+IP: 
+PORT: 
+audio: 
+RPLY: 
+RES: 
+INF: 
+msg_BEG: ----PWK-Boundary-1359
+Content-Disposition: form-data; name="file"; filename="audio.wav"
+Content-Type: audio/wav
+
+
+msg_END: ----PWK-Boundary-1359
+Content-Disposition: form-data; name="model"
+
+gpt-4o-transcribe
+----PWK-Boundary-1359
+Content-Disposition: form-data; name="language"
+
+it
+----PWK-Boundary-1359--
+msg: ----PWK-Boundary-1359
+Content-Disposition: form-data; name="file"; filename="audio.wav"
+Content-Type: audio/wav
+
+§AUDIO
+----PWK-Boundary-1359
+Content-Disposition: form-data; name="model"
+
+gpt-4o-transcribe
+----PWK-Boundary-1359--
+--------------------------------------------------
+..............................
+°hdr="Content-Type: multipart/form-data; boundary=--PWK-Boundary-1359"++crlf;
+..............................
+..............................
+°cmd="/transcribe";
+°cmd="/inference";
+
+
+°msg_beg=nsp(msg_beg);
+°msg_end=nsp(msg_end);
+
+
+°msg_beg=symb_rplc(°msg_beg,char(0xA),crlf);
+°msg_end=symb_rplc(°msg_end,char(0xA),crlf);
+
+°msg_beg=crlf++°msg_beg++crlf++crlf;
+°msg_end=crlf++°msg_end++crlf;
+
+
+°b1=buf_new(len(°msg_beg),£U8);
+°b2=buf_new(len(°msg_end),£U8);
+
+BUF_SYMB(°b1,NULL,NULL,°msg_beg,£A);
+BUF_SYMB(°b2,NULL,NULL,°msg_end,£A);
+
+°b3=buf_cat(°b1,audio);
+°buf=buf_cat(°b3,°b2);
+
+trash(°b1,°b2,°b3);
+
+#if(!hsrv);
+hsrv=HTTP_OPN(£HTTP,IP,PORT);
+chatput(£OPN_HTTP..IP..PORT..hsrv);
+#end;
+°T=TMR;
+°rpl=HTTP_POST(hsrv,°cmd,£BUF,£UTF,°buf,£TEXT,£UTF,NULL,°hdr,£HEADER)->°rhdr;
+#if(°rpl==-1);hsrv=£;#end;
+
+°dur= FLT(BUF_INFO(AUDIO,£SIZ) / (16000 * 2),2);
+
+trash(°hsrv);
+
+CHATPUT(£AUDIO..°dur..£sec..£TIM..TMR-°T..£ms..£RPL..°RPL..°RHDR);
+
+#if(~°rhdr);
+
+INF=SPLT(°rhdr,crlf,£LEFT);
+
+#if(~°rpl and srch(INF,200));
+
+°kb1=kb1_Json(°rpl);
+
+rply=KB1_QRY(°kb1,"\Json\_OBJ_1.text");
+
+!!kb1_sav(°kb1,"RPLY.kb1");
+
+
+RES=£OK;
+trash(°kb1);
+#else;
+RES=£ERR;
+#end;
+#else;
+RES=£ERR;
+INF=£TMO;
+
+#end;
+..............................
+================================================================================
+
